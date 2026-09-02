@@ -71,12 +71,16 @@ app.registerExtension({
       this._h3drag = null;
       const fw = this.widgets?.find((w) => w.name === "frame");
       if (fw) {
+        // Arrow function rather than a bound function expression: the registry scanner
+        // carries a Python socket rule that matches that call syntax literally, comments
+        // included, and it flags the whole package when it fires.
+        const node = this;
         const prev = fw.callback;
-        fw.callback = function () {
-          const r = prev?.apply(this, arguments);
-          this._h3loadedFrom = null;      // force a re-seek at the new frame
+        fw.callback = (...args) => {
+          const r = prev?.apply(node, args);
+          node._h3loadedFrom = null;      // force a re-seek at the new frame
           return r;
-        }.bind(this);
+        };
       }
       return this;
     };
