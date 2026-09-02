@@ -2,7 +2,7 @@
 # PyPI - the library it wraps is. See LICENSING.md for why the two live apart.
 [project]
 name = "comfyui-minimax-h3-inpaint-tools"
-version = "0.1.0"
+version = "0.1.1"
 description = "Rewrite part of a finished MiniMax H3 clip - a rectangle, a time span, or the audio alone - by masking the latent instead of regenerating it. Ten nodes, no decode/re-encode round trip."
 requires-python = ">=3.10"
 license = { file = "LICENSE" }
