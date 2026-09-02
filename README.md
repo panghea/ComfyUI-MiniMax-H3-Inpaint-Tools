@@ -9,6 +9,19 @@ decoding to frames and re-encoding.
 Nothing here is a model or a sampler. It is ten small nodes that work around one fact about H3's
 latent format, plus one thing ComfyUI already supports that nobody seems to use.
 
+> [!IMPORTANT]
+> **These nodes are free for everyone. The library under them is not.**
+> This repository is GPL-3.0 and stays free whatever the size of your company. It depends on
+> [`minimax-h3-latent-core`](https://github.com/panghea/minimax-h3-latent-core), which is
+> PolyForm Small Business 1.0.0: free for individuals and for companies with **fewer than 100
+> people** (employees and contractors combined) and **under USD 1,000,000 revenue** in the prior
+> tax year, and requiring a paid licence above that line - see [COMMERCIAL.md](COMMERCIAL.md).
+> Installing this node pack installs that library, so the threshold applies to you as soon as the
+> nodes run.
+> Below the line, commercial work is fine: PolyForm Small Business is a size limit, not a
+> non-commercial clause. And what you generate is yours either way - the licence makes no claim
+> on the output.
+
 ---
 
 ## What a rewrite looks like
