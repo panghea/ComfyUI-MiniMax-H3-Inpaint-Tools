@@ -1,14 +1,16 @@
 # Commercial licence
 
-`minimax_h3_latent_core` is free to use under PolyForm Small Business 1.0.0 if your organisation is
-below that licence's threshold: **fewer than 100 people** working as employees and contractors,
-**and less than USD 1,000,000 (2019, inflation-adjusted) revenue** in the prior tax year. Read
-`minimax_h3_latent_core/LICENSE` for the exact wording - the summary above is not the licence.
+`minimax-h3-latent-core`, the library these nodes are built on, is free to use under PolyForm
+Small Business 1.0.0 if your organisation is below that licence's threshold: **fewer than 100
+people** working as employees and contractors, **and less than USD 1,000,000 (2019,
+inflation-adjusted) revenue** in the prior tax year. Read
+[the licence](https://github.com/panghea/minimax-h3-latent-core/blob/main/LICENSE) for the exact
+wording - the summary above is not the licence.
 
 Above that threshold, using the core needs a commercial licence.
 
-Everything in this repository outside `minimax_h3_latent_core/` is GPL-3.0 and is always free,
-whatever the size of your company.
+**This repository is GPL-3.0 in its entirety and is always free**, whatever the size of your
+company. The threshold applies to the library it depends on, not to these nodes.
 
 ## What a commercial licence is
 

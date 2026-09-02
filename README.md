@@ -173,14 +173,19 @@ regions degrade slightly too. Saving the latent at generation time is better.
 
 ## Requirements
 
-ComfyUI with MiniMax H3 support (the nodes import `comfy.nested_tensor`). No extra Python
-dependencies beyond what ComfyUI already installs.
+ComfyUI with MiniMax H3 support (the nodes import `comfy.nested_tensor`), plus one Python
+package: [`minimax-h3-latent-core`](https://pypi.org/project/minimax-h3-latent-core/), which
+holds the algorithms these nodes wrap. Everything else comes with ComfyUI.
 
 ## Install
 
 ```
 git clone <this repo> ComfyUI/custom_nodes/comfyui-minimax-h3-inpaint-tools
+pip install -r ComfyUI/custom_nodes/comfyui-minimax-h3-inpaint-tools/requirements.txt
 ```
+
+Use the same Python that runs ComfyUI for the second line. Installing through ComfyUI Manager
+does both steps for you.
 
 Restart ComfyUI. The nodes appear under **MiniMax H3/latent**.
 
