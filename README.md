@@ -80,6 +80,31 @@ Full quality, with sound:
 
 The clips above are sample material, shown to explain what the nodes do. They are not covered by
 the licences in this repository and are not offered for reuse.
+---
+
+## Re-rolling only the audio
+
+The soundtrack is a separate tensor from the picture, and its length does not depend on
+resolution. So it can be resampled on its own: a mask of `[zeros_like(video), ones_like(audio)]`
+holds every pixel still and lets only the audio move.
+
+That is not a dub. The pinned video is attended at **every sampling step**, so the new take is
+written against the mouth movements that are already on screen rather than laid over them
+afterwards.
+
+CM scene 1, 1664×928, 107 frames, RTX 3090:
+
+| | Time |
+|---|---|
+| Full generation, PDD 8-step | **845 s** |
+| Audio-only re-roll, 4 steps, plain model | **360 s** (−57%) |
+
+The picture came back at **PSNR ≈ 40 dB** against the original - indistinguishable by eye, and
+the difference is VAE decode noise rather than the latent moving.
+
+Load the latent, set **Partial Denoise Mask** to `audio only`, hand the sampler a new seed, run
+four steps. Nothing else in the graph changes.
+---
 
 ## Why these nodes exist
 
@@ -180,15 +205,7 @@ fine detail; PDD only if the rewritten region is coarse.
 
 ## Measured
 
-CM scene 1, 1664×928, 107 frames, RTX 3090.
-
-| | Time |
-|---|---|
-| Full generation, PDD 8-step | **845 s** |
-| Audio-only re-roll, 4 steps, plain model | **360 s** (−57%) |
-
-The picture came back at **PSNR ≈ 40 dB** against the original — indistinguishable by eye, and
-the difference is VAE decode noise rather than the latent moving.
+Same shot as above: CM scene 1, 1664×928, 107 frames, RTX 3090.
 
 ### What did not work
 
@@ -213,9 +230,8 @@ shortens the sigma range, not the step count. Set the step count explicitly.
 
 ## Recipes
 
-**Re-roll the audio of a finished clip.** Load its latent, mask `audio only`, sample 4 steps with
-a new seed. The picture is bit-preserved; only the soundtrack changes, and it is written against
-the existing mouth movements.
+**Re-roll the audio of a finished clip.** `audio only`, a new seed, 4 steps - see
+[Re-rolling only the audio](#re-rolling-only-the-audio).
 
 **Rewrite seconds 3–5 of a 15-second shot.** Mask `both`, `t_start_pct` / `t_end_pct` over the
 span, feather 4–6%. Everything outside stays exactly as it was.
