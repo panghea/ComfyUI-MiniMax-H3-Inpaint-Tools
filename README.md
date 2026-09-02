@@ -1,5 +1,7 @@
 # comfyui-minimax-h3-inpaint-tools
 
+**English** · [日本語](README.ja.md)
+
 Latent-level editing for **MiniMax H3** in ComfyUI: rewrite the audio of a finished clip without
 touching the picture, rewrite one time span of a shot, or resize a latent spatially — all without
 decoding to frames and re-encoding.
@@ -8,6 +10,63 @@ Nothing here is a model or a sampler. It is ten small nodes that work around one
 latent format, plus one thing ComfyUI already supports that nobody seems to use.
 
 ---
+
+## What a rewrite looks like
+
+A finished 15-second commercial came back with a broken logo. The curved lettering on the emblem
+had grown an extra, malformed glyph — 価◯格比較 where it should read 価格比較 — in the one part of
+the frame a client is guaranteed to read.
+
+<img src="https://raw.githubusercontent.com/panghea/ComfyUI-MiniMax-H3-Inpaint-Tools/main/docs/media/logo-fix.webp" width="820" alt="The emblem, old above and new below: an extra glyph in the curved lettering, then the corrected version">
+
+Regenerating the shot would have fixed the glyph and changed everything else with it. H3's sample
+follows the seed and the resolution, not how close the previous attempt was, so a re-run is a
+different clip - different camera drift, different sparkles, a different take. On a spot that has
+already been approved, that is not a fix.
+
+So the shot was not regenerated. Its latent was loaded back, a rectangle was drawn over the
+emblem, and the sampler was allowed to move **only inside that rectangle**.
+
+<img src="https://raw.githubusercontent.com/panghea/ComfyUI-MiniMax-H3-Inpaint-Tools/main/docs/media/logo-zoom.webp" width="700" alt="Zooming into the emblem, old above and new below">
+
+### Everything outside the mask is the same clip
+
+Red marks where the two renders differ.
+
+<img src="https://raw.githubusercontent.com/panghea/ComfyUI-MiniMax-H3-Inpaint-Tools/main/docs/media/diff-highlight.webp" width="760" alt="The commercial with changed pixels highlighted in red; only the rewritten regions light up">
+
+The regions that were freed light up. The sky, the price cards, the body copy - none of it is
+regenerated, because none of it was ever handed to the sampler. Outside the mask the original
+latent is written back at every step:
+
+```python
+out = out * denoise_mask + latent_image * (1 - denoise_mask)
+```
+
+A mask of `0` pins a region to the latent it started from. That is not a blend at the end, it is
+enforced at every step of the schedule, which is why the untouched area comes back identical
+rather than merely similar.
+
+### It is not only lettering
+
+The same mechanism with the rectangle over a person instead of an emblem. Only the right-hand
+side of the frame was freed here: the outfit changes, and the caption at bottom left and the sky
+behind it stay where they were.
+
+<img src="https://raw.githubusercontent.com/panghea/ComfyUI-MiniMax-H3-Inpaint-Tools/main/docs/media/scene-swap.webp" width="560" alt="One cut before and after: the character's outfit changes, the caption does not">
+
+### The whole spot, before and after
+
+<img src="https://raw.githubusercontent.com/panghea/ComfyUI-MiniMax-H3-Inpaint-Tools/main/docs/media/before-after.webp" width="460" alt="The full 15-second commercial, original above and rewritten below">
+
+Full quality, with sound:
+[logo](https://raw.githubusercontent.com/panghea/ComfyUI-MiniMax-H3-Inpaint-Tools/main/docs/media/compare-logo-zoom.mp4) ·
+[diff](https://raw.githubusercontent.com/panghea/ComfyUI-MiniMax-H3-Inpaint-Tools/main/docs/media/diff-highlight.mp4) ·
+[cut](https://raw.githubusercontent.com/panghea/ComfyUI-MiniMax-H3-Inpaint-Tools/main/docs/media/compare-scene3.mp4) ·
+[whole spot](https://raw.githubusercontent.com/panghea/ComfyUI-MiniMax-H3-Inpaint-Tools/main/docs/media/compare-final-vs-r2v.mp4)
+
+The clips above are sample material, shown to explain what the nodes do. They are not covered by
+the licences in this repository and are not offered for reuse.
 
 ## Why these nodes exist
 
@@ -195,3 +254,11 @@ Restart ComfyUI. The nodes appear under **MiniMax H3/latent**.
 mp4 (R2V, I2V and a T2V variant that failed instructively), a clip extension, and two that work
 from a Contex Loop chain checkpoint. `workflows/README.md` says what each costs and what to
 repoint before running it.
+
+## Licence
+
+This repository is GPL-3.0 throughout. The library the nodes depend on,
+[`minimax-h3-latent-core`](https://github.com/panghea/minimax-h3-latent-core), is PolyForm Small
+Business 1.0.0 - free for individuals and for companies with **fewer than 100 people** and
+**under USD 1,000,000 revenue** in the prior tax year. Above that threshold see
+[COMMERCIAL.md](COMMERCIAL.md). [LICENSING.md](LICENSING.md) explains why the two are split.
