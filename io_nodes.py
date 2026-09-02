@@ -100,8 +100,23 @@ class MiniMaxH3LoadLatent:
     def IS_CHANGED(cls, latent):
         return latent
 
+    @staticmethod
+    def _resolve(name):
+        """Keep the chosen file inside the output directory.
+
+        The widget is a dropdown, but a graph POSTed to /prompt can carry any string in its
+        place, and `os.path.join` discards the base entirely when the second argument is
+        absolute. Resolve both sides and require containment.
+        """
+        root = os.path.realpath(bridge.output_directory())
+        path = os.path.realpath(os.path.join(root, name))
+        r, p = os.path.normcase(root), os.path.normcase(path)
+        if p != r and not p.startswith(r + os.sep):
+            raise ValueError('%r is outside the output directory' % (name,))
+        return path
+
     def run(self, latent):
-        path = os.path.join(bridge.output_directory(), latent)
+        path = self._resolve(latent)
         tensors, nested, prompt, _meta = load_tensors(path)
         if nested:
             return ({'samples': bridge.make_nested(tensors)}, prompt)
