@@ -1,0 +1,5 @@
+# Sample footage for the example workflows: 13 MB, and it is not covered by the licences in this
+# repository (workflows/README.md says so). It has no business being pushed to everyone who
+# installs the nodes through ComfyUI Manager. It stays in the GitHub repository, where anyone who
+# wants to reproduce the examples can fetch it deliberately.
+workflows/assets/

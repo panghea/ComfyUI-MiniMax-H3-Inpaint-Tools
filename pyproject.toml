@@ -1,0 +1,24 @@
+# Metadata for the ComfyUI Registry (registry.comfy.org). This package is not distributed on
+# PyPI - the library it wraps is. See LICENSING.md for why the two live apart.
+[project]
+name = "comfyui-minimax-h3-inpaint-tools"
+version = "0.1.0"
+description = "Rewrite part of a finished MiniMax H3 clip - a rectangle, a time span, or the audio alone - by masking the latent instead of regenerating it. Ten nodes, no decode/re-encode round trip."
+requires-python = ">=3.10"
+license = { file = "LICENSE" }
+authors = [{ name = "panghea" }]
+keywords = ["ComfyUI", "MiniMax", "H3", "latent", "inpaint", "video", "audio", "mask"]
+classifiers = [
+    "Operating System :: OS Independent",
+    "Programming Language :: Python :: 3",
+]
+dependencies = ["minimax-h3-latent-core>=0.1.0"]
+
+[project.urls]
+Repository = "https://github.com/panghea/ComfyUI-MiniMax-H3-Inpaint-Tools"
+Documentation = "https://github.com/panghea/ComfyUI-MiniMax-H3-Inpaint-Tools#readme"
+"Bug Tracker" = "https://github.com/panghea/ComfyUI-MiniMax-H3-Inpaint-Tools/issues"
+
+[tool.comfy]
+PublisherId = "panghea"
+DisplayName = "MiniMax H3 Inpaint Tools"

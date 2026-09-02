@@ -21,6 +21,10 @@ directory and `136`, `137`, `138` and `139` run unchanged:
 cp workflows/assets/* /path/to/ComfyUI/input/
 ```
 
+That material ships in the GitHub repository only. The ComfyUI Registry package leaves it out -
+it is 13 MB and is not covered by the licences here - so if you installed through ComfyUI
+Manager, clone or download the repository to get it.
+
 | File | 640x352 unless noted | What it is |
 |---|---|---|
 | `r2v_cut_src.mp4` | 1664x928, 39 frames | The cut being rewritten. This is what gets VAE-encoded into the latent. |
