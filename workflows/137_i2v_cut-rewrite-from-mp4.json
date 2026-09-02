@@ -1,0 +1,2086 @@
+{
+  "id": "rebuilt-from-api",
+  "revision": 0,
+  "last_node_id": 90016,
+  "last_link_id": 46,
+  "nodes": [
+    {
+      "id": 1,
+      "type": "UNETLoader",
+      "pos": [
+        0,
+        350
+      ],
+      "size": [
+        280,
+        90
+      ],
+      "flags": {},
+      "order": 0,
+      "mode": 0,
+      "title": "H3 REF2VA MODEL — REQUIRED",
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "MODEL",
+          "type": "MODEL",
+          "links": [
+            16
+          ],
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "UNETLoader"
+      },
+      "widgets_values": [
+        "minimax_h3_ref2va_pruned_int8_convrot.safetensors",
+        "default"
+      ],
+      "widgets_values_named": {
+        "unet_name": "minimax_h3_ref2va_pruned_int8_convrot.safetensors",
+        "weight_dtype": "default"
+      }
+    },
+    {
+      "id": 120,
+      "type": "RandomNoise",
+      "pos": [
+        2800,
+        320
+      ],
+      "size": [
+        280,
+        90
+      ],
+      "flags": {},
+      "order": 0,
+      "mode": 0,
+      "title": "Per-shot noise seed",
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "NOISE",
+          "type": "NOISE",
+          "links": [
+            6
+          ],
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "RandomNoise"
+      },
+      "widgets_values": [
+        771004
+      ],
+      "widgets_values_named": {
+        "noise_seed": 771004
+      }
+    },
+    {
+      "id": 121,
+      "type": "BasicGuider",
+      "pos": [
+        2800,
+        456
+      ],
+      "size": [
+        280,
+        142
+      ],
+      "flags": {},
+      "order": 0,
+      "mode": 0,
+      "title": "Loop guider",
+      "inputs": [
+        {
+          "name": "model",
+          "type": "MODEL",
+          "link": 2
+        },
+        {
+          "name": "conditioning",
+          "type": "CONDITIONING",
+          "link": 1
+        }
+      ],
+      "outputs": [
+        {
+          "name": "GUIDER",
+          "type": "GUIDER",
+          "links": [
+            4
+          ],
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "BasicGuider"
+      },
+      "widgets_values": [],
+      "widgets_values_named": {}
+    },
+    {
+      "id": 122,
+      "type": "KSamplerSelect",
+      "pos": [
+        2800,
+        644
+      ],
+      "size": [
+        280,
+        90
+      ],
+      "flags": {},
+      "order": 0,
+      "mode": 0,
+      "title": "Sampler algorithm",
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "SAMPLER",
+          "type": "SAMPLER",
+          "links": [
+            7
+          ],
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "KSamplerSelect"
+      },
+      "widgets_values": [
+        "euler"
+      ],
+      "widgets_values_named": {
+        "sampler_name": "euler"
+      }
+    },
+    {
+      "id": 123,
+      "type": "BasicScheduler",
+      "pos": [
+        2800,
+        780
+      ],
+      "size": [
+        280,
+        116
+      ],
+      "flags": {},
+      "order": 0,
+      "mode": 0,
+      "title": "Sigmas (steps come from the plan)",
+      "inputs": [
+        {
+          "name": "model",
+          "type": "MODEL",
+          "link": 3
+        }
+      ],
+      "outputs": [
+        {
+          "name": "SIGMAS",
+          "type": "SIGMAS",
+          "links": [
+            8
+          ],
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "BasicScheduler"
+      },
+      "widgets_values": [
+        "simple",
+        8,
+        1.0
+      ],
+      "widgets_values_named": {
+        "scheduler": "simple",
+        "steps": 8,
+        "denoise": 1.0
+      }
+    },
+    {
+      "id": 124,
+      "type": "SamplerCustomAdvanced",
+      "pos": [
+        2800,
+        942
+      ],
+      "size": [
+        280,
+        220
+      ],
+      "flags": {},
+      "order": 0,
+      "mode": 0,
+      "title": "H3 sampler — SINGLE LOOP BODY",
+      "inputs": [
+        {
+          "name": "noise",
+          "type": "NOISE",
+          "link": 6
+        },
+        {
+          "name": "guider",
+          "type": "GUIDER",
+          "link": 4
+        },
+        {
+          "name": "sampler",
+          "type": "SAMPLER",
+          "link": 7
+        },
+        {
+          "name": "sigmas",
+          "type": "SIGMAS",
+          "link": 8
+        },
+        {
+          "name": "latent_image",
+          "type": "LATENT",
+          "link": 5
+        }
+      ],
+      "outputs": [
+        {
+          "name": "output",
+          "type": "LATENT",
+          "links": [
+            9,
+            11
+          ],
+          "slot_index": 0
+        },
+        {
+          "name": "denoised_output",
+          "type": "LATENT",
+          "links": [],
+          "slot_index": 1
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "SamplerCustomAdvanced"
+      },
+      "widgets_values": [],
+      "widgets_values_named": {}
+    },
+    {
+      "id": 130,
+      "type": "VAEDecode",
+      "pos": [
+        3360,
+        305
+      ],
+      "size": [
+        280,
+        142
+      ],
+      "flags": {},
+      "order": 0,
+      "mode": 0,
+      "title": "Decode current clip frames",
+      "inputs": [
+        {
+          "name": "samples",
+          "type": "LATENT",
+          "link": 9
+        },
+        {
+          "name": "vae",
+          "type": "VAE",
+          "link": 10
+        }
+      ],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            14
+          ],
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "VAEDecode"
+      },
+      "widgets_values": [],
+      "widgets_values_named": {}
+    },
+    {
+      "id": 131,
+      "type": "VAEDecodeAudio",
+      "pos": [
+        3360,
+        493
+      ],
+      "size": [
+        280,
+        142
+      ],
+      "flags": {},
+      "order": 0,
+      "mode": 0,
+      "title": "Decode current clip audio",
+      "inputs": [
+        {
+          "name": "samples",
+          "type": "LATENT",
+          "link": 11
+        },
+        {
+          "name": "vae",
+          "type": "VAE",
+          "link": 12
+        }
+      ],
+      "outputs": [
+        {
+          "name": "AUDIO",
+          "type": "AUDIO",
+          "links": [
+            13
+          ],
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "VAEDecodeAudio"
+      },
+      "widgets_values": [],
+      "widgets_values_named": {}
+    },
+    {
+      "id": 132,
+      "type": "MiniMaxH3LoopTrim",
+      "pos": [
+        3360,
+        681
+      ],
+      "size": [
+        280,
+        142
+      ],
+      "flags": {},
+      "order": 0,
+      "mode": 0,
+      "title": "Trim overlap + frame-lock audio",
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 14
+        },
+        {
+          "name": "audio",
+          "type": "AUDIO",
+          "link": 13
+        }
+      ],
+      "outputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "links": [
+            29
+          ],
+          "slot_index": 0
+        },
+        {
+          "name": "audio",
+          "type": "AUDIO",
+          "links": [
+            30
+          ],
+          "slot_index": 1
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "MiniMaxH3LoopTrim"
+      },
+      "widgets_values": [
+        0,
+        24.0,
+        true
+      ],
+      "widgets_values_named": {
+        "trim_frames": 0,
+        "fps": 24.0,
+        "match_tail": true
+      }
+    },
+    {
+      "id": 1945,
+      "type": "PathchSageAttentionKJ",
+      "pos": [
+        0,
+        1056
+      ],
+      "size": [
+        280,
+        116
+      ],
+      "flags": {},
+      "order": 0,
+      "mode": 0,
+      "title": "Sage Attention (per-workflow)",
+      "inputs": [
+        {
+          "name": "model",
+          "type": "MODEL",
+          "link": 15
+        }
+      ],
+      "outputs": [
+        {
+          "name": "MODEL",
+          "type": "MODEL",
+          "links": [
+            2
+          ],
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "PathchSageAttentionKJ"
+      },
+      "widgets_values": [
+        "auto",
+        false
+      ],
+      "widgets_values_named": {
+        "sage_attention": "auto",
+        "allow_compile": false
+      }
+    },
+    {
+      "id": 2,
+      "type": "CLIPLoader",
+      "pos": [
+        0,
+        486
+      ],
+      "size": [
+        280,
+        90
+      ],
+      "flags": {},
+      "order": 0,
+      "mode": 0,
+      "title": "H3 TEXT ENCODER",
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "CLIP",
+          "type": "CLIP",
+          "links": [
+            17
+          ],
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "CLIPLoader"
+      },
+      "widgets_values": [
+        "qwen3vl_32b_minimax_h3_nvfp4_awq.safetensors",
+        "minimax",
+        "default"
+      ],
+      "widgets_values_named": {
+        "clip_name": "qwen3vl_32b_minimax_h3_nvfp4_awq.safetensors",
+        "type": "minimax",
+        "device": "default"
+      }
+    },
+    {
+      "id": 3,
+      "type": "VAELoader",
+      "pos": [
+        0,
+        622
+      ],
+      "size": [
+        280,
+        90
+      ],
+      "flags": {},
+      "order": 0,
+      "mode": 0,
+      "title": "H3 Video VAE",
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "VAE",
+          "type": "VAE",
+          "links": [
+            10,
+            18,
+            23
+          ],
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "VAELoader"
+      },
+      "widgets_values": [
+        "minimax_h3_video_vae_fp16.safetensors"
+      ],
+      "widgets_values_named": {
+        "vae_name": "minimax_h3_video_vae_fp16.safetensors"
+      }
+    },
+    {
+      "id": 4,
+      "type": "VAELoader",
+      "pos": [
+        0,
+        758
+      ],
+      "size": [
+        280,
+        90
+      ],
+      "flags": {},
+      "order": 0,
+      "mode": 0,
+      "title": "H3 Audio VAE",
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "VAE",
+          "type": "VAE",
+          "links": [
+            12,
+            25
+          ],
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "VAELoader"
+      },
+      "widgets_values": [
+        "minimax_h3_audio_vae_fp32.safetensors"
+      ],
+      "widgets_values_named": {
+        "vae_name": "minimax_h3_audio_vae_fp32.safetensors"
+      }
+    },
+    {
+      "id": 5,
+      "type": "MiniMaxH3SigmaShift",
+      "pos": [
+        0,
+        894
+      ],
+      "size": [
+        280,
+        116
+      ],
+      "flags": {},
+      "order": 0,
+      "mode": 0,
+      "title": "ModelSamplingMiniMaxH3",
+      "inputs": [
+        {
+          "name": "model",
+          "type": "MODEL",
+          "link": 16
+        }
+      ],
+      "outputs": [
+        {
+          "name": "MODEL",
+          "type": "MODEL",
+          "links": [
+            3,
+            15
+          ],
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "MiniMaxH3SigmaShift"
+      },
+      "widgets_values": [
+        12.0,
+        3.0
+      ],
+      "widgets_values_named": {
+        "shift_video": 12.0,
+        "shift_audio": 3.0
+      }
+    },
+    {
+      "id": 202,
+      "type": "LoadImage",
+      "pos": [
+        560,
+        425
+      ],
+      "size": [
+        280,
+        90
+      ],
+      "flags": {},
+      "order": 0,
+      "mode": 0,
+      "title": "LoadImage",
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            19
+          ],
+          "slot_index": 0
+        },
+        {
+          "name": "MASK",
+          "type": "MASK",
+          "links": [],
+          "slot_index": 1
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "LoadImage"
+      },
+      "widgets_values": [
+        "i2v_cut_first.png"
+      ],
+      "widgets_values_named": {
+        "image": "i2v_cut_first.png"
+      }
+    },
+    {
+      "id": 203,
+      "type": "LoadImage",
+      "pos": [
+        560,
+        561
+      ],
+      "size": [
+        280,
+        90
+      ],
+      "flags": {},
+      "order": 0,
+      "mode": 0,
+      "title": "LoadImage",
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            20
+          ],
+          "slot_index": 0
+        },
+        {
+          "name": "MASK",
+          "type": "MASK",
+          "links": [],
+          "slot_index": 1
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "LoadImage"
+      },
+      "widgets_values": [
+        "i2v_cut_last.png"
+      ],
+      "widgets_values_named": {
+        "image": "i2v_cut_last.png"
+      }
+    },
+    {
+      "id": 210,
+      "type": "MiniMaxH3ImageToVideo",
+      "pos": [
+        1120,
+        410
+      ],
+      "size": [
+        280,
+        194
+      ],
+      "flags": {},
+      "order": 0,
+      "mode": 0,
+      "title": "MiniMaxH3ImageToVideo",
+      "inputs": [
+        {
+          "name": "clip",
+          "type": "CLIP",
+          "link": 17
+        },
+        {
+          "name": "vae",
+          "type": "VAE",
+          "link": 18
+        },
+        {
+          "name": "first_frame",
+          "type": "IMAGE",
+          "link": 19
+        },
+        {
+          "name": "last_frame",
+          "type": "IMAGE",
+          "link": 20
+        },
+        {
+          "name": "width",
+          "type": "INT",
+          "link": 42,
+          "widget": {
+            "name": "width"
+          }
+        },
+        {
+          "name": "height",
+          "type": "INT",
+          "link": 43,
+          "widget": {
+            "name": "height"
+          }
+        },
+        {
+          "name": "length",
+          "type": "INT",
+          "link": 46,
+          "widget": {
+            "name": "length"
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "name": "positive",
+          "type": "CONDITIONING",
+          "links": [
+            1
+          ],
+          "slot_index": 0
+        },
+        {
+          "name": "LATENT",
+          "type": "LATENT",
+          "links": [],
+          "slot_index": 1
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "MiniMaxH3ImageToVideo"
+      },
+      "widgets_values": [
+        "subject_definitions:\n<Subject 1> is THE STROKE: one continuous ribbon of blue light with a white-cyan core and a saturated blue emissive body. It never resets; it enters this cut at the left edge and leaves it travelling up and to the right.\n<Subject 2> is the actress: a naturally likeable young Japanese woman in her twenties, dark brown hair tied back in a high ponytail with loose strands at the temples, a bright orange knit cardigan over a light top. She sits at a laptop by a wide window in a bright plant-filled room. Her performance is deliberately small - she never mugs and never over-reacts.\n\nsummary:\nA 1.6-second closing cut of a Japanese commercial for a price-comparison browser extension. The camera is already on the actress at the laptop; she looks up from the screen toward the sky beyond the window as the blue stroke sweeps past her, and the headline holds over the frame.\n\nretention_analysis:\n<Picture 1> is fully_preserved as APPEARANCE for <Subject 2>: her hair, her hairstyle and her clothing are taken from this picture and from nothing else. She has a high ponytail and a bright orange knit cardigan for every frame of this cut.\n<Video 1> is fully_preserved as MOTION AND STAGING ONLY, never as appearance: reproduce its framing, its camera height and angle, the actress's position and scale within the frame, the timing of her head and eye movement frame for frame, the travel of the stroke, the background, the window, the plants and the city beyond. Do NOT take her hair or her clothing from <Video 1>; those come from <Picture 1>.\nThe Japanese headline is retained exactly as it appears in <Video 1>: the large white slanted characters read タイパ最強。 with 見るだけで、最安値。 smaller beneath, each character appearing once, none doubled, mirrored or overlapped.\n\ndetailed_description:\n00:00.000 - The frame is already on the actress, seated at the laptop on the right of frame, the window and bright sky filling the left and upper area. The headline タイパ最強。 sits large across the left, 見るだけで、最安値。 beneath it. She wears a bright orange knit cardigan and her hair is in a high ponytail.\n00:00.400 - She lifts her eyes from the screen toward the sky. The blue stroke enters from the lower left and sweeps across in front of the window, its trail scattering small sparkles.\n00:01.000 - The stroke curves up past her and the circular PRICE CHECKER emblem glows into the upper area of the frame. Her expression stays small and pleased; her shoulders barely move.\n00:01.625 - The stroke leaves the top-right of the frame, carrying the eye out of the cut.\n\noverall_soundscape:\nA soft airy room tone with a faint bright shimmer as the stroke passes.\n\nnon_diegetic_music:\nLight, buoyant electronic pop holding its final phrase, no vocal.\n",
+        1664,
+        928,
+        39
+      ],
+      "widgets_values_named": {
+        "prompt": "subject_definitions:\n<Subject 1> is THE STROKE: one continuous ribbon of blue light with a white-cyan core and a saturated blue emissive body. It never resets; it enters this cut at the left edge and leaves it travelling up and to the right.\n<Subject 2> is the actress: a naturally likeable young Japanese woman in her twenties, dark brown hair tied back in a high ponytail with loose strands at the temples, a bright orange knit cardigan over a light top. She sits at a laptop by a wide window in a bright plant-filled room. Her performance is deliberately small - she never mugs and never over-reacts.\n\nsummary:\nA 1.6-second closing cut of a Japanese commercial for a price-comparison browser extension. The camera is already on the actress at the laptop; she looks up from the screen toward the sky beyond the window as the blue stroke sweeps past her, and the headline holds over the frame.\n\nretention_analysis:\n<Picture 1> is fully_preserved as APPEARANCE for <Subject 2>: her hair, her hairstyle and her clothing are taken from this picture and from nothing else. She has a high ponytail and a bright orange knit cardigan for every frame of this cut.\n<Video 1> is fully_preserved as MOTION AND STAGING ONLY, never as appearance: reproduce its framing, its camera height and angle, the actress's position and scale within the frame, the timing of her head and eye movement frame for frame, the travel of the stroke, the background, the window, the plants and the city beyond. Do NOT take her hair or her clothing from <Video 1>; those come from <Picture 1>.\nThe Japanese headline is retained exactly as it appears in <Video 1>: the large white slanted characters read タイパ最強。 with 見るだけで、最安値。 smaller beneath, each character appearing once, none doubled, mirrored or overlapped.\n\ndetailed_description:\n00:00.000 - The frame is already on the actress, seated at the laptop on the right of frame, the window and bright sky filling the left and upper area. The headline タイパ最強。 sits large across the left, 見るだけで、最安値。 beneath it. She wears a bright orange knit cardigan and her hair is in a high ponytail.\n00:00.400 - She lifts her eyes from the screen toward the sky. The blue stroke enters from the lower left and sweeps across in front of the window, its trail scattering small sparkles.\n00:01.000 - The stroke curves up past her and the circular PRICE CHECKER emblem glows into the upper area of the frame. Her expression stays small and pleased; her shoulders barely move.\n00:01.625 - The stroke leaves the top-right of the frame, carrying the eye out of the cut.\n\noverall_soundscape:\nA soft airy room tone with a faint bright shimmer as the stroke passes.\n\nnon_diegetic_music:\nLight, buoyant electronic pop holding its final phrase, no vocal.\n",
+        "width": 1664,
+        "height": 928,
+        "length": 39
+      }
+    },
+    {
+      "id": 220,
+      "type": "LoadVideo",
+      "pos": [
+        1680,
+        365
+      ],
+      "size": [
+        280,
+        90
+      ],
+      "flags": {},
+      "order": 0,
+      "mode": 0,
+      "title": "LoadVideo",
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "VIDEO",
+          "type": "VIDEO",
+          "links": [
+            21,
+            33,
+            41
+          ],
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "LoadVideo"
+      },
+      "widgets_values": [
+        "r2v_cut_src.mp4"
+      ],
+      "widgets_values_named": {
+        "file": "r2v_cut_src.mp4"
+      }
+    },
+    {
+      "id": 221,
+      "type": "GetVideoComponents",
+      "pos": [
+        1680,
+        501
+      ],
+      "size": [
+        280,
+        116
+      ],
+      "flags": {},
+      "order": 0,
+      "mode": 0,
+      "title": "GetVideoComponents",
+      "inputs": [
+        {
+          "name": "video",
+          "type": "VIDEO",
+          "link": 21
+        }
+      ],
+      "outputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "links": [
+            22
+          ],
+          "slot_index": 0
+        },
+        {
+          "name": "audio",
+          "type": "AUDIO",
+          "links": [
+            24
+          ],
+          "slot_index": 1
+        },
+        {
+          "name": "fps",
+          "type": "FLOAT",
+          "links": [],
+          "slot_index": 2
+        },
+        {
+          "name": "bit_depth",
+          "type": "INT",
+          "links": [],
+          "slot_index": 3
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "GetVideoComponents"
+      },
+      "widgets_values": [],
+      "widgets_values_named": {}
+    },
+    {
+      "id": 222,
+      "type": "VAEEncode",
+      "pos": [
+        1680,
+        663
+      ],
+      "size": [
+        280,
+        142
+      ],
+      "flags": {},
+      "order": 0,
+      "mode": 0,
+      "title": "VAEEncode",
+      "inputs": [
+        {
+          "name": "pixels",
+          "type": "IMAGE",
+          "link": 22
+        },
+        {
+          "name": "vae",
+          "type": "VAE",
+          "link": 23
+        }
+      ],
+      "outputs": [
+        {
+          "name": "LATENT",
+          "type": "LATENT",
+          "links": [
+            26
+          ],
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "VAEEncode"
+      },
+      "widgets_values": [],
+      "widgets_values_named": {}
+    },
+    {
+      "id": 223,
+      "type": "VAEEncodeAudio",
+      "pos": [
+        1680,
+        851
+      ],
+      "size": [
+        280,
+        142
+      ],
+      "flags": {},
+      "order": 0,
+      "mode": 0,
+      "title": "VAEEncodeAudio",
+      "inputs": [
+        {
+          "name": "audio",
+          "type": "AUDIO",
+          "link": 24
+        },
+        {
+          "name": "vae",
+          "type": "VAE",
+          "link": 25
+        }
+      ],
+      "outputs": [
+        {
+          "name": "LATENT",
+          "type": "LATENT",
+          "links": [
+            27
+          ],
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "VAEEncodeAudio"
+      },
+      "widgets_values": [],
+      "widgets_values_named": {}
+    },
+    {
+      "id": 224,
+      "type": "MiniMaxH3PackLatent",
+      "pos": [
+        1680,
+        1039
+      ],
+      "size": [
+        280,
+        142
+      ],
+      "flags": {},
+      "order": 0,
+      "mode": 0,
+      "title": "MiniMaxH3PackLatent",
+      "inputs": [
+        {
+          "name": "video_latent",
+          "type": "LATENT",
+          "link": 26
+        },
+        {
+          "name": "audio_latent",
+          "type": "LATENT",
+          "link": 27
+        }
+      ],
+      "outputs": [
+        {
+          "name": "samples",
+          "type": "LATENT",
+          "links": [
+            28,
+            38
+          ],
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "MiniMaxH3PackLatent"
+      },
+      "widgets_values": [],
+      "widgets_values_named": {}
+    },
+    {
+      "id": 225,
+      "type": "MiniMaxH3DenoiseMask",
+      "pos": [
+        2240,
+        365
+      ],
+      "size": [
+        280,
+        116
+      ],
+      "flags": {},
+      "order": 0,
+      "mode": 0,
+      "title": "MiniMaxH3DenoiseMask",
+      "inputs": [
+        {
+          "name": "samples",
+          "type": "LATENT",
+          "link": 28
+        },
+        {
+          "name": "x_pct",
+          "type": "FLOAT",
+          "link": 34,
+          "widget": {
+            "name": "x_pct"
+          }
+        },
+        {
+          "name": "y_pct",
+          "type": "FLOAT",
+          "link": 35,
+          "widget": {
+            "name": "y_pct"
+          }
+        },
+        {
+          "name": "w_pct",
+          "type": "FLOAT",
+          "link": 36,
+          "widget": {
+            "name": "w_pct"
+          }
+        },
+        {
+          "name": "h_pct",
+          "type": "FLOAT",
+          "link": 37,
+          "widget": {
+            "name": "h_pct"
+          }
+        },
+        {
+          "name": "t_start_pct",
+          "type": "FLOAT",
+          "link": 39,
+          "widget": {
+            "name": "t_start_pct"
+          }
+        },
+        {
+          "name": "t_end_pct",
+          "type": "FLOAT",
+          "link": 40,
+          "widget": {
+            "name": "t_end_pct"
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "name": "samples",
+          "type": "LATENT",
+          "links": [
+            5
+          ],
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "MiniMaxH3DenoiseMask"
+      },
+      "widgets_values": [
+        "video only",
+        0.9,
+        2.6,
+        97.4,
+        0.0,
+        46.0,
+        14.0,
+        54.0,
+        86.0,
+        2.0
+      ],
+      "widgets_values_named": {
+        "track": "video only",
+        "strength": 0.9,
+        "t_start_pct": 2.6,
+        "t_end_pct": 97.4,
+        "t_feather_pct": 0.0,
+        "x_pct": 46.0,
+        "y_pct": 14.0,
+        "w_pct": 54.0,
+        "h_pct": 86.0,
+        "feather_pct": 2.0
+      }
+    },
+    {
+      "id": 990,
+      "type": "CreateVideo",
+      "pos": [
+        3360,
+        869
+      ],
+      "size": [
+        280,
+        142
+      ],
+      "flags": {},
+      "order": 0,
+      "mode": 0,
+      "title": "CreateVideo",
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 29
+        },
+        {
+          "name": "audio",
+          "type": "AUDIO",
+          "link": 30
+        }
+      ],
+      "outputs": [
+        {
+          "name": "VIDEO",
+          "type": "VIDEO",
+          "links": [
+            31
+          ],
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "CreateVideo"
+      },
+      "widgets_values": [
+        24.0,
+        8
+      ],
+      "widgets_values_named": {
+        "fps": 24.0,
+        "bit_depth": 8
+      }
+    },
+    {
+      "id": 991,
+      "type": "SaveVideo",
+      "pos": [
+        3360,
+        1057
+      ],
+      "size": [
+        280,
+        116
+      ],
+      "flags": {},
+      "order": 0,
+      "mode": 0,
+      "title": "SaveVideo",
+      "inputs": [
+        {
+          "name": "video",
+          "type": "VIDEO",
+          "link": 31
+        }
+      ],
+      "outputs": [
+        {
+          "name": "video",
+          "type": "VIDEO",
+          "links": [],
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "SaveVideo"
+      },
+      "widgets_values": [
+        "video/x",
+        "auto",
+        "auto"
+      ],
+      "widgets_values_named": {
+        "filename_prefix": "video/x",
+        "format": "auto",
+        "codec": "auto"
+      }
+    },
+    {
+      "id": 90000,
+      "type": "MarkdownNote",
+      "pos": [
+        0,
+        64
+      ],
+      "size": [
+        470,
+        240
+      ],
+      "flags": {},
+      "order": 0,
+      "mode": 0,
+      "color": "#3f5159",
+      "bgcolor": "#3f5159",
+      "title": "1. モデル",
+      "properties": {},
+      "widgets_values": [
+        "## 1. モデル\n\n`UNETLoader` → `MiniMaxH3SigmaShift` → `PathchSageAttentionKJ` の順。\n\n**SigmaShift は 12 / 3 のまま**。H3 の学習時の値です。\n\n蒸留 LoRA（PDD / turbo）は入れていません。部分書き換えでは\n素のモデルの方が文字と細部が正確でした。8 step でも 39 フレームなら\n**約 150 秒**で終わります。"
+      ]
+    },
+    {
+      "id": 90001,
+      "type": "MarkdownNote",
+      "pos": [
+        560,
+        64
+      ],
+      "size": [
+        470,
+        315
+      ],
+      "flags": {},
+      "order": 0,
+      "mode": 0,
+      "color": "#4a5f3f",
+      "bgcolor": "#4a5f3f",
+      "title": "2. 参照",
+      "properties": {},
+      "widgets_values": [
+        "## 2. 参照\n\n**`LoadImage` (first_frame)** — カット1枚目そのもの。**画素単位で確定**します。\n「登場した瞬間から変わっていないとだめ」という要件を原理的に満たせるのが\nI2V を選ぶ理由です。手で描き直した1枚を入れてください。\n\n**`LoadImage` (last_frame)** — 任意。終端も留めたいときだけ。外しても動きます。\n\n参照動画がないので**動きの拘束はありません**。人物がフレーム内で\n沈み込むことがあります。両端を留めるのが唯一の対策です。\n\n**実測：フレーム1が淡く浮きました。** マスクの立ち上がりと first_frame が\n競合しているためで、`t_start_pct` をもう少し前に出すと改善する見込みです\n（未検証）。"
+      ]
+    },
+    {
+      "id": 90002,
+      "type": "MarkdownNote",
+      "pos": [
+        1120,
+        64
+      ],
+      "size": [
+        470,
+        300
+      ],
+      "flags": {},
+      "order": 0,
+      "mode": 0,
+      "color": "#5a4a63",
+      "bgcolor": "#5a4a63",
+      "title": "3. 条件付け",
+      "properties": {},
+      "widgets_values": [
+        "## 3. 条件付け\n\n`MiniMaxH3ImageToVideo` が first_frame / last_frame とプロンプトを条件にします。\n`audio_vae` 入力はありません。音声は**マスクで元の潜在がそのまま残る**ので、\n`track` を `video only` にしておけば一切変化しません。\n\nR2V との比較（39フレーム、8step、実測）\n\n| | 時間 | 外見 | 構図 | 文字 |\n|---|---|---|---|---|\n| R2V | 150s | ◎ | ◎ | ◎ |\n| **I2V** | **205s** | ○ 1枚目が淡い | ○ | ◎ |\n| T2V | 120s | ✕ 実写化 | △ | ✕ 二重 |"
+      ]
+    },
+    {
+      "id": 90003,
+      "type": "MarkdownNote",
+      "pos": [
+        1680,
+        64
+      ],
+      "size": [
+        470,
+        255
+      ],
+      "flags": {},
+      "order": 0,
+      "mode": 0,
+      "color": "#63563f",
+      "bgcolor": "#63563f",
+      "title": "4. 元動画から潜在",
+      "properties": {},
+      "widgets_values": [
+        "## 4. 元動画から潜在\n\n書き換えたいカットの mp4 を VAE で潜在に戻します。\nチェックポイントが残っていなくても使えるのがこの経路の利点です。\n\n映像と音声を別々にエンコードし、`MiniMaxH3PackLatent` で\nH3 の NestedTensor（[映像, 音声]）に組み立てます。\n\n**長さは必ず `length % 17 == 5`。** 85 フレームのような無効な長さを\n入れると、往復で 73 フレームに減って戻ってきます。"
+      ]
+    },
+    {
+      "id": 90004,
+      "type": "MarkdownNote",
+      "pos": [
+        2240,
+        64
+      ],
+      "size": [
+        470,
+        255
+      ],
+      "flags": {},
+      "order": 0,
+      "mode": 0,
+      "color": "#6b3f47",
+      "bgcolor": "#6b3f47",
+      "title": "5. マスク",
+      "properties": {},
+      "widgets_values": [
+        "## 5. マスク\n\n矩形と時間範囲を指定し、その内側だけを振り直します。外側は\n元の潜在がそのまま残るので、文字・ロゴ・背景は 1 画素も動きません。\n\n- **strength 0.9** — 内容を変えるならこの辺り。0.5 は色ムラ抑制程度、\n  0.8 では色が淡く出ることがあります\n- **時間分解能は実フレーム 4 枚**（潜在 1 枚 = 実 4 枚）。端 3 枚は\n  道連れになるので、窓を前後に広く取り、結合時に捨てます\n- ノイズを止めてはいけません。`DisableNoise` と併用すると破綻します"
+      ]
+    },
+    {
+      "id": 90005,
+      "type": "MarkdownNote",
+      "pos": [
+        2800,
+        64
+      ],
+      "size": [
+        470,
+        210
+      ],
+      "flags": {},
+      "order": 0,
+      "mode": 0,
+      "color": "#3f4f63",
+      "bgcolor": "#3f4f63",
+      "title": "6. サンプリング",
+      "properties": {},
+      "widgets_values": [
+        "## 6. サンプリング\n\n`BasicScheduler` は `denoise 1.0` のまま。マスクが範囲を決めるので、\nここを下げる必要はありません（下げてもステップ数は減りません）。\n\nシードを振っても、マスクと参照で強く拘束されるため\n結果はほぼ同じに収束します。"
+      ]
+    },
+    {
+      "id": 90006,
+      "type": "MarkdownNote",
+      "pos": [
+        3360,
+        64
+      ],
+      "size": [
+        470,
+        195
+      ],
+      "flags": {},
+      "order": 0,
+      "mode": 0,
+      "color": "#4a4a4a",
+      "bgcolor": "#4a4a4a",
+      "title": "7. 出力",
+      "properties": {},
+      "widgets_values": [
+        "## 7. 出力\n\n映像と音声を別々にデコードして 1 本にまとめます。\n\n出力は指定した窓の全フレームです。**端の数フレームは捨てて**、\n元の動画に差し戻してください。"
+      ]
+    },
+    {
+      "id": 90007,
+      "type": "MiniMaxH3RegionPicker",
+      "pos": [
+        2240,
+        541
+      ],
+      "size": [
+        380,
+        520
+      ],
+      "flags": {},
+      "order": 0,
+      "mode": 0,
+      "title": "MiniMax H3 Region Picker",
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": null
+        },
+        {
+          "name": "video",
+          "type": "VIDEO",
+          "link": 33
+        }
+      ],
+      "outputs": [
+        {
+          "name": "x_pct",
+          "type": "FLOAT",
+          "links": [
+            34
+          ],
+          "slot_index": 0
+        },
+        {
+          "name": "y_pct",
+          "type": "FLOAT",
+          "links": [
+            35
+          ],
+          "slot_index": 1
+        },
+        {
+          "name": "w_pct",
+          "type": "FLOAT",
+          "links": [
+            36
+          ],
+          "slot_index": 2
+        },
+        {
+          "name": "h_pct",
+          "type": "FLOAT",
+          "links": [
+            37
+          ],
+          "slot_index": 3
+        },
+        {
+          "name": "preview",
+          "type": "IMAGE",
+          "links": [],
+          "slot_index": 4
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "MiniMaxH3RegionPicker"
+      },
+      "widgets_values": [
+        0,
+        46.0,
+        14.0,
+        54.0,
+        86.0
+      ]
+    },
+    {
+      "id": 90008,
+      "type": "MarkdownNote",
+      "pos": [
+        2240,
+        1101
+      ],
+      "size": [
+        380,
+        250
+      ],
+      "flags": {},
+      "order": 0,
+      "mode": 0,
+      "color": "#6b3f47",
+      "bgcolor": "#6b3f47",
+      "title": "矩形の選び方",
+      "properties": {},
+      "widgets_values": [
+        "## 矩形の選び方\n\n1. 一度実行するとノードにフレームが出ます\n2. その上を**ドラッグして矩形を描く**と、右下のハンドルでサイズ調整できます\n3. 4つの値がマスクに直接つながっているので、手で入れ直す必要はありません\n\n`frame` を変えれば別のフレームを見られます。**割合なので、どのフレームで描いても同じ矩形**です。\n\n矩形の中に文字やロゴが入ると、そこも書き換え対象になります。**入れないように囲むか、\n参照画像で何があるかを教えること。**"
+      ]
+    },
+    {
+      "id": 90009,
+      "type": "MiniMaxH3TimeRange",
+      "pos": [
+        1800,
+        365
+      ],
+      "size": [
+        420,
+        400
+      ],
+      "flags": {},
+      "order": 0,
+      "mode": 0,
+      "title": "MiniMax H3 Time Range (frames)",
+      "inputs": [
+        {
+          "name": "samples",
+          "type": "LATENT",
+          "link": 38
+        },
+        {
+          "name": "video",
+          "type": "VIDEO",
+          "link": 41
+        },
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "name": "t_start_pct",
+          "type": "FLOAT",
+          "links": [
+            39
+          ],
+          "slot_index": 0
+        },
+        {
+          "name": "t_end_pct",
+          "type": "FLOAT",
+          "links": [
+            40
+          ],
+          "slot_index": 1
+        },
+        {
+          "name": "length",
+          "type": "INT",
+          "links": [
+            46
+          ],
+          "slot_index": 2
+        },
+        {
+          "name": "report",
+          "type": "STRING",
+          "links": [],
+          "slot_index": 3
+        },
+        {
+          "name": "preview",
+          "type": "IMAGE",
+          "links": [],
+          "slot_index": 4
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "MiniMaxH3TimeRange"
+      },
+      "widgets_values": [
+        1,
+        38
+      ]
+    },
+    {
+      "id": 90010,
+      "type": "MarkdownNote",
+      "pos": [
+        1800,
+        605
+      ],
+      "size": [
+        400,
+        300
+      ],
+      "flags": {},
+      "order": 0,
+      "mode": 0,
+      "color": "#6b3f47",
+      "bgcolor": "#6b3f47",
+      "title": "時間範囲はフレームで",
+      "properties": {},
+      "widgets_values": [
+        "## 時間範囲はフレームで\n\n`end_frame` は Python のスライスと同じで**その番号を含みません**。\n\n`samples` をつないであるので、実行前に `report` に\n**丸めた後の実際の範囲**が出ます。\n\n```\nframes 1-38 of 39  ->  2.56% - 97.44%\nlatent T=12, 3.25 rendered frames per latent frame\nactually covers frames 0.0-39.0  <- wider than asked\n```\n\n**マスクは潜在の時間軸に乗ります。**107 フレームなら潜在は 32 枚しか\nなく、1 枚が実 3.34 フレーム分。両端は必ず外側へ広がります。\n\n対策は、書き換えたいカットより**前後に広く窓を取り、余ったフレームは\n結合時に捨てる**こと。カットの境界ぴったりに合わせようとしても、\nグリッドがそれを許しません。"
+      ]
+    },
+    {
+      "id": 90011,
+      "type": "ResolutionSelector",
+      "pos": [
+        0,
+        1252
+      ],
+      "size": [
+        360,
+        110
+      ],
+      "flags": {},
+      "order": 0,
+      "mode": 0,
+      "title": "Resolution (megapixels)",
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "width",
+          "type": "INT",
+          "links": [
+            42
+          ],
+          "slot_index": 0
+        },
+        {
+          "name": "height",
+          "type": "INT",
+          "links": [
+            43
+          ],
+          "slot_index": 1
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "ResolutionSelector"
+      },
+      "widgets_values": [
+        "16:9 (Widescreen)",
+        1.5,
+        32
+      ]
+    },
+    {
+      "id": 90012,
+      "type": "MarkdownNote",
+      "pos": [
+        0,
+        1402
+      ],
+      "size": [
+        360,
+        230
+      ],
+      "flags": {},
+      "order": 0,
+      "mode": 0,
+      "color": "#4a4a63",
+      "bgcolor": "#4a4a63",
+      "title": "解像度",
+      "properties": {},
+      "widgets_values": [
+        "## 解像度\n\n`megapixels` で指定します。**1.5 MP、16:9、multiple 32** が\nこのプロジェクトの全実行で使った設定です（1664 x 928）。\n\n**解像度を変えるとサンプルそのものが変わります。**同じシードでも\n同じ絵にはなりません。安く試してから本番、という使い方はできません。\n\n**書き換え対象の潜在と解像度を合わせてください。**元のクリップが\n1.5 MP なら 1.5 MP のまま。違う値にすると、マスクの外まで\n作り直しになります。\n\nJapanese text は 1 MP を下回ると崩れます。"
+      ]
+    }
+  ],
+  "links": [
+    [
+      1,
+      210,
+      0,
+      121,
+      1,
+      "CONDITIONING"
+    ],
+    [
+      2,
+      1945,
+      0,
+      121,
+      0,
+      "MODEL"
+    ],
+    [
+      3,
+      5,
+      0,
+      123,
+      0,
+      "MODEL"
+    ],
+    [
+      4,
+      121,
+      0,
+      124,
+      1,
+      "GUIDER"
+    ],
+    [
+      5,
+      225,
+      0,
+      124,
+      4,
+      "LATENT"
+    ],
+    [
+      6,
+      120,
+      0,
+      124,
+      0,
+      "NOISE"
+    ],
+    [
+      7,
+      122,
+      0,
+      124,
+      2,
+      "SAMPLER"
+    ],
+    [
+      8,
+      123,
+      0,
+      124,
+      3,
+      "SIGMAS"
+    ],
+    [
+      9,
+      124,
+      0,
+      130,
+      0,
+      "LATENT"
+    ],
+    [
+      10,
+      3,
+      0,
+      130,
+      1,
+      "VAE"
+    ],
+    [
+      11,
+      124,
+      0,
+      131,
+      0,
+      "LATENT"
+    ],
+    [
+      12,
+      4,
+      0,
+      131,
+      1,
+      "VAE"
+    ],
+    [
+      13,
+      131,
+      0,
+      132,
+      1,
+      "AUDIO"
+    ],
+    [
+      14,
+      130,
+      0,
+      132,
+      0,
+      "IMAGE"
+    ],
+    [
+      15,
+      5,
+      0,
+      1945,
+      0,
+      "MODEL"
+    ],
+    [
+      16,
+      1,
+      0,
+      5,
+      0,
+      "MODEL"
+    ],
+    [
+      17,
+      2,
+      0,
+      210,
+      0,
+      "CLIP"
+    ],
+    [
+      18,
+      3,
+      0,
+      210,
+      1,
+      "VAE"
+    ],
+    [
+      19,
+      202,
+      0,
+      210,
+      2,
+      "IMAGE"
+    ],
+    [
+      20,
+      203,
+      0,
+      210,
+      3,
+      "IMAGE"
+    ],
+    [
+      21,
+      220,
+      0,
+      221,
+      0,
+      "VIDEO"
+    ],
+    [
+      22,
+      221,
+      0,
+      222,
+      0,
+      "IMAGE"
+    ],
+    [
+      23,
+      3,
+      0,
+      222,
+      1,
+      "VAE"
+    ],
+    [
+      24,
+      221,
+      1,
+      223,
+      0,
+      "AUDIO"
+    ],
+    [
+      25,
+      4,
+      0,
+      223,
+      1,
+      "VAE"
+    ],
+    [
+      26,
+      222,
+      0,
+      224,
+      0,
+      "LATENT"
+    ],
+    [
+      27,
+      223,
+      0,
+      224,
+      1,
+      "LATENT"
+    ],
+    [
+      28,
+      224,
+      0,
+      225,
+      0,
+      "LATENT"
+    ],
+    [
+      29,
+      132,
+      0,
+      990,
+      0,
+      "IMAGE"
+    ],
+    [
+      30,
+      132,
+      1,
+      990,
+      1,
+      "AUDIO"
+    ],
+    [
+      31,
+      990,
+      0,
+      991,
+      0,
+      "VIDEO"
+    ],
+    [
+      33,
+      220,
+      0,
+      90007,
+      1,
+      "VIDEO"
+    ],
+    [
+      34,
+      90007,
+      0,
+      225,
+      1,
+      "FLOAT"
+    ],
+    [
+      35,
+      90007,
+      1,
+      225,
+      2,
+      "FLOAT"
+    ],
+    [
+      36,
+      90007,
+      2,
+      225,
+      3,
+      "FLOAT"
+    ],
+    [
+      37,
+      90007,
+      3,
+      225,
+      4,
+      "FLOAT"
+    ],
+    [
+      38,
+      224,
+      0,
+      90009,
+      0,
+      "LATENT"
+    ],
+    [
+      39,
+      90009,
+      0,
+      225,
+      5,
+      "FLOAT"
+    ],
+    [
+      40,
+      90009,
+      1,
+      225,
+      6,
+      "FLOAT"
+    ],
+    [
+      41,
+      220,
+      0,
+      90009,
+      1,
+      "VIDEO"
+    ],
+    [
+      42,
+      90011,
+      0,
+      210,
+      4,
+      "INT"
+    ],
+    [
+      43,
+      90011,
+      1,
+      210,
+      5,
+      "INT"
+    ],
+    [
+      46,
+      90009,
+      2,
+      210,
+      6,
+      "INT"
+    ]
+  ],
+  "groups": [
+    {
+      "id": 1,
+      "title": "1. モデルと設定",
+      "bounding": [
+        -30,
+        8,
+        530,
+        2234
+      ],
+      "color": "#3f5159",
+      "font_size": 24,
+      "flags": {}
+    },
+    {
+      "id": 2,
+      "title": "2. 参照",
+      "bounding": [
+        530,
+        8,
+        530,
+        693
+      ],
+      "color": "#4a5f3f",
+      "font_size": 24,
+      "flags": {}
+    },
+    {
+      "id": 3,
+      "title": "3. 条件付け",
+      "bounding": [
+        1090,
+        8,
+        530,
+        646
+      ],
+      "color": "#5a4a63",
+      "font_size": 24,
+      "flags": {}
+    },
+    {
+      "id": 4,
+      "title": "4. 元動画から潜在",
+      "bounding": [
+        1650,
+        8,
+        530,
+        1223
+      ],
+      "color": "#63563f",
+      "font_size": 24,
+      "flags": {}
+    },
+    {
+      "id": 5,
+      "title": "5. マスク",
+      "bounding": [
+        2210,
+        8,
+        530,
+        523
+      ],
+      "color": "#6b3f47",
+      "font_size": 24,
+      "flags": {}
+    },
+    {
+      "id": 6,
+      "title": "6. サンプリング",
+      "bounding": [
+        2770,
+        8,
+        530,
+        1204
+      ],
+      "color": "#3f4f63",
+      "font_size": 24,
+      "flags": {}
+    },
+    {
+      "id": 7,
+      "title": "7. 出力",
+      "bounding": [
+        3330,
+        8,
+        530,
+        1215
+      ],
+      "color": "#4a4a4a",
+      "font_size": 24,
+      "flags": {}
+    }
+  ],
+  "config": {},
+  "extra": {},
+  "version": 0.4
+}

@@ -1,0 +1,21 @@
+Additional permission under GNU GPL version 3 section 7
+
+As the sole copyright holder of the ComfyUI adapter in this repository, I grant the following
+additional permission:
+
+    You may combine, link against and distribute this GPL-3.0 licensed work together with
+    `minimax-h3-latent-core`, which is licensed under the PolyForm Small Business License 1.0.0
+    and, for organisations above that licence's threshold, under a separate commercial licence.
+    You may convey the resulting combination under the terms of GPL-3.0, notwithstanding the
+    fact that `minimax-h3-latent-core` is not itself distributed under a GPL-compatible licence.
+
+    This permission covers `minimax-h3-latent-core` only. It does not extend to any other non-free
+    dependency, and it does not change the licence of `minimax-h3-latent-core` itself: using that
+    library still requires either qualifying under PolyForm Small Business 1.0.0 or holding a
+    commercial licence.
+
+If you remove `minimax-h3-latent-core` from the combination, this exception no longer applies and
+plain GPL-3.0 governs, as it would anyway.
+
+You may, at your option, remove this additional permission from your copy of the work, as
+permitted by section 7 of the GPL.

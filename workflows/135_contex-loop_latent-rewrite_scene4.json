@@ -1,0 +1,6762 @@
+{
+  "id": "rebuilt-from-api",
+  "revision": 0,
+  "last_node_id": 9721,
+  "last_link_id": 101,
+  "nodes": [
+    {
+      "id": 1,
+      "type": "UNETLoader",
+      "pos": [
+        0,
+        387
+      ],
+      "size": [
+        280,
+        90
+      ],
+      "flags": {},
+      "order": 0,
+      "mode": 0,
+      "inputs": [
+        {
+          "localized_name": "unet_name",
+          "name": "unet_name",
+          "type": "COMBO",
+          "widget": {
+            "name": "unet_name"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "weight_dtype",
+          "name": "weight_dtype",
+          "type": "COMBO",
+          "widget": {
+            "name": "weight_dtype"
+          },
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "localized_name": "MODEL",
+          "name": "MODEL",
+          "type": "MODEL",
+          "slot_index": 0,
+          "links": [
+            57
+          ]
+        }
+      ],
+      "title": "H3 REF2VA MODEL — REQUIRED",
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.33.0",
+        "Node name for S&R": "UNETLoader"
+      },
+      "widgets_values": [
+        "minimax_h3_ref2va_pruned_int8_convrot.safetensors",
+        "default"
+      ],
+      "widgets_values_named": {
+        "unet_name": "minimax_h3_ref2va_pruned_int8_convrot.safetensors",
+        "weight_dtype": "default"
+      }
+    },
+    {
+      "id": 110,
+      "type": "MiniMaxH3ScheduledReferenceToVideo",
+      "pos": [
+        2320,
+        506
+      ],
+      "size": [
+        409.6216796875,
+        350
+      ],
+      "flags": {},
+      "order": 57,
+      "mode": 0,
+      "inputs": [
+        {
+          "localized_name": "clip",
+          "name": "clip",
+          "type": "CLIP",
+          "link": 2
+        },
+        {
+          "localized_name": "vae",
+          "name": "vae",
+          "type": "VAE",
+          "link": 9
+        },
+        {
+          "localized_name": "audio_vae",
+          "name": "audio_vae",
+          "type": "VAE",
+          "link": 1
+        },
+        {
+          "localized_name": "reference_schedule",
+          "name": "reference_schedule",
+          "type": "H3_REFERENCE_SCHEDULE",
+          "link": 8
+        },
+        {
+          "localized_name": "clip_index",
+          "name": "clip_index",
+          "type": "INT",
+          "widget": {
+            "name": "clip_index"
+          },
+          "link": 4
+        },
+        {
+          "localized_name": "clip_count",
+          "name": "clip_count",
+          "type": "INT",
+          "widget": {
+            "name": "clip_count"
+          },
+          "link": 3
+        },
+        {
+          "localized_name": "prompt",
+          "name": "prompt",
+          "type": "STRING",
+          "widget": {
+            "name": "prompt"
+          },
+          "link": 7
+        },
+        {
+          "localized_name": "width",
+          "name": "width",
+          "type": "INT",
+          "widget": {
+            "name": "width"
+          },
+          "link": 10
+        },
+        {
+          "localized_name": "height",
+          "name": "height",
+          "type": "INT",
+          "widget": {
+            "name": "height"
+          },
+          "link": 5
+        },
+        {
+          "localized_name": "length",
+          "name": "length",
+          "type": "INT",
+          "widget": {
+            "name": "length"
+          },
+          "link": 6
+        },
+        {
+          "localized_name": "ref_image_size",
+          "name": "ref_image_size",
+          "type": "COMBO",
+          "widget": {
+            "name": "ref_image_size"
+          },
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "localized_name": "positive",
+          "name": "positive",
+          "type": "CONDITIONING",
+          "slot_index": 0,
+          "links": [
+            34
+          ]
+        },
+        {
+          "localized_name": "latent",
+          "name": "latent",
+          "type": "LATENT",
+          "slot_index": 1,
+          "links": [
+            35
+          ]
+        },
+        {
+          "localized_name": "compiled_prompt",
+          "name": "compiled_prompt",
+          "type": "STRING",
+          "slot_index": 2,
+          "links": []
+        },
+        {
+          "localized_name": "active_references",
+          "name": "active_references",
+          "type": "STRING",
+          "slot_index": 3,
+          "links": []
+        },
+        {
+          "localized_name": "schedule_fingerprint",
+          "name": "schedule_fingerprint",
+          "type": "STRING",
+          "slot_index": 4,
+          "links": []
+        }
+      ],
+      "title": "SCHEDULED REF2VA — COMPILES @TAGS PER SCENE",
+      "properties": {
+        "cnr_id": "comfyui-minimaxh3-contex-loop",
+        "ver": "81e615c66384e8f747ded5d181ef5807f2775daa",
+        "Node name for S&R": "MiniMaxH3ScheduledReferenceToVideo"
+      },
+      "widgets_values": [
+        1,
+        1,
+        "",
+        960,
+        544,
+        124,
+        "max"
+      ],
+      "widgets_values_named": {
+        "clip_index": 1,
+        "clip_count": 1,
+        "prompt": "",
+        "width": 960,
+        "height": 544,
+        "length": 124,
+        "ref_image_size": "max"
+      }
+    },
+    {
+      "id": 120,
+      "type": "RandomNoise",
+      "pos": [
+        3720,
+        523
+      ],
+      "size": [
+        280,
+        116
+      ],
+      "flags": {},
+      "order": 55,
+      "mode": 0,
+      "inputs": [
+        {
+          "localized_name": "noise_seed",
+          "name": "noise_seed",
+          "type": "INT",
+          "widget": {
+            "name": "noise_seed"
+          },
+          "link": 11
+        }
+      ],
+      "outputs": [
+        {
+          "localized_name": "NOISE",
+          "name": "NOISE",
+          "type": "NOISE",
+          "slot_index": 0,
+          "links": [
+            18
+          ]
+        }
+      ],
+      "title": "Per-shot noise seed",
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.33.0",
+        "Node name for S&R": "RandomNoise"
+      },
+      "widgets_values": [
+        0,
+        "randomize"
+      ],
+      "widgets_values_named": {
+        "noise_seed": 0,
+        "control_after_generate": "randomize"
+      }
+    },
+    {
+      "id": 121,
+      "type": "BasicGuider",
+      "pos": [
+        3720,
+        683
+      ],
+      "size": [
+        280,
+        142
+      ],
+      "flags": {},
+      "order": 59,
+      "mode": 0,
+      "inputs": [
+        {
+          "localized_name": "model",
+          "name": "model",
+          "type": "MODEL",
+          "link": 13
+        },
+        {
+          "localized_name": "conditioning",
+          "name": "conditioning",
+          "type": "CONDITIONING",
+          "link": 12
+        }
+      ],
+      "outputs": [
+        {
+          "localized_name": "GUIDER",
+          "name": "GUIDER",
+          "type": "GUIDER",
+          "slot_index": 0,
+          "links": [
+            16
+          ]
+        }
+      ],
+      "title": "Loop guider",
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.33.0",
+        "Node name for S&R": "BasicGuider"
+      }
+    },
+    {
+      "id": 122,
+      "type": "KSamplerSelect",
+      "pos": [
+        3720,
+        869
+      ],
+      "size": [
+        280,
+        90
+      ],
+      "flags": {},
+      "order": 1,
+      "mode": 0,
+      "inputs": [
+        {
+          "localized_name": "sampler_name",
+          "name": "sampler_name",
+          "type": "COMBO",
+          "widget": {
+            "name": "sampler_name"
+          },
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "localized_name": "SAMPLER",
+          "name": "SAMPLER",
+          "type": "SAMPLER",
+          "slot_index": 0,
+          "links": [
+            19
+          ]
+        }
+      ],
+      "title": "Sampler algorithm",
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.33.0",
+        "Node name for S&R": "KSamplerSelect"
+      },
+      "widgets_values": [
+        "res_multistep"
+      ],
+      "widgets_values_named": {
+        "sampler_name": "res_multistep"
+      }
+    },
+    {
+      "id": 123,
+      "type": "BasicScheduler",
+      "pos": [
+        3720,
+        1003
+      ],
+      "size": [
+        280,
+        142
+      ],
+      "flags": {},
+      "order": 56,
+      "mode": 0,
+      "inputs": [
+        {
+          "localized_name": "model",
+          "name": "model",
+          "type": "MODEL",
+          "link": 14
+        },
+        {
+          "localized_name": "scheduler",
+          "name": "scheduler",
+          "type": "COMBO",
+          "widget": {
+            "name": "scheduler"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "steps",
+          "name": "steps",
+          "type": "INT",
+          "widget": {
+            "name": "steps"
+          },
+          "link": 15
+        },
+        {
+          "localized_name": "denoise",
+          "name": "denoise",
+          "type": "FLOAT",
+          "widget": {
+            "name": "denoise"
+          },
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "localized_name": "SIGMAS",
+          "name": "SIGMAS",
+          "type": "SIGMAS",
+          "slot_index": 0,
+          "links": [
+            20
+          ]
+        }
+      ],
+      "title": "Per-shot scheduler steps",
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.33.0",
+        "Node name for S&R": "BasicScheduler"
+      },
+      "widgets_values": [
+        "simple",
+        20,
+        1
+      ],
+      "widgets_values_named": {
+        "scheduler": "simple",
+        "steps": 20,
+        "denoise": 1
+      }
+    },
+    {
+      "id": 124,
+      "type": "SamplerCustomAdvanced",
+      "pos": [
+        3720,
+        1189
+      ],
+      "size": [
+        280,
+        220
+      ],
+      "flags": {},
+      "order": 60,
+      "mode": 0,
+      "inputs": [
+        {
+          "localized_name": "noise",
+          "name": "noise",
+          "type": "NOISE",
+          "link": 18
+        },
+        {
+          "localized_name": "guider",
+          "name": "guider",
+          "type": "GUIDER",
+          "link": 16
+        },
+        {
+          "localized_name": "sampler",
+          "name": "sampler",
+          "type": "SAMPLER",
+          "link": 19
+        },
+        {
+          "localized_name": "sigmas",
+          "name": "sigmas",
+          "type": "SIGMAS",
+          "link": 20
+        },
+        {
+          "localized_name": "latent_image",
+          "name": "latent_image",
+          "type": "LATENT",
+          "link": 90
+        }
+      ],
+      "outputs": [
+        {
+          "localized_name": "output",
+          "name": "output",
+          "type": "LATENT",
+          "slot_index": 0,
+          "links": [
+            21,
+            23,
+            40,
+            44,
+            91
+          ]
+        },
+        {
+          "localized_name": "denoised_output",
+          "name": "denoised_output",
+          "type": "LATENT",
+          "slot_index": 1,
+          "links": []
+        }
+      ],
+      "title": "H3 sampler — SINGLE LOOP BODY",
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.33.0",
+        "Node name for S&R": "SamplerCustomAdvanced"
+      }
+    },
+    {
+      "id": 130,
+      "type": "VAEDecode",
+      "pos": [
+        4300,
+        404
+      ],
+      "size": [
+        280,
+        142
+      ],
+      "flags": {},
+      "order": 61,
+      "mode": 0,
+      "inputs": [
+        {
+          "localized_name": "samples",
+          "name": "samples",
+          "type": "LATENT",
+          "link": 21
+        },
+        {
+          "localized_name": "vae",
+          "name": "vae",
+          "type": "VAE",
+          "link": 22
+        }
+      ],
+      "outputs": [
+        {
+          "localized_name": "IMAGE",
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "slot_index": 0,
+          "links": [
+            26
+          ]
+        }
+      ],
+      "title": "Decode current clip frames",
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.33.0",
+        "Node name for S&R": "VAEDecode"
+      }
+    },
+    {
+      "id": 131,
+      "type": "VAEDecodeAudio",
+      "pos": [
+        4300,
+        590
+      ],
+      "size": [
+        280,
+        142
+      ],
+      "flags": {},
+      "order": 62,
+      "mode": 0,
+      "inputs": [
+        {
+          "localized_name": "samples",
+          "name": "samples",
+          "type": "LATENT",
+          "link": 23
+        },
+        {
+          "localized_name": "vae",
+          "name": "vae",
+          "type": "VAE",
+          "link": 24
+        }
+      ],
+      "outputs": [
+        {
+          "localized_name": "AUDIO",
+          "name": "AUDIO",
+          "type": "AUDIO",
+          "slot_index": 0,
+          "links": [
+            25
+          ]
+        }
+      ],
+      "title": "Decode current clip audio",
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.33.0",
+        "Node name for S&R": "VAEDecodeAudio"
+      }
+    },
+    {
+      "id": 132,
+      "type": "MiniMaxH3LoopTrim",
+      "pos": [
+        4300,
+        776
+      ],
+      "size": [
+        280,
+        168
+      ],
+      "flags": {},
+      "order": 64,
+      "mode": 0,
+      "inputs": [
+        {
+          "localized_name": "images",
+          "name": "images",
+          "type": "IMAGE",
+          "link": 26
+        },
+        {
+          "localized_name": "audio",
+          "name": "audio",
+          "shape": 7,
+          "type": "AUDIO",
+          "link": 25
+        },
+        {
+          "localized_name": "trim_frames",
+          "name": "trim_frames",
+          "type": "INT",
+          "widget": {
+            "name": "trim_frames"
+          },
+          "link": 27
+        },
+        {
+          "localized_name": "fps",
+          "name": "fps",
+          "shape": 7,
+          "type": "FLOAT",
+          "widget": {
+            "name": "fps"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "match_tail",
+          "name": "match_tail",
+          "shape": 7,
+          "type": "BOOLEAN",
+          "widget": {
+            "name": "match_tail"
+          },
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "localized_name": "images",
+          "name": "images",
+          "type": "IMAGE",
+          "slot_index": 0,
+          "links": [
+            39,
+            43
+          ]
+        },
+        {
+          "localized_name": "audio",
+          "name": "audio",
+          "type": "AUDIO",
+          "slot_index": 1,
+          "links": [
+            38,
+            49
+          ]
+        }
+      ],
+      "title": "Trim overlap + frame-lock audio",
+      "properties": {
+        "cnr_id": "comfyui-minimaxh3-contex-loop",
+        "ver": "81e615c66384e8f747ded5d181ef5807f2775daa",
+        "Node name for S&R": "MiniMaxH3LoopTrim"
+      },
+      "widgets_values": [
+        0,
+        24,
+        true
+      ],
+      "widgets_values_named": {
+        "trim_frames": 0,
+        "fps": 24,
+        "match_tail": true
+      }
+    },
+    {
+      "id": 1701,
+      "type": "MiniMaxH3ChainLoopStart",
+      "pos": [
+        2320,
+        2036
+      ],
+      "size": [
+        280,
+        122
+      ],
+      "flags": {},
+      "order": 53,
+      "mode": 0,
+      "inputs": [
+        {
+          "localized_name": "plan",
+          "name": "plan",
+          "type": "H3_CHAIN_PLAN",
+          "link": 31
+        },
+        {
+          "localized_name": "source_audio",
+          "name": "source_audio",
+          "shape": 7,
+          "type": "AUDIO",
+          "link": null
+        },
+        {
+          "localized_name": "external_context",
+          "name": "external_context",
+          "shape": 7,
+          "type": "H3_CHAIN_EXTERNAL_CONTEXT",
+          "link": null
+        },
+        {
+          "localized_name": "start_clip",
+          "name": "start_clip",
+          "type": "INT",
+          "widget": {
+            "name": "start_clip"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "scene_range",
+          "name": "scene_range",
+          "shape": 7,
+          "type": "STRING",
+          "widget": {
+            "name": "scene_range"
+          },
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "localized_name": "flow",
+          "name": "flow",
+          "type": "H3_CHAIN_FLOW",
+          "slot_index": 0,
+          "links": [
+            42
+          ]
+        },
+        {
+          "localized_name": "state",
+          "name": "state",
+          "type": "H3_CHAIN_STATE",
+          "slot_index": 1,
+          "links": [
+            32
+          ]
+        },
+        {
+          "localized_name": "status",
+          "name": "status",
+          "type": "STRING",
+          "slot_index": 2,
+          "links": []
+        }
+      ],
+      "title": "Chain Loop Start (scene 4 only)",
+      "properties": {
+        "cnr_id": "comfyui-minimaxh3-contex-loop",
+        "ver": "81e615c66384e8f747ded5d181ef5807f2775daa",
+        "Node name for S&R": "MiniMaxH3ChainLoopStart"
+      },
+      "widgets_values": [
+        4,
+        "4"
+      ],
+      "widgets_values_named": {
+        "start_clip": 4,
+        "scene_range": "4"
+      }
+    },
+    {
+      "id": 1702,
+      "type": "MiniMaxH3ChainCurrent",
+      "pos": [
+        2320,
+        2202
+      ],
+      "size": [
+        350.196875,
+        286
+      ],
+      "flags": {},
+      "order": 54,
+      "mode": 0,
+      "inputs": [
+        {
+          "localized_name": "state",
+          "name": "state",
+          "type": "H3_CHAIN_STATE",
+          "link": 32
+        },
+        {
+          "localized_name": "source_audio",
+          "name": "source_audio",
+          "shape": 7,
+          "type": "AUDIO",
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "localized_name": "state",
+          "name": "state",
+          "type": "H3_CHAIN_STATE",
+          "slot_index": 0,
+          "links": [
+            36,
+            41,
+            46,
+            51
+          ]
+        },
+        {
+          "localized_name": "clip_index",
+          "name": "clip_index",
+          "type": "INT",
+          "slot_index": 1,
+          "links": [
+            4
+          ]
+        },
+        {
+          "localized_name": "clip_count",
+          "name": "clip_count",
+          "type": "INT",
+          "slot_index": 2,
+          "links": [
+            3
+          ]
+        },
+        {
+          "localized_name": "shot_id",
+          "name": "shot_id",
+          "type": "STRING",
+          "slot_index": 3,
+          "links": []
+        },
+        {
+          "localized_name": "prompt",
+          "name": "prompt",
+          "type": "STRING",
+          "slot_index": 4,
+          "links": [
+            7
+          ]
+        },
+        {
+          "localized_name": "noise_seed",
+          "name": "noise_seed",
+          "type": "INT",
+          "slot_index": 5,
+          "links": [
+            11
+          ]
+        },
+        {
+          "localized_name": "length",
+          "name": "length",
+          "type": "INT",
+          "slot_index": 6,
+          "links": [
+            6
+          ]
+        },
+        {
+          "localized_name": "steps",
+          "name": "steps",
+          "type": "INT",
+          "slot_index": 7,
+          "links": [
+            15
+          ]
+        },
+        {
+          "localized_name": "width",
+          "name": "width",
+          "type": "INT",
+          "slot_index": 8,
+          "links": [
+            10
+          ]
+        },
+        {
+          "localized_name": "height",
+          "name": "height",
+          "type": "INT",
+          "slot_index": 9,
+          "links": [
+            5
+          ]
+        },
+        {
+          "localized_name": "audio_start",
+          "name": "audio_start",
+          "type": "FLOAT",
+          "slot_index": 10,
+          "links": []
+        },
+        {
+          "localized_name": "audio_duration",
+          "name": "audio_duration",
+          "type": "FLOAT",
+          "slot_index": 11,
+          "links": []
+        },
+        {
+          "localized_name": "source_audio_slice",
+          "name": "source_audio_slice",
+          "type": "AUDIO",
+          "slot_index": 12,
+          "links": []
+        },
+        {
+          "localized_name": "status",
+          "name": "status",
+          "type": "STRING",
+          "slot_index": 13,
+          "links": []
+        }
+      ],
+      "title": "CURRENT SCENE — PROMPT / SEED / TIMING",
+      "properties": {
+        "cnr_id": "comfyui-minimaxh3-contex-loop",
+        "ver": "81e615c66384e8f747ded5d181ef5807f2775daa",
+        "Node name for S&R": "MiniMaxH3ChainCurrent"
+      }
+    },
+    {
+      "id": 1703,
+      "type": "MiniMaxH3ChainContext",
+      "pos": [
+        2320,
+        2532
+      ],
+      "size": [
+        350.8462890625,
+        220
+      ],
+      "flags": {},
+      "order": 58,
+      "mode": 0,
+      "inputs": [
+        {
+          "localized_name": "state",
+          "name": "state",
+          "type": "H3_CHAIN_STATE",
+          "link": 36
+        },
+        {
+          "localized_name": "conditioning",
+          "name": "conditioning",
+          "type": "CONDITIONING",
+          "link": 34
+        },
+        {
+          "localized_name": "vae",
+          "name": "vae",
+          "type": "VAE",
+          "link": 37
+        },
+        {
+          "localized_name": "latent",
+          "name": "latent",
+          "type": "LATENT",
+          "link": 35
+        },
+        {
+          "localized_name": "audio_vae",
+          "name": "audio_vae",
+          "shape": 7,
+          "type": "VAE",
+          "link": 33
+        }
+      ],
+      "outputs": [
+        {
+          "localized_name": "conditioning",
+          "name": "conditioning",
+          "type": "CONDITIONING",
+          "slot_index": 0,
+          "links": [
+            12
+          ]
+        },
+        {
+          "localized_name": "trim_frames",
+          "name": "trim_frames",
+          "type": "INT",
+          "slot_index": 1,
+          "links": [
+            27
+          ]
+        },
+        {
+          "localized_name": "is_continuation",
+          "name": "is_continuation",
+          "type": "BOOLEAN",
+          "slot_index": 2,
+          "links": []
+        }
+      ],
+      "title": "AUTO CONTEXT — clip 1 bypass / continuation",
+      "properties": {
+        "cnr_id": "comfyui-minimaxh3-contex-loop",
+        "ver": "81e615c66384e8f747ded5d181ef5807f2775daa",
+        "Node name for S&R": "MiniMaxH3ChainContext"
+      }
+    },
+    {
+      "id": 1704,
+      "type": "MiniMaxH3ChainSegmentSave",
+      "pos": [
+        4300,
+        988
+      ],
+      "size": [
+        379.09921875,
+        194
+      ],
+      "flags": {},
+      "order": 65,
+      "mode": 0,
+      "inputs": [
+        {
+          "localized_name": "state",
+          "name": "state",
+          "type": "H3_CHAIN_STATE",
+          "link": 41
+        },
+        {
+          "localized_name": "images",
+          "name": "images",
+          "type": "IMAGE",
+          "link": 39
+        },
+        {
+          "localized_name": "sampled_latent",
+          "name": "sampled_latent",
+          "type": "LATENT",
+          "link": 40
+        },
+        {
+          "localized_name": "audio",
+          "name": "audio",
+          "shape": 7,
+          "type": "AUDIO",
+          "link": 38
+        }
+      ],
+      "outputs": [
+        {
+          "localized_name": "segment",
+          "name": "segment",
+          "type": "H3_CHAIN_SEGMENT",
+          "slot_index": 0,
+          "links": [
+            50
+          ]
+        },
+        {
+          "localized_name": "status",
+          "name": "status",
+          "type": "STRING",
+          "slot_index": 1,
+          "links": []
+        }
+      ],
+      "title": "SAVE SEGMENT + TRANSACTIONAL CHECKPOINT",
+      "properties": {
+        "cnr_id": "comfyui-minimaxh3-contex-loop",
+        "ver": "81e615c66384e8f747ded5d181ef5807f2775daa",
+        "Node name for S&R": "MiniMaxH3ChainSegmentSave"
+      }
+    },
+    {
+      "id": 1705,
+      "type": "MiniMaxH3ChainLoopEnd",
+      "pos": [
+        4300,
+        1226
+      ],
+      "size": [
+        349.6705078125,
+        220
+      ],
+      "flags": {},
+      "order": 67,
+      "mode": 0,
+      "inputs": [
+        {
+          "localized_name": "flow",
+          "name": "flow",
+          "type": "H3_CHAIN_FLOW",
+          "link": 42
+        },
+        {
+          "localized_name": "state",
+          "name": "state",
+          "type": "H3_CHAIN_STATE",
+          "link": 46
+        },
+        {
+          "localized_name": "images",
+          "name": "images",
+          "type": "IMAGE",
+          "link": 43
+        },
+        {
+          "localized_name": "sampled_latent",
+          "name": "sampled_latent",
+          "type": "LATENT",
+          "link": 44
+        },
+        {
+          "localized_name": "segment",
+          "name": "segment",
+          "type": "H3_CHAIN_SEGMENT",
+          "link": 45
+        }
+      ],
+      "outputs": [
+        {
+          "localized_name": "manifest",
+          "name": "manifest",
+          "type": "H3_CHAIN_MANIFEST",
+          "slot_index": 0,
+          "links": [
+            53
+          ]
+        },
+        {
+          "localized_name": "manifest_json",
+          "name": "manifest_json",
+          "type": "STRING",
+          "slot_index": 1,
+          "links": []
+        },
+        {
+          "localized_name": "last_context_frames",
+          "name": "last_context_frames",
+          "type": "IMAGE",
+          "slot_index": 2,
+          "links": []
+        },
+        {
+          "localized_name": "last_context_latent",
+          "name": "last_context_latent",
+          "type": "LATENT",
+          "slot_index": 3,
+          "links": []
+        }
+      ],
+      "title": "LOOP END — RECURSE THROUGH 14 SCENES",
+      "properties": {
+        "cnr_id": "comfyui-minimaxh3-contex-loop",
+        "ver": "81e615c66384e8f747ded5d181ef5807f2775daa",
+        "Node name for S&R": "MiniMaxH3ChainLoopEnd"
+      }
+    },
+    {
+      "id": 1706,
+      "type": "MiniMaxH3ChainAssemble",
+      "pos": [
+        4300,
+        1490
+      ],
+      "size": [
+        347.1138671875,
+        126
+      ],
+      "flags": {},
+      "order": 69,
+      "mode": 0,
+      "inputs": [
+        {
+          "localized_name": "manifest",
+          "name": "manifest",
+          "type": "H3_CHAIN_MANIFEST",
+          "link": 47
+        },
+        {
+          "localized_name": "source_audio",
+          "name": "source_audio",
+          "shape": 7,
+          "type": "AUDIO",
+          "link": null
+        },
+        {
+          "localized_name": "audio_source",
+          "name": "audio_source",
+          "type": "COMBO",
+          "widget": {
+            "name": "audio_source"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "filename",
+          "name": "filename",
+          "type": "STRING",
+          "widget": {
+            "name": "filename"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "audio_bitrate",
+          "name": "audio_bitrate",
+          "type": "INT",
+          "widget": {
+            "name": "audio_bitrate"
+          },
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "localized_name": "video_path",
+          "name": "video_path",
+          "type": "STRING",
+          "slot_index": 0,
+          "links": [
+            54
+          ]
+        }
+      ],
+      "title": "FINAL ASSEMBLY — DATE + COLLISION SAFE",
+      "properties": {
+        "cnr_id": "comfyui-minimaxh3-contex-loop",
+        "ver": "81e615c66384e8f747ded5d181ef5807f2775daa",
+        "Node name for S&R": "MiniMaxH3ChainAssemble"
+      },
+      "widgets_values": [
+        "plan",
+        "pc_FINAL",
+        256
+      ],
+      "widgets_values_named": {
+        "audio_source": "plan",
+        "filename": "pc_FINAL",
+        "audio_bitrate": 256
+      }
+    },
+    {
+      "id": 1945,
+      "type": "PathchSageAttentionKJ",
+      "pos": [
+        0,
+        1099
+      ],
+      "size": [
+        280,
+        116
+      ],
+      "flags": {},
+      "order": 37,
+      "mode": 0,
+      "inputs": [
+        {
+          "localized_name": "model",
+          "name": "model",
+          "type": "MODEL",
+          "link": 52
+        },
+        {
+          "localized_name": "sage_attention",
+          "name": "sage_attention",
+          "type": "COMBO",
+          "widget": {
+            "name": "sage_attention"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "allow_compile",
+          "name": "allow_compile",
+          "shape": 7,
+          "type": "BOOLEAN",
+          "widget": {
+            "name": "allow_compile"
+          },
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "localized_name": "MODEL",
+          "name": "MODEL",
+          "type": "MODEL",
+          "slot_index": 0,
+          "links": [
+            13
+          ]
+        }
+      ],
+      "title": "Sage Attention (per-workflow)",
+      "properties": {
+        "cnr_id": "comfyui-kjnodes",
+        "ver": "1.4.7",
+        "Node name for S&R": "PathchSageAttentionKJ"
+      },
+      "widgets_values": [
+        "auto",
+        false
+      ],
+      "widgets_values_named": {
+        "sage_attention": "auto",
+        "allow_compile": false
+      }
+    },
+    {
+      "id": 1946,
+      "type": "VRAMCleanup",
+      "pos": [
+        4300,
+        2446
+      ],
+      "size": [
+        280,
+        116
+      ],
+      "flags": {},
+      "order": 68,
+      "mode": 0,
+      "inputs": [
+        {
+          "localized_name": "anything",
+          "name": "anything",
+          "shape": 7,
+          "type": "*",
+          "link": 53
+        },
+        {
+          "localized_name": "offload_model",
+          "name": "offload_model",
+          "type": "BOOLEAN",
+          "widget": {
+            "name": "offload_model"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "offload_cache",
+          "name": "offload_cache",
+          "type": "BOOLEAN",
+          "widget": {
+            "name": "offload_cache"
+          },
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "localized_name": "output",
+          "name": "output",
+          "type": "*",
+          "slot_index": 0,
+          "links": [
+            47
+          ]
+        }
+      ],
+      "title": "Free VRAM (end of generation)",
+      "properties": {
+        "cnr_id": "comfyui_memory_cleanup",
+        "ver": "1.1.3",
+        "Node name for S&R": "VRAMCleanup"
+      },
+      "widgets_values": [
+        true,
+        true
+      ],
+      "widgets_values_named": {
+        "offload_model": true,
+        "offload_cache": true
+      }
+    },
+    {
+      "id": 1956,
+      "type": "ResolutionSelector",
+      "pos": [
+        580,
+        404
+      ],
+      "size": [
+        293.34921875,
+        126
+      ],
+      "flags": {},
+      "order": 2,
+      "mode": 0,
+      "inputs": [
+        {
+          "localized_name": "aspect_ratio",
+          "name": "aspect_ratio",
+          "type": "COMBO",
+          "widget": {
+            "name": "aspect_ratio"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "megapixels",
+          "name": "megapixels",
+          "type": "FLOAT",
+          "widget": {
+            "name": "megapixels"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "multiple",
+          "name": "multiple",
+          "type": "INT",
+          "widget": {
+            "name": "multiple"
+          },
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "localized_name": "width",
+          "name": "width",
+          "type": "INT",
+          "slot_index": 0,
+          "links": [
+            30
+          ]
+        },
+        {
+          "localized_name": "height",
+          "name": "height",
+          "type": "INT",
+          "slot_index": 1,
+          "links": [
+            29
+          ]
+        }
+      ],
+      "title": "Resolution (aspect ratio + megapixels)",
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.33.0",
+        "Node name for S&R": "ResolutionSelector"
+      },
+      "widgets_values": [
+        "16:9 (Widescreen)",
+        1.5,
+        32
+      ],
+      "widgets_values_named": {
+        "aspect_ratio": "16:9 (Widescreen)",
+        "megapixels": 1.5,
+        "multiple": 32
+      }
+    },
+    {
+      "id": 2,
+      "type": "CLIPLoader",
+      "pos": [
+        0,
+        521
+      ],
+      "size": [
+        280,
+        106
+      ],
+      "flags": {},
+      "order": 3,
+      "mode": 0,
+      "inputs": [
+        {
+          "localized_name": "clip_name",
+          "name": "clip_name",
+          "type": "COMBO",
+          "widget": {
+            "name": "clip_name"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "type",
+          "name": "type",
+          "type": "COMBO",
+          "widget": {
+            "name": "type"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "device",
+          "name": "device",
+          "shape": 7,
+          "type": "COMBO",
+          "widget": {
+            "name": "device"
+          },
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "localized_name": "CLIP",
+          "name": "CLIP",
+          "type": "CLIP",
+          "slot_index": 0,
+          "links": [
+            2
+          ]
+        }
+      ],
+      "title": "H3 TEXT ENCODER",
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.33.0",
+        "Node name for S&R": "CLIPLoader"
+      },
+      "widgets_values": [
+        "qwen3vl_32b_minimax_h3_nvfp4_awq.safetensors",
+        "minimax",
+        "default"
+      ],
+      "widgets_values_named": {
+        "clip_name": "qwen3vl_32b_minimax_h3_nvfp4_awq.safetensors",
+        "type": "minimax",
+        "device": "default"
+      }
+    },
+    {
+      "id": 3,
+      "type": "VAELoader",
+      "pos": [
+        0,
+        671
+      ],
+      "size": [
+        280,
+        90
+      ],
+      "flags": {},
+      "order": 4,
+      "mode": 0,
+      "inputs": [
+        {
+          "localized_name": "vae_name",
+          "name": "vae_name",
+          "type": "COMBO",
+          "widget": {
+            "name": "vae_name"
+          },
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "localized_name": "VAE",
+          "name": "VAE",
+          "type": "VAE",
+          "slot_index": 0,
+          "links": [
+            9,
+            22,
+            37
+          ]
+        }
+      ],
+      "title": "H3 Video VAE",
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.33.0",
+        "Node name for S&R": "VAELoader"
+      },
+      "widgets_values": [
+        "minimax_h3_video_vae_fp16.safetensors"
+      ],
+      "widgets_values_named": {
+        "vae_name": "minimax_h3_video_vae_fp16.safetensors"
+      }
+    },
+    {
+      "id": 4,
+      "type": "VAELoader",
+      "pos": [
+        0,
+        805
+      ],
+      "size": [
+        280,
+        90
+      ],
+      "flags": {},
+      "order": 5,
+      "mode": 0,
+      "inputs": [
+        {
+          "localized_name": "vae_name",
+          "name": "vae_name",
+          "type": "COMBO",
+          "widget": {
+            "name": "vae_name"
+          },
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "localized_name": "VAE",
+          "name": "VAE",
+          "type": "VAE",
+          "slot_index": 0,
+          "links": [
+            1,
+            24,
+            33
+          ]
+        }
+      ],
+      "title": "H3 Audio VAE",
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.33.0",
+        "Node name for S&R": "VAELoader"
+      },
+      "widgets_values": [
+        "minimax_h3_audio_vae_fp32.safetensors"
+      ],
+      "widgets_values_named": {
+        "vae_name": "minimax_h3_audio_vae_fp32.safetensors"
+      }
+    },
+    {
+      "id": 5,
+      "type": "MiniMaxH3SigmaShift",
+      "pos": [
+        0,
+        939
+      ],
+      "size": [
+        280,
+        116
+      ],
+      "flags": {},
+      "order": 30,
+      "mode": 0,
+      "inputs": [
+        {
+          "localized_name": "model",
+          "name": "model",
+          "type": "MODEL",
+          "link": 57
+        },
+        {
+          "localized_name": "shift_video",
+          "name": "shift_video",
+          "type": "FLOAT",
+          "widget": {
+            "name": "shift_video"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "shift_audio",
+          "name": "shift_audio",
+          "type": "FLOAT",
+          "widget": {
+            "name": "shift_audio"
+          },
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "localized_name": "MODEL",
+          "name": "MODEL",
+          "type": "MODEL",
+          "slot_index": 0,
+          "links": [
+            14,
+            52
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.33.0",
+        "Node name for S&R": "MiniMaxH3SigmaShift"
+      },
+      "widgets_values": [
+        12,
+        3
+      ],
+      "widgets_values_named": {
+        "shift_video": 12,
+        "shift_audio": 3
+      }
+    },
+    {
+      "id": 9301,
+      "type": "LoadImage",
+      "pos": [
+        1160,
+        438
+      ],
+      "size": [
+        280,
+        314
+      ],
+      "flags": {},
+      "order": 6,
+      "mode": 0,
+      "inputs": [
+        {
+          "localized_name": "image",
+          "name": "image",
+          "type": "COMBO",
+          "widget": {
+            "name": "image"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "choose file to upload",
+          "name": "upload",
+          "type": "IMAGEUPLOAD",
+          "widget": {
+            "name": "upload"
+          },
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "localized_name": "IMAGE",
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "slot_index": 0,
+          "links": [
+            58
+          ]
+        },
+        {
+          "localized_name": "MASK",
+          "name": "MASK",
+          "type": "MASK",
+          "slot_index": 1,
+          "links": []
+        }
+      ],
+      "title": "@cut1 - corrected lettering",
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.33.0",
+        "Node name for S&R": "LoadImage"
+      },
+      "widgets_values": [
+        "pc_kv01_fixed.png",
+        "image"
+      ],
+      "widgets_values_named": {
+        "image": "pc_kv01_fixed.png",
+        "upload": "image"
+      }
+    },
+    {
+      "id": 9302,
+      "type": "LoadImage",
+      "pos": [
+        1160,
+        796
+      ],
+      "size": [
+        280,
+        314
+      ],
+      "flags": {},
+      "order": 7,
+      "mode": 0,
+      "inputs": [
+        {
+          "localized_name": "image",
+          "name": "image",
+          "type": "COMBO",
+          "widget": {
+            "name": "image"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "choose file to upload",
+          "name": "upload",
+          "type": "IMAGEUPLOAD",
+          "widget": {
+            "name": "upload"
+          },
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "localized_name": "IMAGE",
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "slot_index": 0,
+          "links": [
+            59
+          ]
+        },
+        {
+          "localized_name": "MASK",
+          "name": "MASK",
+          "type": "MASK",
+          "slot_index": 1,
+          "links": []
+        }
+      ],
+      "title": "LoadImage",
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.33.0",
+        "Node name for S&R": "LoadImage"
+      },
+      "widgets_values": [
+        "pc_kv02.png",
+        "image"
+      ],
+      "widgets_values_named": {
+        "image": "pc_kv02.png",
+        "upload": "image"
+      }
+    },
+    {
+      "id": 9303,
+      "type": "LoadImage",
+      "pos": [
+        1160,
+        1154
+      ],
+      "size": [
+        280,
+        314
+      ],
+      "flags": {},
+      "order": 8,
+      "mode": 0,
+      "inputs": [
+        {
+          "localized_name": "image",
+          "name": "image",
+          "type": "COMBO",
+          "widget": {
+            "name": "image"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "choose file to upload",
+          "name": "upload",
+          "type": "IMAGEUPLOAD",
+          "widget": {
+            "name": "upload"
+          },
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "localized_name": "IMAGE",
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "slot_index": 0,
+          "links": [
+            61
+          ]
+        },
+        {
+          "localized_name": "MASK",
+          "name": "MASK",
+          "type": "MASK",
+          "slot_index": 1,
+          "links": []
+        }
+      ],
+      "title": "LoadImage",
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.33.0",
+        "Node name for S&R": "LoadImage"
+      },
+      "widgets_values": [
+        "pc_kv03.png",
+        "image"
+      ],
+      "widgets_values_named": {
+        "image": "pc_kv03.png",
+        "upload": "image"
+      }
+    },
+    {
+      "id": 9304,
+      "type": "LoadImage",
+      "pos": [
+        1160,
+        1512
+      ],
+      "size": [
+        280,
+        314
+      ],
+      "flags": {},
+      "order": 9,
+      "mode": 0,
+      "inputs": [
+        {
+          "localized_name": "image",
+          "name": "image",
+          "type": "COMBO",
+          "widget": {
+            "name": "image"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "choose file to upload",
+          "name": "upload",
+          "type": "IMAGEUPLOAD",
+          "widget": {
+            "name": "upload"
+          },
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "localized_name": "IMAGE",
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "slot_index": 0,
+          "links": [
+            63
+          ]
+        },
+        {
+          "localized_name": "MASK",
+          "name": "MASK",
+          "type": "MASK",
+          "slot_index": 1,
+          "links": []
+        }
+      ],
+      "title": "LoadImage",
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.33.0",
+        "Node name for S&R": "LoadImage"
+      },
+      "widgets_values": [
+        "pc_kv04.png",
+        "image"
+      ],
+      "widgets_values_named": {
+        "image": "pc_kv04.png",
+        "upload": "image"
+      }
+    },
+    {
+      "id": 9305,
+      "type": "LoadImage",
+      "pos": [
+        1160,
+        1870
+      ],
+      "size": [
+        280,
+        314
+      ],
+      "flags": {},
+      "order": 10,
+      "mode": 0,
+      "inputs": [
+        {
+          "localized_name": "image",
+          "name": "image",
+          "type": "COMBO",
+          "widget": {
+            "name": "image"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "choose file to upload",
+          "name": "upload",
+          "type": "IMAGEUPLOAD",
+          "widget": {
+            "name": "upload"
+          },
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "localized_name": "IMAGE",
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "slot_index": 0,
+          "links": [
+            65
+          ]
+        },
+        {
+          "localized_name": "MASK",
+          "name": "MASK",
+          "type": "MASK",
+          "slot_index": 1,
+          "links": []
+        }
+      ],
+      "title": "LoadImage",
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.33.0",
+        "Node name for S&R": "LoadImage"
+      },
+      "widgets_values": [
+        "pc_kv05.png",
+        "image"
+      ],
+      "widgets_values_named": {
+        "image": "pc_kv05.png",
+        "upload": "image"
+      }
+    },
+    {
+      "id": 9306,
+      "type": "LoadImage",
+      "pos": [
+        1160,
+        2228
+      ],
+      "size": [
+        280,
+        314
+      ],
+      "flags": {},
+      "order": 11,
+      "mode": 0,
+      "inputs": [
+        {
+          "localized_name": "image",
+          "name": "image",
+          "type": "COMBO",
+          "widget": {
+            "name": "image"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "choose file to upload",
+          "name": "upload",
+          "type": "IMAGEUPLOAD",
+          "widget": {
+            "name": "upload"
+          },
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "localized_name": "IMAGE",
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "slot_index": 0,
+          "links": [
+            67
+          ]
+        },
+        {
+          "localized_name": "MASK",
+          "name": "MASK",
+          "type": "MASK",
+          "slot_index": 1,
+          "links": []
+        }
+      ],
+      "title": "LoadImage",
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.33.0",
+        "Node name for S&R": "LoadImage"
+      },
+      "widgets_values": [
+        "pc_kv06.png",
+        "image"
+      ],
+      "widgets_values_named": {
+        "image": "pc_kv06.png",
+        "upload": "image"
+      }
+    },
+    {
+      "id": 9307,
+      "type": "LoadImage",
+      "pos": [
+        1160,
+        2586
+      ],
+      "size": [
+        280,
+        314
+      ],
+      "flags": {},
+      "order": 12,
+      "mode": 0,
+      "inputs": [
+        {
+          "localized_name": "image",
+          "name": "image",
+          "type": "COMBO",
+          "widget": {
+            "name": "image"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "choose file to upload",
+          "name": "upload",
+          "type": "IMAGEUPLOAD",
+          "widget": {
+            "name": "upload"
+          },
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "localized_name": "IMAGE",
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "slot_index": 0,
+          "links": [
+            69
+          ]
+        },
+        {
+          "localized_name": "MASK",
+          "name": "MASK",
+          "type": "MASK",
+          "slot_index": 1,
+          "links": []
+        }
+      ],
+      "title": "LoadImage",
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.33.0",
+        "Node name for S&R": "LoadImage"
+      },
+      "widgets_values": [
+        "pc_kv07.png",
+        "image"
+      ],
+      "widgets_values_named": {
+        "image": "pc_kv07.png",
+        "upload": "image"
+      }
+    },
+    {
+      "id": 9308,
+      "type": "LoadImage",
+      "pos": [
+        1160,
+        2944
+      ],
+      "size": [
+        280,
+        314
+      ],
+      "flags": {},
+      "order": 13,
+      "mode": 0,
+      "inputs": [
+        {
+          "localized_name": "image",
+          "name": "image",
+          "type": "COMBO",
+          "widget": {
+            "name": "image"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "choose file to upload",
+          "name": "upload",
+          "type": "IMAGEUPLOAD",
+          "widget": {
+            "name": "upload"
+          },
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "localized_name": "IMAGE",
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "slot_index": 0,
+          "links": [
+            71
+          ]
+        },
+        {
+          "localized_name": "MASK",
+          "name": "MASK",
+          "type": "MASK",
+          "slot_index": 1,
+          "links": []
+        }
+      ],
+      "title": "LoadImage",
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.33.0",
+        "Node name for S&R": "LoadImage"
+      },
+      "widgets_values": [
+        "pc_kv08.png",
+        "image"
+      ],
+      "widgets_values_named": {
+        "image": "pc_kv08.png",
+        "upload": "image"
+      }
+    },
+    {
+      "id": 9309,
+      "type": "LoadImage",
+      "pos": [
+        1160,
+        3302
+      ],
+      "size": [
+        280,
+        314
+      ],
+      "flags": {},
+      "order": 14,
+      "mode": 0,
+      "inputs": [
+        {
+          "localized_name": "image",
+          "name": "image",
+          "type": "COMBO",
+          "widget": {
+            "name": "image"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "choose file to upload",
+          "name": "upload",
+          "type": "IMAGEUPLOAD",
+          "widget": {
+            "name": "upload"
+          },
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "localized_name": "IMAGE",
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "slot_index": 0,
+          "links": [
+            73
+          ]
+        },
+        {
+          "localized_name": "MASK",
+          "name": "MASK",
+          "type": "MASK",
+          "slot_index": 1,
+          "links": []
+        }
+      ],
+      "title": "@cut9 - NEW woman",
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.33.0",
+        "Node name for S&R": "LoadImage"
+      },
+      "widgets_values": [
+        "pc_kv_taipa_new.png",
+        "image"
+      ],
+      "widgets_values_named": {
+        "image": "pc_kv_taipa_new.png",
+        "upload": "image"
+      }
+    },
+    {
+      "id": 9310,
+      "type": "LoadImage",
+      "pos": [
+        1160,
+        3660
+      ],
+      "size": [
+        280,
+        314
+      ],
+      "flags": {},
+      "order": 15,
+      "mode": 0,
+      "inputs": [
+        {
+          "localized_name": "image",
+          "name": "image",
+          "type": "COMBO",
+          "widget": {
+            "name": "image"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "choose file to upload",
+          "name": "upload",
+          "type": "IMAGEUPLOAD",
+          "widget": {
+            "name": "upload"
+          },
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "localized_name": "IMAGE",
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "slot_index": 0,
+          "links": [
+            75
+          ]
+        },
+        {
+          "localized_name": "MASK",
+          "name": "MASK",
+          "type": "MASK",
+          "slot_index": 1,
+          "links": []
+        }
+      ],
+      "title": "@cut10",
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.33.0",
+        "Node name for S&R": "LoadImage"
+      },
+      "widgets_values": [
+        "pc_kv10.png",
+        "image"
+      ],
+      "widgets_values_named": {
+        "image": "pc_kv10.png",
+        "upload": "image"
+      }
+    },
+    {
+      "id": 9401,
+      "type": "MiniMaxH3ScheduledPictureReference",
+      "pos": [
+        1740,
+        455
+      ],
+      "size": [
+        346,
+        122
+      ],
+      "flags": {},
+      "order": 31,
+      "mode": 0,
+      "inputs": [
+        {
+          "localized_name": "image",
+          "name": "image",
+          "type": "IMAGE",
+          "link": 58
+        },
+        {
+          "localized_name": "previous",
+          "name": "previous",
+          "shape": 7,
+          "type": "H3_REFERENCE_SCHEDULE",
+          "link": null
+        },
+        {
+          "localized_name": "tag",
+          "name": "tag",
+          "type": "STRING",
+          "widget": {
+            "name": "tag"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "scenes",
+          "name": "scenes",
+          "type": "STRING",
+          "widget": {
+            "name": "scenes"
+          },
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "localized_name": "schedule",
+          "name": "schedule",
+          "type": "H3_REFERENCE_SCHEDULE",
+          "slot_index": 0,
+          "links": [
+            60
+          ]
+        },
+        {
+          "localized_name": "schedule_fingerprint",
+          "name": "schedule_fingerprint",
+          "type": "STRING",
+          "slot_index": 1,
+          "links": []
+        },
+        {
+          "localized_name": "status",
+          "name": "status",
+          "type": "STRING",
+          "slot_index": 2,
+          "links": []
+        }
+      ],
+      "title": "MiniMaxH3ScheduledPictureReference",
+      "properties": {
+        "cnr_id": "comfyui-minimaxh3-contex-loop",
+        "ver": "81e615c66384e8f747ded5d181ef5807f2775daa",
+        "Node name for S&R": "MiniMaxH3ScheduledPictureReference"
+      },
+      "widgets_values": [
+        "cut1",
+        "1"
+      ],
+      "widgets_values_named": {
+        "tag": "cut1",
+        "scenes": "1"
+      }
+    },
+    {
+      "id": 9402,
+      "type": "MiniMaxH3ScheduledPictureReference",
+      "pos": [
+        1740,
+        621
+      ],
+      "size": [
+        346,
+        142
+      ],
+      "flags": {},
+      "order": 38,
+      "mode": 0,
+      "inputs": [
+        {
+          "localized_name": "image",
+          "name": "image",
+          "type": "IMAGE",
+          "link": 59
+        },
+        {
+          "localized_name": "previous",
+          "name": "previous",
+          "shape": 7,
+          "type": "H3_REFERENCE_SCHEDULE",
+          "link": 60
+        },
+        {
+          "localized_name": "tag",
+          "name": "tag",
+          "type": "STRING",
+          "widget": {
+            "name": "tag"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "scenes",
+          "name": "scenes",
+          "type": "STRING",
+          "widget": {
+            "name": "scenes"
+          },
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "localized_name": "schedule",
+          "name": "schedule",
+          "type": "H3_REFERENCE_SCHEDULE",
+          "slot_index": 0,
+          "links": [
+            62
+          ]
+        },
+        {
+          "localized_name": "schedule_fingerprint",
+          "name": "schedule_fingerprint",
+          "type": "STRING",
+          "slot_index": 1,
+          "links": []
+        },
+        {
+          "localized_name": "status",
+          "name": "status",
+          "type": "STRING",
+          "slot_index": 2,
+          "links": []
+        }
+      ],
+      "title": "MiniMaxH3ScheduledPictureReference",
+      "properties": {
+        "cnr_id": "comfyui-minimaxh3-contex-loop",
+        "ver": "81e615c66384e8f747ded5d181ef5807f2775daa",
+        "Node name for S&R": "MiniMaxH3ScheduledPictureReference"
+      },
+      "widgets_values": [
+        "cut2",
+        "1"
+      ],
+      "widgets_values_named": {
+        "tag": "cut2",
+        "scenes": "1"
+      }
+    },
+    {
+      "id": 9403,
+      "type": "MiniMaxH3ScheduledPictureReference",
+      "pos": [
+        1740,
+        807
+      ],
+      "size": [
+        346,
+        142
+      ],
+      "flags": {},
+      "order": 39,
+      "mode": 0,
+      "inputs": [
+        {
+          "localized_name": "image",
+          "name": "image",
+          "type": "IMAGE",
+          "link": 61
+        },
+        {
+          "localized_name": "previous",
+          "name": "previous",
+          "shape": 7,
+          "type": "H3_REFERENCE_SCHEDULE",
+          "link": 62
+        },
+        {
+          "localized_name": "tag",
+          "name": "tag",
+          "type": "STRING",
+          "widget": {
+            "name": "tag"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "scenes",
+          "name": "scenes",
+          "type": "STRING",
+          "widget": {
+            "name": "scenes"
+          },
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "localized_name": "schedule",
+          "name": "schedule",
+          "type": "H3_REFERENCE_SCHEDULE",
+          "slot_index": 0,
+          "links": [
+            64
+          ]
+        },
+        {
+          "localized_name": "schedule_fingerprint",
+          "name": "schedule_fingerprint",
+          "type": "STRING",
+          "slot_index": 1,
+          "links": []
+        },
+        {
+          "localized_name": "status",
+          "name": "status",
+          "type": "STRING",
+          "slot_index": 2,
+          "links": []
+        }
+      ],
+      "title": "MiniMaxH3ScheduledPictureReference",
+      "properties": {
+        "cnr_id": "comfyui-minimaxh3-contex-loop",
+        "ver": "81e615c66384e8f747ded5d181ef5807f2775daa",
+        "Node name for S&R": "MiniMaxH3ScheduledPictureReference"
+      },
+      "widgets_values": [
+        "cut3",
+        "1"
+      ],
+      "widgets_values_named": {
+        "tag": "cut3",
+        "scenes": "1"
+      }
+    },
+    {
+      "id": 9404,
+      "type": "MiniMaxH3ScheduledPictureReference",
+      "pos": [
+        1740,
+        993
+      ],
+      "size": [
+        346,
+        142
+      ],
+      "flags": {},
+      "order": 40,
+      "mode": 0,
+      "inputs": [
+        {
+          "localized_name": "image",
+          "name": "image",
+          "type": "IMAGE",
+          "link": 63
+        },
+        {
+          "localized_name": "previous",
+          "name": "previous",
+          "shape": 7,
+          "type": "H3_REFERENCE_SCHEDULE",
+          "link": 64
+        },
+        {
+          "localized_name": "tag",
+          "name": "tag",
+          "type": "STRING",
+          "widget": {
+            "name": "tag"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "scenes",
+          "name": "scenes",
+          "type": "STRING",
+          "widget": {
+            "name": "scenes"
+          },
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "localized_name": "schedule",
+          "name": "schedule",
+          "type": "H3_REFERENCE_SCHEDULE",
+          "slot_index": 0,
+          "links": [
+            66
+          ]
+        },
+        {
+          "localized_name": "schedule_fingerprint",
+          "name": "schedule_fingerprint",
+          "type": "STRING",
+          "slot_index": 1,
+          "links": []
+        },
+        {
+          "localized_name": "status",
+          "name": "status",
+          "type": "STRING",
+          "slot_index": 2,
+          "links": []
+        }
+      ],
+      "title": "MiniMaxH3ScheduledPictureReference",
+      "properties": {
+        "cnr_id": "comfyui-minimaxh3-contex-loop",
+        "ver": "81e615c66384e8f747ded5d181ef5807f2775daa",
+        "Node name for S&R": "MiniMaxH3ScheduledPictureReference"
+      },
+      "widgets_values": [
+        "cut4",
+        "1,2"
+      ],
+      "widgets_values_named": {
+        "tag": "cut4",
+        "scenes": "1,2"
+      }
+    },
+    {
+      "id": 9405,
+      "type": "MiniMaxH3ScheduledPictureReference",
+      "pos": [
+        1740,
+        1179
+      ],
+      "size": [
+        346,
+        142
+      ],
+      "flags": {},
+      "order": 41,
+      "mode": 0,
+      "inputs": [
+        {
+          "localized_name": "image",
+          "name": "image",
+          "type": "IMAGE",
+          "link": 65
+        },
+        {
+          "localized_name": "previous",
+          "name": "previous",
+          "shape": 7,
+          "type": "H3_REFERENCE_SCHEDULE",
+          "link": 66
+        },
+        {
+          "localized_name": "tag",
+          "name": "tag",
+          "type": "STRING",
+          "widget": {
+            "name": "tag"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "scenes",
+          "name": "scenes",
+          "type": "STRING",
+          "widget": {
+            "name": "scenes"
+          },
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "localized_name": "schedule",
+          "name": "schedule",
+          "type": "H3_REFERENCE_SCHEDULE",
+          "slot_index": 0,
+          "links": [
+            68
+          ]
+        },
+        {
+          "localized_name": "schedule_fingerprint",
+          "name": "schedule_fingerprint",
+          "type": "STRING",
+          "slot_index": 1,
+          "links": []
+        },
+        {
+          "localized_name": "status",
+          "name": "status",
+          "type": "STRING",
+          "slot_index": 2,
+          "links": []
+        }
+      ],
+      "title": "MiniMaxH3ScheduledPictureReference",
+      "properties": {
+        "cnr_id": "comfyui-minimaxh3-contex-loop",
+        "ver": "81e615c66384e8f747ded5d181ef5807f2775daa",
+        "Node name for S&R": "MiniMaxH3ScheduledPictureReference"
+      },
+      "widgets_values": [
+        "cut5",
+        "2"
+      ],
+      "widgets_values_named": {
+        "tag": "cut5",
+        "scenes": "2"
+      }
+    },
+    {
+      "id": 9406,
+      "type": "MiniMaxH3ScheduledPictureReference",
+      "pos": [
+        1740,
+        1365
+      ],
+      "size": [
+        346,
+        142
+      ],
+      "flags": {},
+      "order": 42,
+      "mode": 0,
+      "inputs": [
+        {
+          "localized_name": "image",
+          "name": "image",
+          "type": "IMAGE",
+          "link": 67
+        },
+        {
+          "localized_name": "previous",
+          "name": "previous",
+          "shape": 7,
+          "type": "H3_REFERENCE_SCHEDULE",
+          "link": 68
+        },
+        {
+          "localized_name": "tag",
+          "name": "tag",
+          "type": "STRING",
+          "widget": {
+            "name": "tag"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "scenes",
+          "name": "scenes",
+          "type": "STRING",
+          "widget": {
+            "name": "scenes"
+          },
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "localized_name": "schedule",
+          "name": "schedule",
+          "type": "H3_REFERENCE_SCHEDULE",
+          "slot_index": 0,
+          "links": [
+            70
+          ]
+        },
+        {
+          "localized_name": "schedule_fingerprint",
+          "name": "schedule_fingerprint",
+          "type": "STRING",
+          "slot_index": 1,
+          "links": []
+        },
+        {
+          "localized_name": "status",
+          "name": "status",
+          "type": "STRING",
+          "slot_index": 2,
+          "links": []
+        }
+      ],
+      "title": "MiniMaxH3ScheduledPictureReference",
+      "properties": {
+        "cnr_id": "comfyui-minimaxh3-contex-loop",
+        "ver": "81e615c66384e8f747ded5d181ef5807f2775daa",
+        "Node name for S&R": "MiniMaxH3ScheduledPictureReference"
+      },
+      "widgets_values": [
+        "cut6",
+        "2,3"
+      ],
+      "widgets_values_named": {
+        "tag": "cut6",
+        "scenes": "2,3"
+      }
+    },
+    {
+      "id": 9407,
+      "type": "MiniMaxH3ScheduledPictureReference",
+      "pos": [
+        1740,
+        1551
+      ],
+      "size": [
+        346,
+        142
+      ],
+      "flags": {},
+      "order": 43,
+      "mode": 0,
+      "inputs": [
+        {
+          "localized_name": "image",
+          "name": "image",
+          "type": "IMAGE",
+          "link": 69
+        },
+        {
+          "localized_name": "previous",
+          "name": "previous",
+          "shape": 7,
+          "type": "H3_REFERENCE_SCHEDULE",
+          "link": 70
+        },
+        {
+          "localized_name": "tag",
+          "name": "tag",
+          "type": "STRING",
+          "widget": {
+            "name": "tag"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "scenes",
+          "name": "scenes",
+          "type": "STRING",
+          "widget": {
+            "name": "scenes"
+          },
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "localized_name": "schedule",
+          "name": "schedule",
+          "type": "H3_REFERENCE_SCHEDULE",
+          "slot_index": 0,
+          "links": [
+            72
+          ]
+        },
+        {
+          "localized_name": "schedule_fingerprint",
+          "name": "schedule_fingerprint",
+          "type": "STRING",
+          "slot_index": 1,
+          "links": []
+        },
+        {
+          "localized_name": "status",
+          "name": "status",
+          "type": "STRING",
+          "slot_index": 2,
+          "links": []
+        }
+      ],
+      "title": "MiniMaxH3ScheduledPictureReference",
+      "properties": {
+        "cnr_id": "comfyui-minimaxh3-contex-loop",
+        "ver": "81e615c66384e8f747ded5d181ef5807f2775daa",
+        "Node name for S&R": "MiniMaxH3ScheduledPictureReference"
+      },
+      "widgets_values": [
+        "cut7",
+        "3"
+      ],
+      "widgets_values_named": {
+        "tag": "cut7",
+        "scenes": "3"
+      }
+    },
+    {
+      "id": 9408,
+      "type": "MiniMaxH3ScheduledPictureReference",
+      "pos": [
+        1740,
+        1737
+      ],
+      "size": [
+        346,
+        142
+      ],
+      "flags": {},
+      "order": 44,
+      "mode": 0,
+      "inputs": [
+        {
+          "localized_name": "image",
+          "name": "image",
+          "type": "IMAGE",
+          "link": 71
+        },
+        {
+          "localized_name": "previous",
+          "name": "previous",
+          "shape": 7,
+          "type": "H3_REFERENCE_SCHEDULE",
+          "link": 72
+        },
+        {
+          "localized_name": "tag",
+          "name": "tag",
+          "type": "STRING",
+          "widget": {
+            "name": "tag"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "scenes",
+          "name": "scenes",
+          "type": "STRING",
+          "widget": {
+            "name": "scenes"
+          },
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "localized_name": "schedule",
+          "name": "schedule",
+          "type": "H3_REFERENCE_SCHEDULE",
+          "slot_index": 0,
+          "links": [
+            74
+          ]
+        },
+        {
+          "localized_name": "schedule_fingerprint",
+          "name": "schedule_fingerprint",
+          "type": "STRING",
+          "slot_index": 1,
+          "links": []
+        },
+        {
+          "localized_name": "status",
+          "name": "status",
+          "type": "STRING",
+          "slot_index": 2,
+          "links": []
+        }
+      ],
+      "title": "MiniMaxH3ScheduledPictureReference",
+      "properties": {
+        "cnr_id": "comfyui-minimaxh3-contex-loop",
+        "ver": "81e615c66384e8f747ded5d181ef5807f2775daa",
+        "Node name for S&R": "MiniMaxH3ScheduledPictureReference"
+      },
+      "widgets_values": [
+        "cut8",
+        "3"
+      ],
+      "widgets_values_named": {
+        "tag": "cut8",
+        "scenes": "3"
+      }
+    },
+    {
+      "id": 9409,
+      "type": "MiniMaxH3ScheduledPictureReference",
+      "pos": [
+        1740,
+        1923
+      ],
+      "size": [
+        346,
+        142
+      ],
+      "flags": {},
+      "order": 45,
+      "mode": 0,
+      "inputs": [
+        {
+          "localized_name": "image",
+          "name": "image",
+          "type": "IMAGE",
+          "link": 73
+        },
+        {
+          "localized_name": "previous",
+          "name": "previous",
+          "shape": 7,
+          "type": "H3_REFERENCE_SCHEDULE",
+          "link": 74
+        },
+        {
+          "localized_name": "tag",
+          "name": "tag",
+          "type": "STRING",
+          "widget": {
+            "name": "tag"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "scenes",
+          "name": "scenes",
+          "type": "STRING",
+          "widget": {
+            "name": "scenes"
+          },
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "localized_name": "schedule",
+          "name": "schedule",
+          "type": "H3_REFERENCE_SCHEDULE",
+          "slot_index": 0,
+          "links": [
+            76
+          ]
+        },
+        {
+          "localized_name": "schedule_fingerprint",
+          "name": "schedule_fingerprint",
+          "type": "STRING",
+          "slot_index": 1,
+          "links": []
+        },
+        {
+          "localized_name": "status",
+          "name": "status",
+          "type": "STRING",
+          "slot_index": 2,
+          "links": []
+        }
+      ],
+      "title": "MiniMaxH3ScheduledPictureReference",
+      "properties": {
+        "cnr_id": "comfyui-minimaxh3-contex-loop",
+        "ver": "81e615c66384e8f747ded5d181ef5807f2775daa",
+        "Node name for S&R": "MiniMaxH3ScheduledPictureReference"
+      },
+      "widgets_values": [
+        "cut9",
+        "3,4"
+      ],
+      "widgets_values_named": {
+        "tag": "cut9",
+        "scenes": "3,4"
+      }
+    },
+    {
+      "id": 9410,
+      "type": "MiniMaxH3ScheduledPictureReference",
+      "pos": [
+        1740,
+        2109
+      ],
+      "size": [
+        346,
+        142
+      ],
+      "flags": {},
+      "order": 46,
+      "mode": 0,
+      "inputs": [
+        {
+          "localized_name": "image",
+          "name": "image",
+          "type": "IMAGE",
+          "link": 75
+        },
+        {
+          "localized_name": "previous",
+          "name": "previous",
+          "shape": 7,
+          "type": "H3_REFERENCE_SCHEDULE",
+          "link": 76
+        },
+        {
+          "localized_name": "tag",
+          "name": "tag",
+          "type": "STRING",
+          "widget": {
+            "name": "tag"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "scenes",
+          "name": "scenes",
+          "type": "STRING",
+          "widget": {
+            "name": "scenes"
+          },
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "localized_name": "schedule",
+          "name": "schedule",
+          "type": "H3_REFERENCE_SCHEDULE",
+          "slot_index": 0,
+          "links": [
+            81
+          ]
+        },
+        {
+          "localized_name": "schedule_fingerprint",
+          "name": "schedule_fingerprint",
+          "type": "STRING",
+          "slot_index": 1,
+          "links": []
+        },
+        {
+          "localized_name": "status",
+          "name": "status",
+          "type": "STRING",
+          "slot_index": 2,
+          "links": []
+        }
+      ],
+      "title": "MiniMaxH3ScheduledPictureReference",
+      "properties": {
+        "cnr_id": "comfyui-minimaxh3-contex-loop",
+        "ver": "81e615c66384e8f747ded5d181ef5807f2775daa",
+        "Node name for S&R": "MiniMaxH3ScheduledPictureReference"
+      },
+      "widgets_values": [
+        "cut10",
+        "4"
+      ],
+      "widgets_values_named": {
+        "tag": "cut10",
+        "scenes": "4"
+      }
+    },
+    {
+      "id": 9501,
+      "type": "LoadVideo",
+      "pos": [
+        1160,
+        4018
+      ],
+      "size": [
+        280,
+        236.10526315789474
+      ],
+      "flags": {},
+      "order": 16,
+      "mode": 0,
+      "inputs": [
+        {
+          "localized_name": "file",
+          "name": "file",
+          "type": "COMBO",
+          "widget": {
+            "name": "file"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "choose file to upload",
+          "name": "upload",
+          "type": "IMAGEUPLOAD",
+          "widget": {
+            "name": "upload"
+          },
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "localized_name": "VIDEO",
+          "name": "VIDEO",
+          "type": "VIDEO",
+          "slot_index": 0,
+          "links": [
+            77,
+            93,
+            101
+          ]
+        }
+      ],
+      "title": "LoadVideo",
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.33.0",
+        "Node name for S&R": "LoadVideo"
+      },
+      "widgets_values": [
+        "pcC_s1.mp4",
+        "image"
+      ],
+      "widgets_values_named": {
+        "file": "pcC_s1.mp4",
+        "upload": "image"
+      }
+    },
+    {
+      "id": 9502,
+      "type": "LoadVideo",
+      "pos": [
+        1160,
+        4298.105263157895
+      ],
+      "size": [
+        280,
+        236.10526315789474
+      ],
+      "flags": {},
+      "order": 17,
+      "mode": 0,
+      "inputs": [
+        {
+          "localized_name": "file",
+          "name": "file",
+          "type": "COMBO",
+          "widget": {
+            "name": "file"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "choose file to upload",
+          "name": "upload",
+          "type": "IMAGEUPLOAD",
+          "widget": {
+            "name": "upload"
+          },
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "localized_name": "VIDEO",
+          "name": "VIDEO",
+          "type": "VIDEO",
+          "slot_index": 0,
+          "links": [
+            78
+          ]
+        }
+      ],
+      "title": "LoadVideo",
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.33.0",
+        "Node name for S&R": "LoadVideo"
+      },
+      "widgets_values": [
+        "pcC_s2.mp4",
+        "image"
+      ],
+      "widgets_values_named": {
+        "file": "pcC_s2.mp4",
+        "upload": "image"
+      }
+    },
+    {
+      "id": 9503,
+      "type": "LoadVideo",
+      "pos": [
+        1160,
+        4578.21052631579
+      ],
+      "size": [
+        280,
+        236.10526315789474
+      ],
+      "flags": {},
+      "order": 18,
+      "mode": 0,
+      "inputs": [
+        {
+          "localized_name": "file",
+          "name": "file",
+          "type": "COMBO",
+          "widget": {
+            "name": "file"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "choose file to upload",
+          "name": "upload",
+          "type": "IMAGEUPLOAD",
+          "widget": {
+            "name": "upload"
+          },
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "localized_name": "VIDEO",
+          "name": "VIDEO",
+          "type": "VIDEO",
+          "slot_index": 0,
+          "links": [
+            79
+          ]
+        }
+      ],
+      "title": "LoadVideo",
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.33.0",
+        "Node name for S&R": "LoadVideo"
+      },
+      "widgets_values": [
+        "pcC_s3.mp4",
+        "image"
+      ],
+      "widgets_values_named": {
+        "file": "pcC_s3.mp4",
+        "upload": "image"
+      }
+    },
+    {
+      "id": 9504,
+      "type": "LoadVideo",
+      "pos": [
+        1160,
+        4858.315789473685
+      ],
+      "size": [
+        280,
+        236.10526315789474
+      ],
+      "flags": {},
+      "order": 19,
+      "mode": 0,
+      "inputs": [
+        {
+          "localized_name": "file",
+          "name": "file",
+          "type": "COMBO",
+          "widget": {
+            "name": "file"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "choose file to upload",
+          "name": "upload",
+          "type": "IMAGEUPLOAD",
+          "widget": {
+            "name": "upload"
+          },
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "localized_name": "VIDEO",
+          "name": "VIDEO",
+          "type": "VIDEO",
+          "slot_index": 0,
+          "links": [
+            80
+          ]
+        }
+      ],
+      "title": "LoadVideo",
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.33.0",
+        "Node name for S&R": "LoadVideo"
+      },
+      "widgets_values": [
+        "pcC_s4.mp4",
+        "image"
+      ],
+      "widgets_values_named": {
+        "file": "pcC_s4.mp4",
+        "upload": "image"
+      }
+    },
+    {
+      "id": 9601,
+      "type": "MiniMaxH3ReferenceVideoPrepare",
+      "pos": [
+        1160,
+        5138.42105263158
+      ],
+      "size": [
+        310,
+        142
+      ],
+      "flags": {},
+      "order": 32,
+      "mode": 0,
+      "inputs": [
+        {
+          "localized_name": "source_video",
+          "name": "source_video",
+          "shape": 7,
+          "type": "VIDEO",
+          "link": 77
+        },
+        {
+          "localized_name": "source_frames",
+          "name": "source_frames",
+          "shape": 7,
+          "type": "IMAGE",
+          "link": null
+        },
+        {
+          "localized_name": "source_audio",
+          "name": "source_audio",
+          "shape": 7,
+          "type": "AUDIO",
+          "link": null
+        },
+        {
+          "localized_name": "length",
+          "name": "length",
+          "type": "INT",
+          "widget": {
+            "name": "length"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "source_fps",
+          "name": "source_fps",
+          "type": "FLOAT",
+          "widget": {
+            "name": "source_fps"
+          },
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "localized_name": "ref_video",
+          "name": "ref_video",
+          "type": "IMAGE",
+          "slot_index": 0,
+          "links": [
+            82
+          ]
+        },
+        {
+          "localized_name": "source_audio",
+          "name": "source_audio",
+          "type": "AUDIO",
+          "slot_index": 1,
+          "links": []
+        },
+        {
+          "localized_name": "length",
+          "name": "length",
+          "type": "INT",
+          "slot_index": 2,
+          "links": []
+        },
+        {
+          "localized_name": "status",
+          "name": "status",
+          "type": "STRING",
+          "slot_index": 3,
+          "links": []
+        }
+      ],
+      "title": "MiniMaxH3ReferenceVideoPrepare",
+      "properties": {
+        "cnr_id": "comfyui-minimaxh3-contex-loop",
+        "ver": "81e615c66384e8f747ded5d181ef5807f2775daa",
+        "Node name for S&R": "MiniMaxH3ReferenceVideoPrepare"
+      },
+      "widgets_values": [
+        107,
+        24
+      ],
+      "widgets_values_named": {
+        "length": 107,
+        "source_fps": 24
+      }
+    },
+    {
+      "id": 9602,
+      "type": "MiniMaxH3ReferenceVideoPrepare",
+      "pos": [
+        1160,
+        5324.42105263158
+      ],
+      "size": [
+        310,
+        142
+      ],
+      "flags": {},
+      "order": 33,
+      "mode": 0,
+      "inputs": [
+        {
+          "localized_name": "source_video",
+          "name": "source_video",
+          "shape": 7,
+          "type": "VIDEO",
+          "link": 78
+        },
+        {
+          "localized_name": "source_frames",
+          "name": "source_frames",
+          "shape": 7,
+          "type": "IMAGE",
+          "link": null
+        },
+        {
+          "localized_name": "source_audio",
+          "name": "source_audio",
+          "shape": 7,
+          "type": "AUDIO",
+          "link": null
+        },
+        {
+          "localized_name": "length",
+          "name": "length",
+          "type": "INT",
+          "widget": {
+            "name": "length"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "source_fps",
+          "name": "source_fps",
+          "type": "FLOAT",
+          "widget": {
+            "name": "source_fps"
+          },
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "localized_name": "ref_video",
+          "name": "ref_video",
+          "type": "IMAGE",
+          "slot_index": 0,
+          "links": [
+            84
+          ]
+        },
+        {
+          "localized_name": "source_audio",
+          "name": "source_audio",
+          "type": "AUDIO",
+          "slot_index": 1,
+          "links": []
+        },
+        {
+          "localized_name": "length",
+          "name": "length",
+          "type": "INT",
+          "slot_index": 2,
+          "links": []
+        },
+        {
+          "localized_name": "status",
+          "name": "status",
+          "type": "STRING",
+          "slot_index": 3,
+          "links": []
+        }
+      ],
+      "title": "MiniMaxH3ReferenceVideoPrepare",
+      "properties": {
+        "cnr_id": "comfyui-minimaxh3-contex-loop",
+        "ver": "81e615c66384e8f747ded5d181ef5807f2775daa",
+        "Node name for S&R": "MiniMaxH3ReferenceVideoPrepare"
+      },
+      "widgets_values": [
+        107,
+        24
+      ],
+      "widgets_values_named": {
+        "length": 107,
+        "source_fps": 24
+      }
+    },
+    {
+      "id": 9603,
+      "type": "MiniMaxH3ReferenceVideoPrepare",
+      "pos": [
+        1160,
+        5510.42105263158
+      ],
+      "size": [
+        310,
+        142
+      ],
+      "flags": {},
+      "order": 34,
+      "mode": 0,
+      "inputs": [
+        {
+          "localized_name": "source_video",
+          "name": "source_video",
+          "shape": 7,
+          "type": "VIDEO",
+          "link": 79
+        },
+        {
+          "localized_name": "source_frames",
+          "name": "source_frames",
+          "shape": 7,
+          "type": "IMAGE",
+          "link": null
+        },
+        {
+          "localized_name": "source_audio",
+          "name": "source_audio",
+          "shape": 7,
+          "type": "AUDIO",
+          "link": null
+        },
+        {
+          "localized_name": "length",
+          "name": "length",
+          "type": "INT",
+          "widget": {
+            "name": "length"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "source_fps",
+          "name": "source_fps",
+          "type": "FLOAT",
+          "widget": {
+            "name": "source_fps"
+          },
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "localized_name": "ref_video",
+          "name": "ref_video",
+          "type": "IMAGE",
+          "slot_index": 0,
+          "links": [
+            86
+          ]
+        },
+        {
+          "localized_name": "source_audio",
+          "name": "source_audio",
+          "type": "AUDIO",
+          "slot_index": 1,
+          "links": []
+        },
+        {
+          "localized_name": "length",
+          "name": "length",
+          "type": "INT",
+          "slot_index": 2,
+          "links": []
+        },
+        {
+          "localized_name": "status",
+          "name": "status",
+          "type": "STRING",
+          "slot_index": 3,
+          "links": []
+        }
+      ],
+      "title": "MiniMaxH3ReferenceVideoPrepare",
+      "properties": {
+        "cnr_id": "comfyui-minimaxh3-contex-loop",
+        "ver": "81e615c66384e8f747ded5d181ef5807f2775daa",
+        "Node name for S&R": "MiniMaxH3ReferenceVideoPrepare"
+      },
+      "widgets_values": [
+        107,
+        24
+      ],
+      "widgets_values_named": {
+        "length": 107,
+        "source_fps": 24
+      }
+    },
+    {
+      "id": 9604,
+      "type": "MiniMaxH3ReferenceVideoPrepare",
+      "pos": [
+        1160,
+        5696.42105263158
+      ],
+      "size": [
+        310,
+        142
+      ],
+      "flags": {},
+      "order": 35,
+      "mode": 0,
+      "inputs": [
+        {
+          "localized_name": "source_video",
+          "name": "source_video",
+          "shape": 7,
+          "type": "VIDEO",
+          "link": 80
+        },
+        {
+          "localized_name": "source_frames",
+          "name": "source_frames",
+          "shape": 7,
+          "type": "IMAGE",
+          "link": null
+        },
+        {
+          "localized_name": "source_audio",
+          "name": "source_audio",
+          "shape": 7,
+          "type": "AUDIO",
+          "link": null
+        },
+        {
+          "localized_name": "length",
+          "name": "length",
+          "type": "INT",
+          "widget": {
+            "name": "length"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "source_fps",
+          "name": "source_fps",
+          "type": "FLOAT",
+          "widget": {
+            "name": "source_fps"
+          },
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "localized_name": "ref_video",
+          "name": "ref_video",
+          "type": "IMAGE",
+          "slot_index": 0,
+          "links": [
+            88
+          ]
+        },
+        {
+          "localized_name": "source_audio",
+          "name": "source_audio",
+          "type": "AUDIO",
+          "slot_index": 1,
+          "links": []
+        },
+        {
+          "localized_name": "length",
+          "name": "length",
+          "type": "INT",
+          "slot_index": 2,
+          "links": []
+        },
+        {
+          "localized_name": "status",
+          "name": "status",
+          "type": "STRING",
+          "slot_index": 3,
+          "links": []
+        }
+      ],
+      "title": "MiniMaxH3ReferenceVideoPrepare",
+      "properties": {
+        "cnr_id": "comfyui-minimaxh3-contex-loop",
+        "ver": "81e615c66384e8f747ded5d181ef5807f2775daa",
+        "Node name for S&R": "MiniMaxH3ReferenceVideoPrepare"
+      },
+      "widgets_values": [
+        107,
+        24
+      ],
+      "widgets_values_named": {
+        "length": 107,
+        "source_fps": 24
+      }
+    },
+    {
+      "id": 9701,
+      "type": "MiniMaxH3ScheduledVideoReference",
+      "pos": [
+        1740,
+        2295
+      ],
+      "size": [
+        328,
+        146
+      ],
+      "flags": {},
+      "order": 47,
+      "mode": 0,
+      "inputs": [
+        {
+          "localized_name": "video",
+          "name": "video",
+          "type": "IMAGE",
+          "link": 82
+        },
+        {
+          "localized_name": "audio",
+          "name": "audio",
+          "shape": 7,
+          "type": "AUDIO",
+          "link": null
+        },
+        {
+          "localized_name": "previous",
+          "name": "previous",
+          "shape": 7,
+          "type": "H3_REFERENCE_SCHEDULE",
+          "link": 81
+        },
+        {
+          "localized_name": "tag",
+          "name": "tag",
+          "type": "STRING",
+          "widget": {
+            "name": "tag"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "scenes",
+          "name": "scenes",
+          "type": "STRING",
+          "widget": {
+            "name": "scenes"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "audio_tag",
+          "name": "audio_tag",
+          "type": "STRING",
+          "widget": {
+            "name": "audio_tag"
+          },
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "localized_name": "schedule",
+          "name": "schedule",
+          "type": "H3_REFERENCE_SCHEDULE",
+          "slot_index": 0,
+          "links": [
+            83
+          ]
+        },
+        {
+          "localized_name": "schedule_fingerprint",
+          "name": "schedule_fingerprint",
+          "type": "STRING",
+          "slot_index": 1,
+          "links": []
+        },
+        {
+          "localized_name": "status",
+          "name": "status",
+          "type": "STRING",
+          "slot_index": 2,
+          "links": []
+        }
+      ],
+      "title": "MiniMaxH3ScheduledVideoReference",
+      "properties": {
+        "cnr_id": "comfyui-minimaxh3-contex-loop",
+        "ver": "81e615c66384e8f747ded5d181ef5807f2775daa",
+        "Node name for S&R": "MiniMaxH3ScheduledVideoReference"
+      },
+      "widgets_values": [
+        "motion_s1",
+        "1",
+        ""
+      ],
+      "widgets_values_named": {
+        "tag": "motion_s1",
+        "scenes": "1",
+        "audio_tag": ""
+      }
+    },
+    {
+      "id": 9702,
+      "type": "MiniMaxH3ScheduledVideoReference",
+      "pos": [
+        1740,
+        2485
+      ],
+      "size": [
+        328,
+        146
+      ],
+      "flags": {},
+      "order": 48,
+      "mode": 0,
+      "inputs": [
+        {
+          "localized_name": "video",
+          "name": "video",
+          "type": "IMAGE",
+          "link": 84
+        },
+        {
+          "localized_name": "audio",
+          "name": "audio",
+          "shape": 7,
+          "type": "AUDIO",
+          "link": null
+        },
+        {
+          "localized_name": "previous",
+          "name": "previous",
+          "shape": 7,
+          "type": "H3_REFERENCE_SCHEDULE",
+          "link": 83
+        },
+        {
+          "localized_name": "tag",
+          "name": "tag",
+          "type": "STRING",
+          "widget": {
+            "name": "tag"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "scenes",
+          "name": "scenes",
+          "type": "STRING",
+          "widget": {
+            "name": "scenes"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "audio_tag",
+          "name": "audio_tag",
+          "type": "STRING",
+          "widget": {
+            "name": "audio_tag"
+          },
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "localized_name": "schedule",
+          "name": "schedule",
+          "type": "H3_REFERENCE_SCHEDULE",
+          "slot_index": 0,
+          "links": [
+            85
+          ]
+        },
+        {
+          "localized_name": "schedule_fingerprint",
+          "name": "schedule_fingerprint",
+          "type": "STRING",
+          "slot_index": 1,
+          "links": []
+        },
+        {
+          "localized_name": "status",
+          "name": "status",
+          "type": "STRING",
+          "slot_index": 2,
+          "links": []
+        }
+      ],
+      "title": "MiniMaxH3ScheduledVideoReference",
+      "properties": {
+        "cnr_id": "comfyui-minimaxh3-contex-loop",
+        "ver": "81e615c66384e8f747ded5d181ef5807f2775daa",
+        "Node name for S&R": "MiniMaxH3ScheduledVideoReference"
+      },
+      "widgets_values": [
+        "motion_s2",
+        "2",
+        ""
+      ],
+      "widgets_values_named": {
+        "tag": "motion_s2",
+        "scenes": "2",
+        "audio_tag": ""
+      }
+    },
+    {
+      "id": 9703,
+      "type": "MiniMaxH3ScheduledVideoReference",
+      "pos": [
+        1740,
+        2675
+      ],
+      "size": [
+        328,
+        146
+      ],
+      "flags": {},
+      "order": 49,
+      "mode": 0,
+      "inputs": [
+        {
+          "localized_name": "video",
+          "name": "video",
+          "type": "IMAGE",
+          "link": 86
+        },
+        {
+          "localized_name": "audio",
+          "name": "audio",
+          "shape": 7,
+          "type": "AUDIO",
+          "link": null
+        },
+        {
+          "localized_name": "previous",
+          "name": "previous",
+          "shape": 7,
+          "type": "H3_REFERENCE_SCHEDULE",
+          "link": 85
+        },
+        {
+          "localized_name": "tag",
+          "name": "tag",
+          "type": "STRING",
+          "widget": {
+            "name": "tag"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "scenes",
+          "name": "scenes",
+          "type": "STRING",
+          "widget": {
+            "name": "scenes"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "audio_tag",
+          "name": "audio_tag",
+          "type": "STRING",
+          "widget": {
+            "name": "audio_tag"
+          },
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "localized_name": "schedule",
+          "name": "schedule",
+          "type": "H3_REFERENCE_SCHEDULE",
+          "slot_index": 0,
+          "links": [
+            87
+          ]
+        },
+        {
+          "localized_name": "schedule_fingerprint",
+          "name": "schedule_fingerprint",
+          "type": "STRING",
+          "slot_index": 1,
+          "links": []
+        },
+        {
+          "localized_name": "status",
+          "name": "status",
+          "type": "STRING",
+          "slot_index": 2,
+          "links": []
+        }
+      ],
+      "title": "MiniMaxH3ScheduledVideoReference",
+      "properties": {
+        "cnr_id": "comfyui-minimaxh3-contex-loop",
+        "ver": "81e615c66384e8f747ded5d181ef5807f2775daa",
+        "Node name for S&R": "MiniMaxH3ScheduledVideoReference"
+      },
+      "widgets_values": [
+        "motion_s3",
+        "3",
+        ""
+      ],
+      "widgets_values_named": {
+        "tag": "motion_s3",
+        "scenes": "3",
+        "audio_tag": ""
+      }
+    },
+    {
+      "id": 9704,
+      "type": "MiniMaxH3ScheduledVideoReference",
+      "pos": [
+        1740,
+        2865
+      ],
+      "size": [
+        328,
+        146
+      ],
+      "flags": {},
+      "order": 50,
+      "mode": 0,
+      "inputs": [
+        {
+          "localized_name": "video",
+          "name": "video",
+          "type": "IMAGE",
+          "link": 88
+        },
+        {
+          "localized_name": "audio",
+          "name": "audio",
+          "shape": 7,
+          "type": "AUDIO",
+          "link": null
+        },
+        {
+          "localized_name": "previous",
+          "name": "previous",
+          "shape": 7,
+          "type": "H3_REFERENCE_SCHEDULE",
+          "link": 87
+        },
+        {
+          "localized_name": "tag",
+          "name": "tag",
+          "type": "STRING",
+          "widget": {
+            "name": "tag"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "scenes",
+          "name": "scenes",
+          "type": "STRING",
+          "widget": {
+            "name": "scenes"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "audio_tag",
+          "name": "audio_tag",
+          "type": "STRING",
+          "widget": {
+            "name": "audio_tag"
+          },
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "localized_name": "schedule",
+          "name": "schedule",
+          "type": "H3_REFERENCE_SCHEDULE",
+          "slot_index": 0,
+          "links": [
+            8
+          ]
+        },
+        {
+          "localized_name": "schedule_fingerprint",
+          "name": "schedule_fingerprint",
+          "type": "STRING",
+          "slot_index": 1,
+          "links": [
+            28
+          ]
+        },
+        {
+          "localized_name": "status",
+          "name": "status",
+          "type": "STRING",
+          "slot_index": 2,
+          "links": []
+        }
+      ],
+      "title": "MiniMaxH3ScheduledVideoReference",
+      "properties": {
+        "cnr_id": "comfyui-minimaxh3-contex-loop",
+        "ver": "81e615c66384e8f747ded5d181ef5807f2775daa",
+        "Node name for S&R": "MiniMaxH3ScheduledVideoReference"
+      },
+      "widgets_values": [
+        "motion_s4",
+        "4",
+        ""
+      ],
+      "widgets_values_named": {
+        "tag": "motion_s4",
+        "scenes": "4",
+        "audio_tag": ""
+      }
+    },
+    {
+      "id": 9705,
+      "type": "MiniMaxH3LoadLatent",
+      "pos": [
+        3140,
+        761
+      ],
+      "size": [
+        380,
+        120
+      ],
+      "flags": {},
+      "order": 20,
+      "mode": 0,
+      "inputs": [
+        {
+          "localized_name": "latent",
+          "name": "latent",
+          "type": "COMBO",
+          "widget": {
+            "name": "latent"
+          },
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "localized_name": "samples",
+          "name": "samples",
+          "type": "LATENT",
+          "slot_index": 0,
+          "links": [
+            89,
+            98
+          ]
+        },
+        {
+          "localized_name": "prompt",
+          "name": "prompt",
+          "type": "STRING",
+          "slot_index": 1,
+          "links": []
+        }
+      ],
+      "title": "Load the finished clip",
+      "properties": {
+        "Node name for S&R": "MiniMaxH3LoadLatent"
+      },
+      "widgets_values": [
+        "(none saved yet)"
+      ],
+      "widgets_values_named": {
+        "latent": "(none saved yet)"
+      }
+    },
+    {
+      "id": 9706,
+      "type": "MiniMaxH3DenoiseMask",
+      "pos": [
+        3140,
+        925
+      ],
+      "size": [
+        380,
+        330
+      ],
+      "flags": {},
+      "order": 36,
+      "mode": 0,
+      "inputs": [
+        {
+          "localized_name": "samples",
+          "name": "samples",
+          "type": "LATENT",
+          "link": 89
+        },
+        {
+          "localized_name": "track",
+          "name": "track",
+          "type": "COMBO",
+          "widget": {
+            "name": "track"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "strength",
+          "name": "strength",
+          "type": "FLOAT",
+          "widget": {
+            "name": "strength"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "t_start_pct",
+          "name": "t_start_pct",
+          "type": "FLOAT",
+          "widget": {
+            "name": "t_start_pct"
+          },
+          "link": 99
+        },
+        {
+          "localized_name": "t_end_pct",
+          "name": "t_end_pct",
+          "type": "FLOAT",
+          "widget": {
+            "name": "t_end_pct"
+          },
+          "link": 100
+        },
+        {
+          "localized_name": "t_feather_pct",
+          "name": "t_feather_pct",
+          "type": "FLOAT",
+          "widget": {
+            "name": "t_feather_pct"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "x_pct",
+          "name": "x_pct",
+          "type": "FLOAT",
+          "widget": {
+            "name": "x_pct"
+          },
+          "link": 94
+        },
+        {
+          "localized_name": "y_pct",
+          "name": "y_pct",
+          "type": "FLOAT",
+          "widget": {
+            "name": "y_pct"
+          },
+          "link": 95
+        },
+        {
+          "localized_name": "w_pct",
+          "name": "w_pct",
+          "type": "FLOAT",
+          "widget": {
+            "name": "w_pct"
+          },
+          "link": 96
+        },
+        {
+          "localized_name": "h_pct",
+          "name": "h_pct",
+          "type": "FLOAT",
+          "widget": {
+            "name": "h_pct"
+          },
+          "link": 97
+        },
+        {
+          "localized_name": "feather_pct",
+          "name": "feather_pct",
+          "type": "FLOAT",
+          "widget": {
+            "name": "feather_pct"
+          },
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "localized_name": "samples",
+          "name": "samples",
+          "type": "LATENT",
+          "slot_index": 0,
+          "links": [
+            90
+          ]
+        }
+      ],
+      "title": "What to rewrite (the woman, raw 18-32%)",
+      "properties": {
+        "Node name for S&R": "MiniMaxH3DenoiseMask"
+      },
+      "widgets_values": [
+        "video only",
+        0.8,
+        18.0,
+        32.0,
+        2.0,
+        46.0,
+        14.0,
+        54.0,
+        86.0,
+        6.0
+      ],
+      "widgets_values_named": {
+        "track": "video only",
+        "strength": 0.8,
+        "t_start_pct": 18.0,
+        "t_end_pct": 32.0,
+        "t_feather_pct": 2.0,
+        "x_pct": 46.0,
+        "y_pct": 14.0,
+        "w_pct": 54.0,
+        "h_pct": 86.0,
+        "feather_pct": 6.0
+      }
+    },
+    {
+      "id": 9707,
+      "type": "MiniMaxH3SaveLatent",
+      "pos": [
+        3140,
+        1299
+      ],
+      "size": [
+        380,
+        120
+      ],
+      "flags": {},
+      "order": 63,
+      "mode": 0,
+      "inputs": [
+        {
+          "localized_name": "samples",
+          "name": "samples",
+          "type": "LATENT",
+          "link": 91
+        },
+        {
+          "localized_name": "filename_prefix",
+          "name": "filename_prefix",
+          "type": "STRING",
+          "widget": {
+            "name": "filename_prefix"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "dtype",
+          "name": "dtype",
+          "type": "COMBO",
+          "widget": {
+            "name": "dtype"
+          },
+          "link": null
+        }
+      ],
+      "outputs": [],
+      "title": "Save the edited latent",
+      "properties": {
+        "Node name for S&R": "MiniMaxH3SaveLatent"
+      },
+      "widgets_values": [
+        "h3_latents/scene4_woman",
+        "bf16"
+      ],
+      "widgets_values_named": {
+        "filename_prefix": "h3_latents/scene4_woman",
+        "dtype": "bf16"
+      }
+    },
+    {
+      "id": 1936,
+      "type": "MiniMaxH3ChainScenePromptEditor",
+      "pos": [
+        2320,
+        2796
+      ],
+      "size": [
+        519.61875,
+        458
+      ],
+      "flags": {},
+      "order": 52,
+      "mode": 0,
+      "inputs": [
+        {
+          "localized_name": "plan",
+          "name": "plan",
+          "type": "H3_CHAIN_PLAN",
+          "link": 48
+        }
+      ],
+      "outputs": [
+        {
+          "localized_name": "plan",
+          "name": "plan",
+          "type": "H3_CHAIN_PLAN",
+          "slot_index": 0,
+          "links": [
+            31
+          ]
+        }
+      ],
+      "title": "SCENE PROMPT EDITOR — CLICK @ REFERENCE / HOVER TO PREVIEW",
+      "properties": {
+        "cnr_id": "comfyui-minimaxh3-contex-loop",
+        "ver": "81e615c66384e8f747ded5d181ef5807f2775daa",
+        "Node name for S&R": "MiniMaxH3ChainScenePromptEditor"
+      },
+      "widgets_values": [],
+      "widgets_values_named": {}
+    },
+    {
+      "id": 1937,
+      "type": "MiniMaxH3ChainReview",
+      "pos": [
+        4300,
+        1660
+      ],
+      "size": [
+        327.8091796875,
+        742
+      ],
+      "flags": {},
+      "order": 66,
+      "mode": 0,
+      "inputs": [
+        {
+          "localized_name": "state",
+          "name": "state",
+          "type": "H3_CHAIN_STATE",
+          "link": 51
+        },
+        {
+          "localized_name": "segment",
+          "name": "segment",
+          "type": "H3_CHAIN_SEGMENT",
+          "link": 50
+        },
+        {
+          "localized_name": "audio",
+          "name": "audio",
+          "shape": 7,
+          "type": "AUDIO",
+          "link": 49
+        },
+        {
+          "localized_name": "source_audio",
+          "name": "source_audio",
+          "shape": 7,
+          "type": "AUDIO",
+          "link": null
+        },
+        {
+          "localized_name": "enabled",
+          "name": "enabled",
+          "type": "BOOLEAN",
+          "widget": {
+            "name": "enabled"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "play_notification_sound",
+          "name": "play_notification_sound",
+          "type": "BOOLEAN",
+          "widget": {
+            "name": "play_notification_sound"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "auto_continue_timeout_minutes",
+          "name": "auto_continue_timeout_minutes",
+          "type": "FLOAT",
+          "widget": {
+            "name": "auto_continue_timeout_minutes"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "unload_models_while_waiting",
+          "name": "unload_models_while_waiting",
+          "type": "BOOLEAN",
+          "widget": {
+            "name": "unload_models_while_waiting"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "assemble_partial_on_stop",
+          "name": "assemble_partial_on_stop",
+          "type": "BOOLEAN",
+          "widget": {
+            "name": "assemble_partial_on_stop"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "partial_audio_source",
+          "name": "partial_audio_source",
+          "type": "COMBO",
+          "widget": {
+            "name": "partial_audio_source"
+          },
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "localized_name": "segment",
+          "name": "segment",
+          "type": "H3_CHAIN_SEGMENT",
+          "slot_index": 0,
+          "links": [
+            45
+          ]
+        },
+        {
+          "localized_name": "status",
+          "name": "status",
+          "type": "STRING",
+          "slot_index": 1,
+          "links": []
+        }
+      ],
+      "title": "REVIEW GATE - approve / reroll each scene",
+      "properties": {
+        "cnr_id": "comfyui-minimaxh3-contex-loop",
+        "ver": "81e615c66384e8f747ded5d181ef5807f2775daa",
+        "Node name for S&R": "MiniMaxH3ChainReview",
+        "h3_chain_review_prompt_height": 120
+      },
+      "widgets_values": [
+        false,
+        false,
+        0,
+        false,
+        true,
+        "checkpointed"
+      ],
+      "widgets_values_named": {
+        "enabled": false,
+        "play_notification_sound": false,
+        "auto_continue_timeout_minutes": 0,
+        "unload_models_while_waiting": false,
+        "assemble_partial_on_stop": true,
+        "partial_audio_source": "checkpointed"
+      }
+    },
+    {
+      "id": 1959,
+      "type": "VHS_LoadVideoPath",
+      "pos": [
+        4300,
+        2606
+      ],
+      "size": [
+        280,
+        286
+      ],
+      "flags": {},
+      "order": 70,
+      "mode": 0,
+      "inputs": [
+        {
+          "localized_name": "meta_batch",
+          "name": "meta_batch",
+          "shape": 7,
+          "type": "VHS_BatchManager",
+          "link": null
+        },
+        {
+          "localized_name": "vae",
+          "name": "vae",
+          "shape": 7,
+          "type": "VAE",
+          "link": null
+        },
+        {
+          "localized_name": "video",
+          "name": "video",
+          "type": "STRING",
+          "widget": {
+            "name": "video"
+          },
+          "link": 54
+        },
+        {
+          "localized_name": "force_rate",
+          "name": "force_rate",
+          "type": "FLOAT",
+          "widget": {
+            "name": "force_rate"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "custom_width",
+          "name": "custom_width",
+          "type": "INT",
+          "widget": {
+            "name": "custom_width"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "custom_height",
+          "name": "custom_height",
+          "type": "INT",
+          "widget": {
+            "name": "custom_height"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "frame_load_cap",
+          "name": "frame_load_cap",
+          "type": "INT",
+          "widget": {
+            "name": "frame_load_cap"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "skip_first_frames",
+          "name": "skip_first_frames",
+          "type": "INT",
+          "widget": {
+            "name": "skip_first_frames"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "select_every_nth",
+          "name": "select_every_nth",
+          "type": "INT",
+          "widget": {
+            "name": "select_every_nth"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "format",
+          "name": "format",
+          "shape": 7,
+          "type": "COMBO",
+          "widget": {
+            "name": "format"
+          },
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "localized_name": "IMAGE",
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "slot_index": 0,
+          "links": [
+            56
+          ]
+        },
+        {
+          "localized_name": "frame_count",
+          "name": "frame_count",
+          "type": "INT",
+          "slot_index": 1,
+          "links": []
+        },
+        {
+          "localized_name": "audio",
+          "name": "audio",
+          "type": "AUDIO",
+          "slot_index": 2,
+          "links": [
+            55
+          ]
+        },
+        {
+          "localized_name": "video_info",
+          "name": "video_info",
+          "type": "VHS_VIDEOINFO",
+          "slot_index": 3,
+          "links": []
+        }
+      ],
+      "title": "load final MP4 for preview",
+      "properties": {
+        "cnr_id": "comfyui-videohelpersuite",
+        "ver": "1.7.9",
+        "Node name for S&R": "VHS_LoadVideoPath"
+      },
+      "widgets_values": {
+        "video": "",
+        "force_rate": 0,
+        "custom_width": 0,
+        "custom_height": 0,
+        "frame_load_cap": 0,
+        "skip_first_frames": 0,
+        "select_every_nth": 1,
+        "format": "AnimateDiff",
+        "videopreview": {
+          "hidden": false,
+          "paused": false,
+          "params": {
+            "filename": "",
+            "type": "path",
+            "format": "video/",
+            "force_rate": 0,
+            "frame_load_cap": 0,
+            "skip_first_frames": 0,
+            "select_every_nth": 1
+          }
+        }
+      },
+      "widgets_values_named": {
+        "video": "",
+        "force_rate": 0,
+        "custom_width": 0,
+        "custom_height": 0,
+        "frame_load_cap": 0,
+        "skip_first_frames": 0,
+        "select_every_nth": 1,
+        "format": "AnimateDiff",
+        "videopreview": {
+          "hidden": false,
+          "paused": false,
+          "params": {
+            "filename": "",
+            "type": "path",
+            "format": "video/",
+            "force_rate": 0,
+            "frame_load_cap": 0,
+            "skip_first_frames": 0,
+            "select_every_nth": 1
+          }
+        }
+      }
+    },
+    {
+      "id": 1960,
+      "type": "VHS_VideoCombine",
+      "pos": [
+        4300,
+        2936
+      ],
+      "size": [
+        365.279296875,
+        334
+      ],
+      "flags": {},
+      "order": 71,
+      "mode": 0,
+      "inputs": [
+        {
+          "localized_name": "images",
+          "name": "images",
+          "type": "IMAGE",
+          "link": 56
+        },
+        {
+          "localized_name": "audio",
+          "name": "audio",
+          "shape": 7,
+          "type": "AUDIO",
+          "link": 55
+        },
+        {
+          "localized_name": "meta_batch",
+          "name": "meta_batch",
+          "shape": 7,
+          "type": "VHS_BatchManager",
+          "link": null
+        },
+        {
+          "localized_name": "vae",
+          "name": "vae",
+          "shape": 7,
+          "type": "VAE",
+          "link": null
+        },
+        {
+          "localized_name": "frame_rate",
+          "name": "frame_rate",
+          "type": "FLOAT",
+          "widget": {
+            "name": "frame_rate"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "loop_count",
+          "name": "loop_count",
+          "type": "INT",
+          "widget": {
+            "name": "loop_count"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "filename_prefix",
+          "name": "filename_prefix",
+          "type": "STRING",
+          "widget": {
+            "name": "filename_prefix"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "format",
+          "name": "format",
+          "type": "COMBO",
+          "widget": {
+            "name": "format"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "pingpong",
+          "name": "pingpong",
+          "type": "BOOLEAN",
+          "widget": {
+            "name": "pingpong"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "save_output",
+          "name": "save_output",
+          "type": "BOOLEAN",
+          "widget": {
+            "name": "save_output"
+          },
+          "link": null
+        },
+        {
+          "name": "pix_fmt",
+          "type": [
+            "yuv420p",
+            "yuv420p10le"
+          ],
+          "widget": {
+            "name": "pix_fmt"
+          },
+          "link": null
+        },
+        {
+          "name": "crf",
+          "type": "INT",
+          "widget": {
+            "name": "crf"
+          },
+          "link": null
+        },
+        {
+          "name": "save_metadata",
+          "type": "BOOLEAN",
+          "widget": {
+            "name": "save_metadata"
+          },
+          "link": null
+        },
+        {
+          "name": "trim_to_audio",
+          "type": "BOOLEAN",
+          "widget": {
+            "name": "trim_to_audio"
+          },
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "localized_name": "Filenames",
+          "name": "Filenames",
+          "type": "VHS_FILENAMES",
+          "slot_index": 0,
+          "links": []
+        }
+      ],
+      "title": "PREVIEW FINAL VIDEO (shows in Job History)",
+      "properties": {
+        "cnr_id": "comfyui-videohelpersuite",
+        "ver": "1.7.9",
+        "Node name for S&R": "VHS_VideoCombine"
+      },
+      "widgets_values": {
+        "frame_rate": 24,
+        "loop_count": 0,
+        "filename_prefix": "h3_review_pc_x_rakune_sb",
+        "format": "video/h264-mp4",
+        "pix_fmt": "yuv420p",
+        "crf": 19,
+        "save_metadata": true,
+        "trim_to_audio": false,
+        "pingpong": false,
+        "save_output": false,
+        "videopreview": ""
+      },
+      "widgets_values_named": {
+        "frame_rate": 24,
+        "loop_count": 0,
+        "filename_prefix": "h3_review_pc_x_rakune_sb",
+        "format": "video/h264-mp4",
+        "pix_fmt": "yuv420p",
+        "crf": 19,
+        "save_metadata": true,
+        "trim_to_audio": false,
+        "pingpong": false,
+        "save_output": false,
+        "videopreview": ""
+      }
+    },
+    {
+      "id": 1700,
+      "type": "MiniMaxH3ChainPlan",
+      "pos": [
+        2320,
+        900
+      ],
+      "size": [
+        700,
+        1092
+      ],
+      "flags": {},
+      "order": 51,
+      "mode": 0,
+      "inputs": [
+        {
+          "localized_name": "plan_json",
+          "name": "plan_json",
+          "type": "STRING",
+          "widget": {
+            "name": "plan_json"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "run_name",
+          "name": "run_name",
+          "type": "STRING",
+          "widget": {
+            "name": "run_name"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "generation_fingerprint",
+          "name": "generation_fingerprint",
+          "type": "STRING",
+          "widget": {
+            "name": "generation_fingerprint"
+          },
+          "link": 28
+        },
+        {
+          "localized_name": "width",
+          "name": "width",
+          "type": "INT",
+          "widget": {
+            "name": "width"
+          },
+          "link": 30
+        },
+        {
+          "localized_name": "height",
+          "name": "height",
+          "type": "INT",
+          "widget": {
+            "name": "height"
+          },
+          "link": 29
+        },
+        {
+          "localized_name": "context_length",
+          "name": "context_length",
+          "type": "COMBO",
+          "widget": {
+            "name": "context_length"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "encode_mode",
+          "name": "encode_mode",
+          "type": "COMBO",
+          "widget": {
+            "name": "encode_mode"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "anchor_mode",
+          "name": "anchor_mode",
+          "type": "COMBO",
+          "widget": {
+            "name": "anchor_mode"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "crop",
+          "name": "crop",
+          "type": "COMBO",
+          "widget": {
+            "name": "crop"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "audio_mode",
+          "name": "audio_mode",
+          "type": "COMBO",
+          "widget": {
+            "name": "audio_mode"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "audio_context_length",
+          "name": "audio_context_length",
+          "type": "INT",
+          "widget": {
+            "name": "audio_context_length"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "default_duration_seconds",
+          "name": "default_duration_seconds",
+          "type": "FLOAT",
+          "widget": {
+            "name": "default_duration_seconds"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "default_steps",
+          "name": "default_steps",
+          "type": "INT",
+          "widget": {
+            "name": "default_steps"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "base_seed",
+          "name": "base_seed",
+          "type": "INT",
+          "widget": {
+            "name": "base_seed"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "segment_crf",
+          "name": "segment_crf",
+          "type": "INT",
+          "widget": {
+            "name": "segment_crf"
+          },
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "localized_name": "plan",
+          "name": "plan",
+          "type": "H3_CHAIN_PLAN",
+          "slot_index": 0,
+          "links": [
+            48
+          ]
+        },
+        {
+          "localized_name": "summary",
+          "name": "summary",
+          "type": "STRING",
+          "slot_index": 1,
+          "links": []
+        },
+        {
+          "localized_name": "clip_count",
+          "name": "clip_count",
+          "type": "INT",
+          "slot_index": 2,
+          "links": []
+        },
+        {
+          "localized_name": "width",
+          "name": "width",
+          "type": "INT",
+          "slot_index": 3,
+          "links": []
+        },
+        {
+          "localized_name": "height",
+          "name": "height",
+          "type": "INT",
+          "slot_index": 4,
+          "links": []
+        }
+      ],
+      "title": "H3 CHAIN PLAN V2 — EDIT SCENES HERE",
+      "properties": {
+        "cnr_id": "comfyui-minimaxh3-contex-loop",
+        "ver": "81e615c66384e8f747ded5d181ef5807f2775daa",
+        "Node name for S&R": "MiniMaxH3ChainPlan",
+        "h3_chain_plan_layout": {
+          "promptHeights": {
+            "shared": 88,
+            "scene:s1_birth": 112,
+            "scene:s2_split": 112,
+            "scene:s3_deliver": 112,
+            "scene:s4_return": 112
+          }
+        },
+        "h3_chain_scene_colors": {}
+      },
+      "widgets_values": [
+        "{\n  \"prompt_prefix\": \"subject_definitions:\\n<Subject 1> is THE STROKE, the protagonist: one ribbon of blue light with a white-cyan core, a saturated blue emissive band, a soft outer glow, a short afterimage and fine particles from its tip. It is the extension working, personified. Its width answers its speed - thin while gathering, thick on acceleration, thick only on the outside of a hard turn, tapering as it lands, thick on the parent line and thin on the branches when it splits. It moves like water, like current, like a ribbon, like a bird: supple, intelligent, fast but never coarse.\\n<Subject 2> is the actress: a naturally likeable young Japanese woman in her twenties, dark brown hair loosely gathered, a pale cream knit top, at a laptop in a bright plant-filled room. Her performance is deliberately small - she never mugs and never over-reacts. Everything spectacular happens around her, not to her.\\n\\nsummary:\\n[reference generation] A 15-second Japanese commercial for a free browser extension that compares prices across 26 shopping sites automatically. The idea is the contrast: the woman does almost nothing while the blue light does everything at enormous speed. Each cut has a finished key visual supplied as its own tagged reference; the film's job is to move between them without ever breaking the stroke.\\n\\nretention_analysis:\\nThe reference belonging to a cut is fully_preserved for that cut: reproduce that frame's composition, camera height and angle, palette, lighting, background, interface panels, every yen figure and every Japanese headline exactly as painted, with each character appearing once and no character doubled, repeated, mirrored or overlapped. The cut opens on that frame's staging and stays inside it; the movement described below happens within that composition rather than replacing it.\\n<Subject 1>: fully_preserved - one continuous stroke for the whole commercial, never reset. It exists in every cut, leaves each cut at a definite edge and enters the next at that same edge, and the cut change happens along its body.\\n<Subject 2>: partially_preserved - the same woman throughout; pose and expression change, and her acting stays small.\\nThis scene also carries a reference video of the finished film for this exact span. It is fully_preserved as motion: reproduce its framing, its cut points, its camera moves, the travel of the stroke and the actress's movement frame for frame, so that its staging, its cut points and its timing land exactly where the reference puts them. Every cut change happens on the frame the reference changes on, every headline appears and disappears when the reference's headline does, and no cut is shortened, dropped, lengthened or reordered. The reference video is itself assembled from two takes and one of its cut changes is a hard splice; render that moment as an ordinary cut of this film, continuous in light and in the travel of the stroke, not as a jump.\\nEvery cut listed for this scene is present in the finished scene and holds for its full stated span. A cut is never skipped over, never collapsed into its neighbour and never given less than the time written for it, even when the reference passes through it quickly.\\nA reference belongs only to its own cut. No headline, price card, logo wall, result panel or emblem from any other cut appears while a different cut is on screen, and only one headline is ever on screen at a time.\\n\\ndetailed_description:\\nCinematic anime feature-film look, exactly as painted in the references: transparent blues, strong backlight, floating light particles, anamorphic lens flares, bounced light, densely painted backgrounds, deep atmospheric haze.\\nCUT DISCIPLINE. This scene contains only the cuts listed below, in the order listed, each beginning at the stated time and holding as one unbroken shot until the next stated time. There is no other cut, no flashback, no montage, no cycling and no return to a cut that has already finished.\\nThe cut change is never a hard splice: the stroke crosses the frame and its trail becomes the next background, or the camera follows its tip into the next space. Speed lives in the stroke, the camera and the environment; the woman stays calm and the cut itself does not flicker.\\nThe headline of a cut is already part of its key visual: it holds in place, sharp and unchanged, for that cut's whole span. It is never a movie subtitle, subtitle bar, lower-third caption strip, letterboxed caption, footer text or romaji.\\nYen figures stay stable and legible and never flicker or change value.\\nEvery timing below is this scene's own clock: 00:00.000 is this scene's first frame and the scene runs 4.458 seconds.\",\n  \"shots\": [\n    {\n      \"id\": \"s1_birth\",\n      \"prompt\": \"This scene contains exactly four cuts: Cut 1 from 00:00.000 to 00:01.300, Cut 2 to 00:02.700, Cut 3 to 00:04.100 and Cut 4 from 00:04.100 to the end of the scene. Each is one unbroken shot.\\n[Cut 1] Reproduce @cut1. The emblem hangs over a sunlit blue sky and city; its outline darkens for an instant, then it ignites from within - light runs from the ¥ mark to the check, out to the outer ring and along the magnifier's handle to the tip, where it compresses for a tenth of a second before <Subject 1> is fired from it, swinging right then whipping upward and throwing sparks toward the lens. Push In, small amplitude, slow speed.\\n[Cut 2] At 00:01.300, reproduce @cut2. The stroke crosses in front of the lens and its trail wipes into the bright room where <Subject 2> sits at her laptop seen from behind, an amazon page showing a black camera and ¥25,980. Inside the room the stroke softens, skims the table, passes the plants, grazes the laptop edge and leads the eye to the screen. It guides rather than chases. Tracking Shot at fast speed.\\n[Cut 3] At 00:02.700, reproduce @cut3. The camera is closer now, her face in profile at frame left and the camera page large at frame right. She only looks - no click, the cursor barely moves. The stroke slips into the screen, arcs around the camera in a slightly elliptical scan, flares at the price and leaves a ring of light around the product as if it had read it. Its tip wavers as it searches. Push In, small amplitude, slow speed.\\n[Cut 4] At 00:04.100, reproduce @cut4. The stroke compresses thin at centre and charges forward, and the camera punches out of the screen into a corridor of shop-logo panels receding into depth. Pull Out, large amplitude, fast speed.\\n\\noverall_soundscape:\\nRefined, expensive electronic sound design following the stroke as one continuous journey rather than restarting: a compressing hum and a sharp shun as it is fired from the emblem, an airy hyuru through the turns, a light pa as it branches, quick taps as it reads the product, a rushing sweep across the logo panels, a kyuin as the cheapest price locks, a soft ripple as the check completes, a settling suu as the result panel lands, a clean sweep and fine granular dissolves as the tedious panels break into particles, a wide airy swell under the rising arc, and a bright kira as the emblem completes. Room tone, a laptop's quiet, and space around every sound.\\n\\nnon_diegetic_music:\\nA cinematic, transparent, uplifting score rather than a jingle: sustained strings and airy synth pads over a soft pulse, a piano figure entering with the room, rising through the split and the comparison, opening fully as the sky opens behind her, and resolving on one warm sustained chord that decays cleanly under the emblem. It runs continuously across the whole commercial without restarting.\\n\\ndialogue:\\nA calm, warm young Japanese female voice-over, unhurried and natural, one short line per cut, each landing with its headline and never overlapping the next: 「価格比較、」 / 「まだ、自分で探してる？」 / 「見るだけ。」 / 「26サイトを――」 / 「一瞬で比較。」 / 「最安値が、すぐ見つかる。」 / 「検索しなくていい。」 / 「比べなくていい。」 / 「しかも――」 / 「完全無料。価格比較プライスチェッカー。」 The actress speaks only twice, quietly and naturally, over her own cuts: 「え、見るだけ？」 and 「めっちゃラク。」 No singing.\",\n      \"length\": 107,\n      \"steps\": 25,\n      \"seed\": \"9637796610749307023\"\n    },\n    {\n      \"id\": \"s2_split\",\n      \"prompt\": \"This scene contains the tail of Cut 4 and exactly two further cuts: the tail to 00:01.959, Cut 5 from 00:01.959 to 00:03.359, and Cut 6 from 00:03.359 to the end of the scene. Each is one unbroken shot.\\nThe first 00:00.917 continues the previous scene without restarting: the charge into the corridor of logo panels of @cut4.\\n[Cut 4 continues] Still in @cut4, the stroke traces one large S and then branches - the parent stays thick while thin children grow from it and fly to the panels on separate paths, one gliding, one breaking sharply, one looping, each touching a panel with a small ring of light. Particle density rises hard at the branch point. Tracking Shot at fast speed.\\n[Cut 5] At 00:01.959, reproduce @cut5. Three price cards stand in depth reading ¥12,800, ¥11,900 and a brightly lit ¥10,980. The strands cut across them; each price flares as it is touched, the dearer ones are passed quickly, the cheaper ones glow harder, and the stroke curves toward the lowest and stops dead in front of it as a blue-white shockwave rings out. Truck Right, large amplitude, fast speed.\\n[Cut 6] At 00:03.359, reproduce @cut6. The stroke wheels around the winning card and drags it to frame centre while the others blur away. Push In, small amplitude, fast speed.\\n\\noverall_soundscape:\\nRefined, expensive electronic sound design following the stroke as one continuous journey rather than restarting: a compressing hum and a sharp shun as it is fired from the emblem, an airy hyuru through the turns, a light pa as it branches, quick taps as it reads the product, a rushing sweep across the logo panels, a kyuin as the cheapest price locks, a soft ripple as the check completes, a settling suu as the result panel lands, a clean sweep and fine granular dissolves as the tedious panels break into particles, a wide airy swell under the rising arc, and a bright kira as the emblem completes. Room tone, a laptop's quiet, and space around every sound.\\n\\nnon_diegetic_music:\\nA cinematic, transparent, uplifting score rather than a jingle: sustained strings and airy synth pads over a soft pulse, a piano figure entering with the room, rising through the split and the comparison, opening fully as the sky opens behind her, and resolving on one warm sustained chord that decays cleanly under the emblem. It runs continuously across the whole commercial without restarting.\\n\\ndialogue:\\nA calm, warm young Japanese female voice-over, unhurried and natural, one short line per cut, each landing with its headline and never overlapping the next: 「価格比較、」 / 「まだ、自分で探してる？」 / 「見るだけ。」 / 「26サイトを――」 / 「一瞬で比較。」 / 「最安値が、すぐ見つかる。」 / 「検索しなくていい。」 / 「比べなくていい。」 / 「しかも――」 / 「完全無料。価格比較プライスチェッカー。」 The actress speaks only twice, quietly and naturally, over her own cuts: 「え、見るだけ？」 and 「めっちゃラク。」 No singing.\",\n      \"length\": 107,\n      \"steps\": 25,\n      \"seed\": \"897276\"\n    },\n    {\n      \"id\": \"s3_deliver\",\n      \"prompt\": \"This scene contains the tail of Cut 6 and exactly three further cuts: the tail to 00:01.217, Cut 7 from 00:01.217 to 00:02.617, Cut 8 to 00:04.017 and Cut 9 from 00:04.017 to the end of the scene. Each is one unbroken shot.\\nThe first 00:00.917 continues the previous scene without restarting: the crowned card of @cut6 being pulled to centre.\\n[Cut 6 continues] Still in @cut6, the card locks with its gold crown and ¥10,980, and <Subject 1> runs beneath the price and draws the huge blue check in one stroke - a short down-line then a long fast rising line - a ripple of light spreading as it completes.\\n[Cut 7] At 00:01.217, reproduce @cut7. The stroke leaves the card, sweeps right and lands at the lower right of the real laptop screen, where a circle of light opens and the Price Checker result panel is drawn out of it, its ¥10,980 appearing large in red, before the stroke circles the panel once to settle it. Blue light reflects in her eyes. Push In, small amplitude, slow speed.\\n[Cut 8] At 00:02.617, reproduce @cut8. Glassy panels standing for search boxes, extra tabs, comparison tables and bookmarks float in dark blue space; the stroke sweeps one wide arc through them and they do not shatter but dissolve into blue particles, and it turns back to clear the stragglers. Fast, but tidying rather than destroying. Truck Left, large amplitude, fast speed.\\n[Cut 9] At 00:04.017, reproduce @cut9. A single stroke passes behind <Subject 2> and begins to rise. Pedestal Up, small amplitude, slow speed.\\n\\noverall_soundscape:\\nRefined, expensive electronic sound design following the stroke as one continuous journey rather than restarting: a compressing hum and a sharp shun as it is fired from the emblem, an airy hyuru through the turns, a light pa as it branches, quick taps as it reads the product, a rushing sweep across the logo panels, a kyuin as the cheapest price locks, a soft ripple as the check completes, a settling suu as the result panel lands, a clean sweep and fine granular dissolves as the tedious panels break into particles, a wide airy swell under the rising arc, and a bright kira as the emblem completes. Room tone, a laptop's quiet, and space around every sound.\\n\\nnon_diegetic_music:\\nA cinematic, transparent, uplifting score rather than a jingle: sustained strings and airy synth pads over a soft pulse, a piano figure entering with the room, rising through the split and the comparison, opening fully as the sky opens behind her, and resolving on one warm sustained chord that decays cleanly under the emblem. It runs continuously across the whole commercial without restarting.\\n\\ndialogue:\\nA calm, warm young Japanese female voice-over, unhurried and natural, one short line per cut, each landing with its headline and never overlapping the next: 「価格比較、」 / 「まだ、自分で探してる？」 / 「見るだけ。」 / 「26サイトを――」 / 「一瞬で比較。」 / 「最安値が、すぐ見つかる。」 / 「検索しなくていい。」 / 「比べなくていい。」 / 「しかも――」 / 「完全無料。価格比較プライスチェッカー。」 The actress speaks only twice, quietly and naturally, over her own cuts: 「え、見るだけ？」 and 「めっちゃラク。」 No singing.\",\n      \"length\": 107,\n      \"steps\": 25,\n      \"seed\": \"9638896722516371235\"\n    },\n    {\n      \"id\": \"s4_return\",\n      \"prompt\": \"This scene contains the tail of Cut 9 and exactly one further cut: the tail to 00:02.175, and Cut 10 from 00:02.175 to the end of the scene. Each is one unbroken shot.\\nThe first 00:00.917 continues the previous scene without restarting: the stroke rising behind <Subject 2> in the staging of @cut9.\\n[Cut 9 continues] Still in @cut9, she sits at the laptop against a wide bright sky and looks up, delighted; the stroke climbs past her shoulder, thickens, and draws a great arc over her while the emblem rides small and sharp at the top of frame. At the top of the arc it slows and particles scatter like fireworks. Crane Up, large amplitude, slow speed.\\n[Cut 10] At 00:02.175, reproduce @cut10. Chips of light converge from the left, the right and from depth and merge into one stroke, which traces the outer ring of the emblem at frame left against the sky and city. As the ring completes, the check flashes hard and light runs out along the magnifier's handle; the whole emblem pulses once, brightly, then the stroke stops moving and only fine particles drift. Static Shot. From 00:03.958 the frame holds completely still with no movement of any kind until 00:04.458.\\n\\noverall_soundscape:\\nRefined, expensive electronic sound design following the stroke as one continuous journey rather than restarting: a compressing hum and a sharp shun as it is fired from the emblem, an airy hyuru through the turns, a light pa as it branches, quick taps as it reads the product, a rushing sweep across the logo panels, a kyuin as the cheapest price locks, a soft ripple as the check completes, a settling suu as the result panel lands, a clean sweep and fine granular dissolves as the tedious panels break into particles, a wide airy swell under the rising arc, and a bright kira as the emblem completes. Room tone, a laptop's quiet, and space around every sound.\\n\\nnon_diegetic_music:\\nA cinematic, transparent, uplifting score rather than a jingle: sustained strings and airy synth pads over a soft pulse, a piano figure entering with the room, rising through the split and the comparison, opening fully as the sky opens behind her, and resolving on one warm sustained chord that decays cleanly under the emblem. It runs continuously across the whole commercial without restarting.\\n\\ndialogue:\\nA calm, warm young Japanese female voice-over, unhurried and natural, one short line per cut, each landing with its headline and never overlapping the next: 「価格比較、」 / 「まだ、自分で探してる？」 / 「見るだけ。」 / 「26サイトを――」 / 「一瞬で比較。」 / 「最安値が、すぐ見つかる。」 / 「検索しなくていい。」 / 「比べなくていい。」 / 「しかも――」 / 「完全無料。価格比較プライスチェッカー。」 The actress speaks only twice, quietly and naturally, over her own cuts: 「え、見るだけ？」 and 「めっちゃラク。」 No singing.\",\n      \"length\": 107,\n      \"steps\": 25,\n      \"seed\": \"8083518651998217044\"\n    }\n  ]\n}",
+        "pc_FINAL",
+        "",
+        960,
+        544,
+        22,
+        "video",
+        "head",
+        "disabled",
+        "generated_audio",
+        22,
+        15,
+        25,
+        891011,
+        20
+      ],
+      "widgets_values_named": {
+        "plan_json": "{\n  \"prompt_prefix\": \"subject_definitions:\\n<Subject 1> is THE STROKE, the protagonist: one ribbon of blue light with a white-cyan core, a saturated blue emissive band, a soft outer glow, a short afterimage and fine particles from its tip. It is the extension working, personified. Its width answers its speed - thin while gathering, thick on acceleration, thick only on the outside of a hard turn, tapering as it lands, thick on the parent line and thin on the branches when it splits. It moves like water, like current, like a ribbon, like a bird: supple, intelligent, fast but never coarse.\\n<Subject 2> is the actress: a naturally likeable young Japanese woman in her twenties, dark brown hair loosely gathered, a pale cream knit top, at a laptop in a bright plant-filled room. Her performance is deliberately small - she never mugs and never over-reacts. Everything spectacular happens around her, not to her.\\n\\nsummary:\\n[reference generation] A 15-second Japanese commercial for a free browser extension that compares prices across 26 shopping sites automatically. The idea is the contrast: the woman does almost nothing while the blue light does everything at enormous speed. Each cut has a finished key visual supplied as its own tagged reference; the film's job is to move between them without ever breaking the stroke.\\n\\nretention_analysis:\\nThe reference belonging to a cut is fully_preserved for that cut: reproduce that frame's composition, camera height and angle, palette, lighting, background, interface panels, every yen figure and every Japanese headline exactly as painted, with each character appearing once and no character doubled, repeated, mirrored or overlapped. The cut opens on that frame's staging and stays inside it; the movement described below happens within that composition rather than replacing it.\\n<Subject 1>: fully_preserved - one continuous stroke for the whole commercial, never reset. It exists in every cut, leaves each cut at a definite edge and enters the next at that same edge, and the cut change happens along its body.\\n<Subject 2>: partially_preserved - the same woman throughout; pose and expression change, and her acting stays small.\\nThis scene also carries a reference video of the finished film for this exact span. It is fully_preserved as motion: reproduce its framing, its cut points, its camera moves, the travel of the stroke and the actress's movement frame for frame, so that its staging, its cut points and its timing land exactly where the reference puts them. Every cut change happens on the frame the reference changes on, every headline appears and disappears when the reference's headline does, and no cut is shortened, dropped, lengthened or reordered. The reference video is itself assembled from two takes and one of its cut changes is a hard splice; render that moment as an ordinary cut of this film, continuous in light and in the travel of the stroke, not as a jump.\\nEvery cut listed for this scene is present in the finished scene and holds for its full stated span. A cut is never skipped over, never collapsed into its neighbour and never given less than the time written for it, even when the reference passes through it quickly.\\nA reference belongs only to its own cut. No headline, price card, logo wall, result panel or emblem from any other cut appears while a different cut is on screen, and only one headline is ever on screen at a time.\\n\\ndetailed_description:\\nCinematic anime feature-film look, exactly as painted in the references: transparent blues, strong backlight, floating light particles, anamorphic lens flares, bounced light, densely painted backgrounds, deep atmospheric haze.\\nCUT DISCIPLINE. This scene contains only the cuts listed below, in the order listed, each beginning at the stated time and holding as one unbroken shot until the next stated time. There is no other cut, no flashback, no montage, no cycling and no return to a cut that has already finished.\\nThe cut change is never a hard splice: the stroke crosses the frame and its trail becomes the next background, or the camera follows its tip into the next space. Speed lives in the stroke, the camera and the environment; the woman stays calm and the cut itself does not flicker.\\nThe headline of a cut is already part of its key visual: it holds in place, sharp and unchanged, for that cut's whole span. It is never a movie subtitle, subtitle bar, lower-third caption strip, letterboxed caption, footer text or romaji.\\nYen figures stay stable and legible and never flicker or change value.\\nEvery timing below is this scene's own clock: 00:00.000 is this scene's first frame and the scene runs 4.458 seconds.\",\n  \"shots\": [\n    {\n      \"id\": \"s1_birth\",\n      \"prompt\": \"This scene contains exactly four cuts: Cut 1 from 00:00.000 to 00:01.300, Cut 2 to 00:02.700, Cut 3 to 00:04.100 and Cut 4 from 00:04.100 to the end of the scene. Each is one unbroken shot.\\n[Cut 1] Reproduce @cut1. The emblem hangs over a sunlit blue sky and city; its outline darkens for an instant, then it ignites from within - light runs from the ¥ mark to the check, out to the outer ring and along the magnifier's handle to the tip, where it compresses for a tenth of a second before <Subject 1> is fired from it, swinging right then whipping upward and throwing sparks toward the lens. Push In, small amplitude, slow speed.\\n[Cut 2] At 00:01.300, reproduce @cut2. The stroke crosses in front of the lens and its trail wipes into the bright room where <Subject 2> sits at her laptop seen from behind, an amazon page showing a black camera and ¥25,980. Inside the room the stroke softens, skims the table, passes the plants, grazes the laptop edge and leads the eye to the screen. It guides rather than chases. Tracking Shot at fast speed.\\n[Cut 3] At 00:02.700, reproduce @cut3. The camera is closer now, her face in profile at frame left and the camera page large at frame right. She only looks - no click, the cursor barely moves. The stroke slips into the screen, arcs around the camera in a slightly elliptical scan, flares at the price and leaves a ring of light around the product as if it had read it. Its tip wavers as it searches. Push In, small amplitude, slow speed.\\n[Cut 4] At 00:04.100, reproduce @cut4. The stroke compresses thin at centre and charges forward, and the camera punches out of the screen into a corridor of shop-logo panels receding into depth. Pull Out, large amplitude, fast speed.\\n\\noverall_soundscape:\\nRefined, expensive electronic sound design following the stroke as one continuous journey rather than restarting: a compressing hum and a sharp shun as it is fired from the emblem, an airy hyuru through the turns, a light pa as it branches, quick taps as it reads the product, a rushing sweep across the logo panels, a kyuin as the cheapest price locks, a soft ripple as the check completes, a settling suu as the result panel lands, a clean sweep and fine granular dissolves as the tedious panels break into particles, a wide airy swell under the rising arc, and a bright kira as the emblem completes. Room tone, a laptop's quiet, and space around every sound.\\n\\nnon_diegetic_music:\\nA cinematic, transparent, uplifting score rather than a jingle: sustained strings and airy synth pads over a soft pulse, a piano figure entering with the room, rising through the split and the comparison, opening fully as the sky opens behind her, and resolving on one warm sustained chord that decays cleanly under the emblem. It runs continuously across the whole commercial without restarting.\\n\\ndialogue:\\nA calm, warm young Japanese female voice-over, unhurried and natural, one short line per cut, each landing with its headline and never overlapping the next: 「価格比較、」 / 「まだ、自分で探してる？」 / 「見るだけ。」 / 「26サイトを――」 / 「一瞬で比較。」 / 「最安値が、すぐ見つかる。」 / 「検索しなくていい。」 / 「比べなくていい。」 / 「しかも――」 / 「完全無料。価格比較プライスチェッカー。」 The actress speaks only twice, quietly and naturally, over her own cuts: 「え、見るだけ？」 and 「めっちゃラク。」 No singing.\",\n      \"length\": 107,\n      \"steps\": 25,\n      \"seed\": \"9637796610749307023\"\n    },\n    {\n      \"id\": \"s2_split\",\n      \"prompt\": \"This scene contains the tail of Cut 4 and exactly two further cuts: the tail to 00:01.959, Cut 5 from 00:01.959 to 00:03.359, and Cut 6 from 00:03.359 to the end of the scene. Each is one unbroken shot.\\nThe first 00:00.917 continues the previous scene without restarting: the charge into the corridor of logo panels of @cut4.\\n[Cut 4 continues] Still in @cut4, the stroke traces one large S and then branches - the parent stays thick while thin children grow from it and fly to the panels on separate paths, one gliding, one breaking sharply, one looping, each touching a panel with a small ring of light. Particle density rises hard at the branch point. Tracking Shot at fast speed.\\n[Cut 5] At 00:01.959, reproduce @cut5. Three price cards stand in depth reading ¥12,800, ¥11,900 and a brightly lit ¥10,980. The strands cut across them; each price flares as it is touched, the dearer ones are passed quickly, the cheaper ones glow harder, and the stroke curves toward the lowest and stops dead in front of it as a blue-white shockwave rings out. Truck Right, large amplitude, fast speed.\\n[Cut 6] At 00:03.359, reproduce @cut6. The stroke wheels around the winning card and drags it to frame centre while the others blur away. Push In, small amplitude, fast speed.\\n\\noverall_soundscape:\\nRefined, expensive electronic sound design following the stroke as one continuous journey rather than restarting: a compressing hum and a sharp shun as it is fired from the emblem, an airy hyuru through the turns, a light pa as it branches, quick taps as it reads the product, a rushing sweep across the logo panels, a kyuin as the cheapest price locks, a soft ripple as the check completes, a settling suu as the result panel lands, a clean sweep and fine granular dissolves as the tedious panels break into particles, a wide airy swell under the rising arc, and a bright kira as the emblem completes. Room tone, a laptop's quiet, and space around every sound.\\n\\nnon_diegetic_music:\\nA cinematic, transparent, uplifting score rather than a jingle: sustained strings and airy synth pads over a soft pulse, a piano figure entering with the room, rising through the split and the comparison, opening fully as the sky opens behind her, and resolving on one warm sustained chord that decays cleanly under the emblem. It runs continuously across the whole commercial without restarting.\\n\\ndialogue:\\nA calm, warm young Japanese female voice-over, unhurried and natural, one short line per cut, each landing with its headline and never overlapping the next: 「価格比較、」 / 「まだ、自分で探してる？」 / 「見るだけ。」 / 「26サイトを――」 / 「一瞬で比較。」 / 「最安値が、すぐ見つかる。」 / 「検索しなくていい。」 / 「比べなくていい。」 / 「しかも――」 / 「完全無料。価格比較プライスチェッカー。」 The actress speaks only twice, quietly and naturally, over her own cuts: 「え、見るだけ？」 and 「めっちゃラク。」 No singing.\",\n      \"length\": 107,\n      \"steps\": 25,\n      \"seed\": \"897276\"\n    },\n    {\n      \"id\": \"s3_deliver\",\n      \"prompt\": \"This scene contains the tail of Cut 6 and exactly three further cuts: the tail to 00:01.217, Cut 7 from 00:01.217 to 00:02.617, Cut 8 to 00:04.017 and Cut 9 from 00:04.017 to the end of the scene. Each is one unbroken shot.\\nThe first 00:00.917 continues the previous scene without restarting: the crowned card of @cut6 being pulled to centre.\\n[Cut 6 continues] Still in @cut6, the card locks with its gold crown and ¥10,980, and <Subject 1> runs beneath the price and draws the huge blue check in one stroke - a short down-line then a long fast rising line - a ripple of light spreading as it completes.\\n[Cut 7] At 00:01.217, reproduce @cut7. The stroke leaves the card, sweeps right and lands at the lower right of the real laptop screen, where a circle of light opens and the Price Checker result panel is drawn out of it, its ¥10,980 appearing large in red, before the stroke circles the panel once to settle it. Blue light reflects in her eyes. Push In, small amplitude, slow speed.\\n[Cut 8] At 00:02.617, reproduce @cut8. Glassy panels standing for search boxes, extra tabs, comparison tables and bookmarks float in dark blue space; the stroke sweeps one wide arc through them and they do not shatter but dissolve into blue particles, and it turns back to clear the stragglers. Fast, but tidying rather than destroying. Truck Left, large amplitude, fast speed.\\n[Cut 9] At 00:04.017, reproduce @cut9. A single stroke passes behind <Subject 2> and begins to rise. Pedestal Up, small amplitude, slow speed.\\n\\noverall_soundscape:\\nRefined, expensive electronic sound design following the stroke as one continuous journey rather than restarting: a compressing hum and a sharp shun as it is fired from the emblem, an airy hyuru through the turns, a light pa as it branches, quick taps as it reads the product, a rushing sweep across the logo panels, a kyuin as the cheapest price locks, a soft ripple as the check completes, a settling suu as the result panel lands, a clean sweep and fine granular dissolves as the tedious panels break into particles, a wide airy swell under the rising arc, and a bright kira as the emblem completes. Room tone, a laptop's quiet, and space around every sound.\\n\\nnon_diegetic_music:\\nA cinematic, transparent, uplifting score rather than a jingle: sustained strings and airy synth pads over a soft pulse, a piano figure entering with the room, rising through the split and the comparison, opening fully as the sky opens behind her, and resolving on one warm sustained chord that decays cleanly under the emblem. It runs continuously across the whole commercial without restarting.\\n\\ndialogue:\\nA calm, warm young Japanese female voice-over, unhurried and natural, one short line per cut, each landing with its headline and never overlapping the next: 「価格比較、」 / 「まだ、自分で探してる？」 / 「見るだけ。」 / 「26サイトを――」 / 「一瞬で比較。」 / 「最安値が、すぐ見つかる。」 / 「検索しなくていい。」 / 「比べなくていい。」 / 「しかも――」 / 「完全無料。価格比較プライスチェッカー。」 The actress speaks only twice, quietly and naturally, over her own cuts: 「え、見るだけ？」 and 「めっちゃラク。」 No singing.\",\n      \"length\": 107,\n      \"steps\": 25,\n      \"seed\": \"9638896722516371235\"\n    },\n    {\n      \"id\": \"s4_return\",\n      \"prompt\": \"This scene contains the tail of Cut 9 and exactly one further cut: the tail to 00:02.175, and Cut 10 from 00:02.175 to the end of the scene. Each is one unbroken shot.\\nThe first 00:00.917 continues the previous scene without restarting: the stroke rising behind <Subject 2> in the staging of @cut9.\\n[Cut 9 continues] Still in @cut9, she sits at the laptop against a wide bright sky and looks up, delighted; the stroke climbs past her shoulder, thickens, and draws a great arc over her while the emblem rides small and sharp at the top of frame. At the top of the arc it slows and particles scatter like fireworks. Crane Up, large amplitude, slow speed.\\n[Cut 10] At 00:02.175, reproduce @cut10. Chips of light converge from the left, the right and from depth and merge into one stroke, which traces the outer ring of the emblem at frame left against the sky and city. As the ring completes, the check flashes hard and light runs out along the magnifier's handle; the whole emblem pulses once, brightly, then the stroke stops moving and only fine particles drift. Static Shot. From 00:03.958 the frame holds completely still with no movement of any kind until 00:04.458.\\n\\noverall_soundscape:\\nRefined, expensive electronic sound design following the stroke as one continuous journey rather than restarting: a compressing hum and a sharp shun as it is fired from the emblem, an airy hyuru through the turns, a light pa as it branches, quick taps as it reads the product, a rushing sweep across the logo panels, a kyuin as the cheapest price locks, a soft ripple as the check completes, a settling suu as the result panel lands, a clean sweep and fine granular dissolves as the tedious panels break into particles, a wide airy swell under the rising arc, and a bright kira as the emblem completes. Room tone, a laptop's quiet, and space around every sound.\\n\\nnon_diegetic_music:\\nA cinematic, transparent, uplifting score rather than a jingle: sustained strings and airy synth pads over a soft pulse, a piano figure entering with the room, rising through the split and the comparison, opening fully as the sky opens behind her, and resolving on one warm sustained chord that decays cleanly under the emblem. It runs continuously across the whole commercial without restarting.\\n\\ndialogue:\\nA calm, warm young Japanese female voice-over, unhurried and natural, one short line per cut, each landing with its headline and never overlapping the next: 「価格比較、」 / 「まだ、自分で探してる？」 / 「見るだけ。」 / 「26サイトを――」 / 「一瞬で比較。」 / 「最安値が、すぐ見つかる。」 / 「検索しなくていい。」 / 「比べなくていい。」 / 「しかも――」 / 「完全無料。価格比較プライスチェッカー。」 The actress speaks only twice, quietly and naturally, over her own cuts: 「え、見るだけ？」 and 「めっちゃラク。」 No singing.\",\n      \"length\": 107,\n      \"steps\": 25,\n      \"seed\": \"8083518651998217044\"\n    }\n  ]\n}",
+        "run_name": "pc_FINAL",
+        "generation_fingerprint": "",
+        "width": 960,
+        "height": 544,
+        "context_length": 22,
+        "encode_mode": "video",
+        "anchor_mode": "head",
+        "crop": "disabled",
+        "audio_mode": "generated_audio",
+        "audio_context_length": 22,
+        "default_duration_seconds": 15,
+        "default_steps": 25,
+        "base_seed": 891011,
+        "segment_crf": 20
+      }
+    },
+    {
+      "id": 9708,
+      "type": "MarkdownNote",
+      "pos": [
+        0,
+        60
+      ],
+      "size": [
+        460,
+        283
+      ],
+      "flags": {},
+      "order": 21,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [],
+      "title": "1. モデル",
+      "properties": {
+        "Node name for S&R": "MarkdownNote"
+      },
+      "widgets_values": [
+        "## 1. モデル\n\n`UNETLoader` → `SigmaShift` → `Sage attention` の順に通ります。\n\n**`SigmaShift` は 12 / 3 のまま変えないでください。** H3 の学習時の値です。\n\n蒸留 LoRA（PDD、turbo）はこのワークフローには入っていません。\n部分書き換えでは**素のモデルの方が細部が正確**だったためです（下の「制約」を参照）。\n"
+      ],
+      "widgets_values_named": {
+        "text": "## 1. モデル\n\n`UNETLoader` → `SigmaShift` → `Sage attention` の順に通ります。\n\n**`SigmaShift` は 12 / 3 のまま変えないでください。** H3 の学習時の値です。\n\n蒸留 LoRA（PDD、turbo）はこのワークフローには入っていません。\n部分書き換えでは**素のモデルの方が細部が正確**だったためです（下の「制約」を参照）。\n"
+      },
+      "color": "#432",
+      "bgcolor": "#653"
+    },
+    {
+      "id": 9709,
+      "type": "MarkdownNote",
+      "pos": [
+        580,
+        60
+      ],
+      "size": [
+        460,
+        300
+      ],
+      "flags": {},
+      "order": 22,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [],
+      "title": "2. 解像度と尺",
+      "properties": {
+        "Node name for S&R": "MarkdownNote"
+      },
+      "widgets_values": [
+        "## 2. 解像度と尺\n\n`ResolutionSelector` が幅と高さを、`ComfyMathExpression` がフレーム数を決めます。\n\n**書き換えるときは、元のクリップと同じ解像度にしてください。**\n潜在の形が合わないとサンプラーが受け付けません。\n`pc_FINAL` は **1.5 MP / 16:9（1664×928）** です。\n\nフレーム数の式は `17k+5` の格子に丸める処理です。H3 はこの刻みしか受け付けません。\n"
+      ],
+      "widgets_values_named": {
+        "text": "## 2. 解像度と尺\n\n`ResolutionSelector` が幅と高さを、`ComfyMathExpression` がフレーム数を決めます。\n\n**書き換えるときは、元のクリップと同じ解像度にしてください。**\n潜在の形が合わないとサンプラーが受け付けません。\n`pc_FINAL` は **1.5 MP / 16:9（1664×928）** です。\n\nフレーム数の式は `17k+5` の格子に丸める処理です。H3 はこの刻みしか受け付けません。\n"
+      },
+      "color": "#432",
+      "bgcolor": "#653"
+    },
+    {
+      "id": 9710,
+      "type": "MarkdownNote",
+      "pos": [
+        1160,
+        60
+      ],
+      "size": [
+        460,
+        334
+      ],
+      "flags": {},
+      "order": 23,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [],
+      "title": "3. 参照素材",
+      "properties": {
+        "Node name for S&R": "MarkdownNote"
+      },
+      "widgets_values": [
+        "## 3. 参照素材\n\nキービジュアル 10 枚（`pc_kv01`〜`pc_kv10`）と、動きの参照動画、音声です。\n\n### ここが見た目を決めます\n\n**プロンプトでは上書きできません。** ロゴの誤字は `pc_kv01.png` に焼き付いていたもので、\nプロンプトで「正しく描け」と指示しても直りませんでした。\n参照画像を修正して初めて直っています。\n\n差し替えるときは、この列の `LoadImage` のファイル名を変えてください。\n"
+      ],
+      "widgets_values_named": {
+        "text": "## 3. 参照素材\n\nキービジュアル 10 枚（`pc_kv01`〜`pc_kv10`）と、動きの参照動画、音声です。\n\n### ここが見た目を決めます\n\n**プロンプトでは上書きできません。** ロゴの誤字は `pc_kv01.png` に焼き付いていたもので、\nプロンプトで「正しく描け」と指示しても直りませんでした。\n参照画像を修正して初めて直っています。\n\n差し替えるときは、この列の `LoadImage` のファイル名を変えてください。\n"
+      },
+      "color": "#432",
+      "bgcolor": "#653"
+    },
+    {
+      "id": 9711,
+      "type": "MarkdownNote",
+      "pos": [
+        1740,
+        60
+      ],
+      "size": [
+        460,
+        351
+      ],
+      "flags": {},
+      "order": 24,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [],
+      "title": "4. 参照スケジュール",
+      "properties": {
+        "Node name for S&R": "MarkdownNote"
+      },
+      "widgets_values": [
+        "## 4. 参照スケジュール\n\n`@cut1`〜`@cut10` のタグを、どのシーンで使うかと一緒に鎖状に繋いだものです。\nプロンプト内の `@cut1` のような記述がここで解決されます。\n\n**鎖の途中を切ると、その先の参照が全部届かなくなります。**\n`previous` が繋がっているか確認してください。\n\n### 参照を減らすと指示が通りやすくなります\n\n色を変える実験では、10 枚のうち 1 枚だけ変えても効きませんでした。\nそのカットの参照だけに絞ると効き始めます。ただしプロンプト側のタグも揃える必要があります。\n"
+      ],
+      "widgets_values_named": {
+        "text": "## 4. 参照スケジュール\n\n`@cut1`〜`@cut10` のタグを、どのシーンで使うかと一緒に鎖状に繋いだものです。\nプロンプト内の `@cut1` のような記述がここで解決されます。\n\n**鎖の途中を切ると、その先の参照が全部届かなくなります。**\n`previous` が繋がっているか確認してください。\n\n### 参照を減らすと指示が通りやすくなります\n\n色を変える実験では、10 枚のうち 1 枚だけ変えても効きませんでした。\nそのカットの参照だけに絞ると効き始めます。ただしプロンプト側のタグも揃える必要があります。\n"
+      },
+      "color": "#432",
+      "bgcolor": "#653"
+    },
+    {
+      "id": 9712,
+      "type": "MarkdownNote",
+      "pos": [
+        2320,
+        60
+      ],
+      "size": [
+        700,
+        402
+      ],
+      "flags": {},
+      "order": 25,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [],
+      "title": "5. チェーン",
+      "properties": {
+        "Node name for S&R": "MarkdownNote"
+      },
+      "widgets_values": [
+        "## 5. チェーン\n\nシーンごとのプロンプト、シード、ステップ数は `Chain Plan` の JSON が持っています。\n`Chain Loop Start` がループを回し、`Chain Current` が今のシーンの値を配ります。\n\n### このワークフローは scene_range = 1\n\n**`Chain Loop Start` の `scene_range` を `1` にしてあります。**\nシーン 1 だけを生成します。他のシーンを直すときはここを `2` などに変えてください。\n\n`Chain Context` はシーン 2 以降に前クリップの文脈を渡す役です。\nシーン 1 には文脈がないので素通しになります。\n\nステップ数は `Chain Plan` の `default_steps` が優先されます。\n`BasicScheduler` の値ではありません。\n"
+      ],
+      "widgets_values_named": {
+        "text": "## 5. チェーン\n\nシーンごとのプロンプト、シード、ステップ数は `Chain Plan` の JSON が持っています。\n`Chain Loop Start` がループを回し、`Chain Current` が今のシーンの値を配ります。\n\n### このワークフローは scene_range = 1\n\n**`Chain Loop Start` の `scene_range` を `1` にしてあります。**\nシーン 1 だけを生成します。他のシーンを直すときはここを `2` などに変えてください。\n\n`Chain Context` はシーン 2 以降に前クリップの文脈を渡す役です。\nシーン 1 には文脈がないので素通しになります。\n\nステップ数は `Chain Plan` の `default_steps` が優先されます。\n`BasicScheduler` の値ではありません。\n"
+      },
+      "color": "#432",
+      "bgcolor": "#653"
+    },
+    {
+      "id": 9713,
+      "type": "MarkdownNote",
+      "pos": [
+        3140,
+        60
+      ],
+      "size": [
+        460,
+        657
+      ],
+      "flags": {},
+      "order": 26,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [],
+      "title": "6. 書き換え",
+      "properties": {
+        "Node name for S&R": "MarkdownNote"
+      },
+      "widgets_values": [
+        "# 6. 書き換え（このワークフローの中核）\n\n**このコピーはシーン4の女性を差し替える設定です。**\n`@cut10` の参照を新しいキービジュアルに差し替え、\n女性が映っている冒頭 11% だけを書き直します。\n\n完成したクリップの潜在を読み込み、**指定した部分だけ**を作り直します。\n\n    Load Latent → Partial Denoise Mask → SamplerCustomAdvanced.latent_image\n\n参照ノードが作る新規の潜在の代わりに、**完成品の潜在**をサンプラーへ渡します。\nマスクが **0 の領域は毎ステップ元の値に戻され**、1 の領域だけが動きます。\n\n固定された部分は生成中も常に参照されるので、**書き換えた部分が周囲と自然に繋がります**。\n2 本別々に作って貼り合わせるのとは違います。\n\n## つまみ\n\n| | |\n|---|---|\n| `track` | `audio only` = 映像そのままで音声だけ / `video only` / `both` |\n| `strength` | **1.0** 完全に作り直し / **0.8** 内容を変える下限 / **0.5** ほぼ変わらない |\n| `t_start_pct` `t_end_pct` | 書き換える時間帯（％） |\n| `t_feather_pct` | 境界のぼかし。カット境界が近いなら 2〜3% |\n| `x/y/w/h_pct` | 矩形（映像のみ）。対象を余裕をもって囲む |\n\n## 時間の粒度\n\n107 フレーム → 32 潜在フレーム。**1 潜在フレーム ≈ 0.14 秒**が最小単位で、\nVAE デコードでさらに前後 0.2 秒ほど影響が漏れます。カット境界ぎりぎりは苦手です。\n\n## 保存\n\n`Save Latent` で編集後の潜在も残ります。同じクリップを繰り返し編集できます。\n\n\n---\n\n## このコピーはシーン4の女性を差し替える設定です\n\n差し替えるのは **`@cut9`** の参照です。「タイパ最強。」の女性はそこにいます。\n`@cut10` は「完全無料。」の別カットなので触りません。\n\n## 時間範囲に注意（22フレームのずれ）\n\nシーン2以降は、**先頭22フレームが前クリップとの文脈**で、書き出し時に捨てられます。\n\n    生の潜在    0 ──22──32────────────107\n                    │   │\n                  女性が映る区間\n    セグメント        0 ─ 10 ────────── 85\n\n**セグメントのフレーム0は、生の潜在のフレーム22です。**\nマスクの時間指定は生の潜在に対してかかるので、セグメント上の位置に 22/107 ≈ 20% を足してください。\nここでは女性が生フレーム 22〜32、つまり **18〜32%** です。\n\n## このワークフローは単体では実行できません\n\nチェーンは中間シーンを回すとき、それ以前のクリップとの整合性を検査します。\n参照やステップ数を変えると **`Cannot resume clip 4`** で停止します。\n\nシーン4だけを書き換えるには、チェーンを外した単発グラフで回してください\n（`h3_refloop/rewrite_region.py` に `H3_SHOT=3` を渡す形）。\n出力は107フレームなので、**先頭22フレームを落として**から他のシーンと結合します。\n"
+      ],
+      "widgets_values_named": {
+        "text": "# 6. 書き換え（このワークフローの中核）\n\n完成したクリップの潜在を読み込み、**指定した部分だけ**を作り直します。\n\n    Load Latent → Partial Denoise Mask → SamplerCustomAdvanced.latent_image\n\n参照ノードが作る新規の潜在の代わりに、**完成品の潜在**をサンプラーへ渡します。\nマスクが **0 の領域は毎ステップ元の値に戻され**、1 の領域だけが動きます。\n\n固定された部分は生成中も常に参照されるので、**書き換えた部分が周囲と自然に繋がります**。\n2 本別々に作って貼り合わせるのとは違います。\n\n## つまみ\n\n| | |\n|---|---|\n| `track` | `audio only` = 映像そのままで音声だけ / `video only` / `both` |\n| `strength` | **1.0** 完全に作り直し / **0.8** 内容を変える下限 / **0.5** ほぼ変わらない |\n| `t_start_pct` `t_end_pct` | 書き換える時間帯（％） |\n| `t_feather_pct` | 境界のぼかし。カット境界が近いなら 2〜3% |\n| `x/y/w/h_pct` | 矩形（映像のみ）。対象を余裕をもって囲む |\n\n## 時間の粒度\n\n107 フレーム → 32 潜在フレーム。**1 潜在フレーム ≈ 0.14 秒**が最小単位で、\nVAE デコードでさらに前後 0.2 秒ほど影響が漏れます。カット境界ぎりぎりは苦手です。\n\n## 保存\n\n`Save Latent` で編集後の潜在も残ります。同じクリップを繰り返し編集できます。\n"
+      },
+      "color": "#432",
+      "bgcolor": "#653"
+    },
+    {
+      "id": 9714,
+      "type": "MarkdownNote",
+      "pos": [
+        3720,
+        60
+      ],
+      "size": [
+        460,
+        419
+      ],
+      "flags": {},
+      "order": 27,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [],
+      "title": "7. サンプリング",
+      "properties": {
+        "Node name for S&R": "MarkdownNote"
+      },
+      "widgets_values": [
+        "## 7. サンプリング\n\n**シードを変えるのは `RandomNoise` です。** 書き換えのたびに変えてください。\n\n### ステップ数は多ければ良いわけではありません\n\n1664×928 / 107 フレーム / RTX 3090 での実測です。\n\n| | 時間 | 結果 |\n|---|---|---|\n| フル生成（PDD 8step） | 845 秒 | — |\n| 部分書き換え 4step | **265 秒** | 文字が正しい |\n| 部分書き換え 8step | 490 秒 | 文字が正しい、輪郭が締まる |\n| 部分書き換え 25step | 1421 秒 | **崩れる** |\n\nH3 はステップ数でサンプル自体が変わります。**4〜8 が実用範囲**です。\n"
+      ],
+      "widgets_values_named": {
+        "text": "## 7. サンプリング\n\n**シードを変えるのは `RandomNoise` です。** 書き換えのたびに変えてください。\n\n### ステップ数は多ければ良いわけではありません\n\n1664×928 / 107 フレーム / RTX 3090 での実測です。\n\n| | 時間 | 結果 |\n|---|---|---|\n| フル生成（PDD 8step） | 845 秒 | — |\n| 部分書き換え 4step | **265 秒** | 文字が正しい |\n| 部分書き換え 8step | 490 秒 | 文字が正しい、輪郭が締まる |\n| 部分書き換え 25step | 1421 秒 | **崩れる** |\n\nH3 はステップ数でサンプル自体が変わります。**4〜8 が実用範囲**です。\n"
+      },
+      "color": "#432",
+      "bgcolor": "#653"
+    },
+    {
+      "id": 9715,
+      "type": "MarkdownNote",
+      "pos": [
+        4300,
+        60
+      ],
+      "size": [
+        460,
+        300
+      ],
+      "flags": {},
+      "order": 28,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [],
+      "title": "8. 出力",
+      "properties": {
+        "Node name for S&R": "MarkdownNote"
+      },
+      "widgets_values": [
+        "## 8. 出力\n\n`Loop Trim` が文脈フレームを落とし、`Segment Save` がセグメントとチェックポイントを書きます。\n**チェックポイントには潜在とシーンプロンプトが入っています。** 次の編集の入力になります。\n\n`Chain Assemble` が全シーンを繋ぎますが、`scene_range = 1` なのでシーン 1 だけです。\n既存の完成版と差し替えるときは、書き出されたセグメントを他のシーンと結合してください。\n\n`Chain Review` は確認用のゲートです。無効のままで構いません。\n"
+      ],
+      "widgets_values_named": {
+        "text": "## 8. 出力\n\n`Loop Trim` が文脈フレームを落とし、`Segment Save` がセグメントとチェックポイントを書きます。\n**チェックポイントには潜在とシーンプロンプトが入っています。** 次の編集の入力になります。\n\n`Chain Assemble` が全シーンを繋ぎますが、`scene_range = 1` なのでシーン 1 だけです。\n既存の完成版と差し替えるときは、書き出されたセグメントを他のシーンと結合してください。\n\n`Chain Review` は確認用のゲートです。無効のままで構いません。\n"
+      },
+      "color": "#432",
+      "bgcolor": "#653"
+    },
+    {
+      "id": 9716,
+      "type": "MarkdownNote",
+      "pos": [
+        -620,
+        0
+      ],
+      "size": [
+        560,
+        1000
+      ],
+      "flags": {},
+      "order": 29,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [],
+      "title": "はじめに読む · 制約",
+      "properties": {
+        "Node name for S&R": "MarkdownNote"
+      },
+      "widgets_values": [
+        "# 制約（先に読んでください）\n\n## PDD は入れていません\n\nマスクとの併用**自体は可能**です。マスクはシグマ格子を変えないので、\nPDD が自分の 8 ステップ格子で回る分には問題ありません。\n\nしかし同じステップ数で比べると **PDD は文字を崩しました**。\n細部を直す用途では素のモデルを使ってください。\n\n`denoise < 1` の短縮スケジュールは PDD が拒否します（訓練格子の外）。\n\n## warmup（2 フェーズ）とは併用できません\n\nマスクは次の式で適用され、**サンプラーの noise を使います**。\n\n    x = x * mask + scale_latent_inpaint(x, sigma, noise, latent_image) * (1 - mask)\n\nwarmup のフェーズ 2 は `DisableNoise` なのでこの項が壊れ、\n固定領域が高シグマの途中でノイズを持たない値になり、画面がブロックノイズになります。\n\n## 見た目は参照画像が決めます\n\n参照に誤字があれば、何回回しても誤字が出ます。プロンプトでは上書きできません。\nまず参照を直してください。\n\n## プロンプトと参照は元のクリップと揃える\n\n条件付けが違うと、固定された部分と書き換え部分が矛盾します。\nこのワークフローは `pc_FINAL` の実際の生成グラフから起こしてあるので、初期状態では揃っています。\n"
+      ],
+      "widgets_values_named": {
+        "text": "# 制約（先に読んでください）\n\n## PDD は入れていません\n\nマスクとの併用**自体は可能**です。マスクはシグマ格子を変えないので、\nPDD が自分の 8 ステップ格子で回る分には問題ありません。\n\nしかし同じステップ数で比べると **PDD は文字を崩しました**。\n細部を直す用途では素のモデルを使ってください。\n\n`denoise < 1` の短縮スケジュールは PDD が拒否します（訓練格子の外）。\n\n## warmup（2 フェーズ）とは併用できません\n\nマスクは次の式で適用され、**サンプラーの noise を使います**。\n\n    x = x * mask + scale_latent_inpaint(x, sigma, noise, latent_image) * (1 - mask)\n\nwarmup のフェーズ 2 は `DisableNoise` なのでこの項が壊れ、\n固定領域が高シグマの途中でノイズを持たない値になり、画面がブロックノイズになります。\n\n## 見た目は参照画像が決めます\n\n参照に誤字があれば、何回回しても誤字が出ます。プロンプトでは上書きできません。\nまず参照を直してください。\n\n## プロンプトと参照は元のクリップと揃える\n\n条件付けが違うと、固定された部分と書き換え部分が矛盾します。\nこのワークフローは `pc_FINAL` の実際の生成グラフから起こしてあるので、初期状態では揃っています。\n"
+      },
+      "color": "#432",
+      "bgcolor": "#653"
+    },
+    {
+      "id": 9717,
+      "type": "MiniMaxH3RegionPicker",
+      "pos": [
+        3140,
+        1315
+      ],
+      "size": [
+        380,
+        520
+      ],
+      "flags": {},
+      "order": 0,
+      "mode": 0,
+      "title": "MiniMax H3 Region Picker",
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": null
+        },
+        {
+          "name": "video",
+          "type": "VIDEO",
+          "link": 93
+        }
+      ],
+      "outputs": [
+        {
+          "name": "x_pct",
+          "type": "FLOAT",
+          "links": [
+            94
+          ],
+          "slot_index": 0
+        },
+        {
+          "name": "y_pct",
+          "type": "FLOAT",
+          "links": [
+            95
+          ],
+          "slot_index": 1
+        },
+        {
+          "name": "w_pct",
+          "type": "FLOAT",
+          "links": [
+            96
+          ],
+          "slot_index": 2
+        },
+        {
+          "name": "h_pct",
+          "type": "FLOAT",
+          "links": [
+            97
+          ],
+          "slot_index": 3
+        },
+        {
+          "name": "preview",
+          "type": "IMAGE",
+          "links": [],
+          "slot_index": 4
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "MiniMaxH3RegionPicker"
+      },
+      "widgets_values": [
+        0,
+        46.0,
+        14.0,
+        54.0,
+        86.0
+      ]
+    },
+    {
+      "id": 9718,
+      "type": "MarkdownNote",
+      "pos": [
+        3140,
+        1875
+      ],
+      "size": [
+        380,
+        250
+      ],
+      "flags": {},
+      "order": 0,
+      "mode": 0,
+      "color": "#6b3f47",
+      "bgcolor": "#6b3f47",
+      "title": "矩形の選び方",
+      "properties": {},
+      "widgets_values": [
+        "## 矩形の選び方\n\n1. 一度実行するとノードにフレームが出ます\n2. その上を**ドラッグして矩形を描く**と、右下のハンドルでサイズ調整できます\n3. 4つの値がマスクに直接つながっているので、手で入れ直す必要はありません\n\n`frame` を変えれば別のフレームを見られます。**割合なので、どのフレームで描いても同じ矩形**です。\n\n矩形の中に文字やロゴが入ると、そこも書き換え対象になります。**入れないように囲むか、\n参照画像で何があるかを教えること。**"
+      ]
+    },
+    {
+      "id": 9719,
+      "type": "MiniMaxH3TimeRange",
+      "pos": [
+        2700,
+        925
+      ],
+      "size": [
+        420,
+        400
+      ],
+      "flags": {},
+      "order": 0,
+      "mode": 0,
+      "title": "MiniMax H3 Time Range (frames)",
+      "inputs": [
+        {
+          "name": "samples",
+          "type": "LATENT",
+          "link": 98
+        },
+        {
+          "name": "video",
+          "type": "VIDEO",
+          "link": 101
+        },
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "name": "t_start_pct",
+          "type": "FLOAT",
+          "links": [
+            99
+          ],
+          "slot_index": 0
+        },
+        {
+          "name": "t_end_pct",
+          "type": "FLOAT",
+          "links": [
+            100
+          ],
+          "slot_index": 1
+        },
+        {
+          "name": "report",
+          "type": "STRING",
+          "links": [],
+          "slot_index": 2
+        },
+        {
+          "name": "preview",
+          "type": "IMAGE",
+          "links": [],
+          "slot_index": 3
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "MiniMaxH3TimeRange"
+      },
+      "widgets_values": [
+        0,
+        34
+      ]
+    },
+    {
+      "id": 9720,
+      "type": "MarkdownNote",
+      "pos": [
+        2700,
+        1165
+      ],
+      "size": [
+        400,
+        300
+      ],
+      "flags": {},
+      "order": 0,
+      "mode": 0,
+      "color": "#6b3f47",
+      "bgcolor": "#6b3f47",
+      "title": "時間範囲はフレームで",
+      "properties": {},
+      "widgets_values": [
+        "## 時間範囲はフレームで\n\n`end_frame` は Python のスライスと同じで**その番号を含みません**。\n\n`samples` をつないであるので、実行前に `report` に\n**丸めた後の実際の範囲**が出ます。\n\n```\nframes 1-38 of 39  ->  2.56% - 97.44%\nlatent T=12, 3.25 rendered frames per latent frame\nactually covers frames 0.0-39.0  <- wider than asked\n```\n\n**マスクは潜在の時間軸に乗ります。**107 フレームなら潜在は 32 枚しか\nなく、1 枚が実 3.34 フレーム分。両端は必ず外側へ広がります。\n\n対策は、書き換えたいカットより**前後に広く窓を取り、余ったフレームは\n結合時に捨てる**こと。カットの境界ぴったりに合わせようとしても、\nグリッドがそれを許しません。"
+      ]
+    }
+  ],
+  "links": [
+    [
+      1,
+      4,
+      0,
+      110,
+      2,
+      "VAE"
+    ],
+    [
+      2,
+      2,
+      0,
+      110,
+      0,
+      "CLIP"
+    ],
+    [
+      3,
+      1702,
+      2,
+      110,
+      5,
+      "INT"
+    ],
+    [
+      4,
+      1702,
+      1,
+      110,
+      4,
+      "INT"
+    ],
+    [
+      5,
+      1702,
+      9,
+      110,
+      8,
+      "INT"
+    ],
+    [
+      6,
+      1702,
+      6,
+      110,
+      9,
+      "INT"
+    ],
+    [
+      7,
+      1702,
+      4,
+      110,
+      6,
+      "STRING"
+    ],
+    [
+      8,
+      9704,
+      0,
+      110,
+      3,
+      "H3_REFERENCE_SCHEDULE"
+    ],
+    [
+      9,
+      3,
+      0,
+      110,
+      1,
+      "VAE"
+    ],
+    [
+      10,
+      1702,
+      8,
+      110,
+      7,
+      "INT"
+    ],
+    [
+      11,
+      1702,
+      5,
+      120,
+      0,
+      "INT"
+    ],
+    [
+      12,
+      1703,
+      0,
+      121,
+      1,
+      "CONDITIONING"
+    ],
+    [
+      13,
+      1945,
+      0,
+      121,
+      0,
+      "MODEL"
+    ],
+    [
+      14,
+      5,
+      0,
+      123,
+      0,
+      "MODEL"
+    ],
+    [
+      15,
+      1702,
+      7,
+      123,
+      2,
+      "INT"
+    ],
+    [
+      16,
+      121,
+      0,
+      124,
+      1,
+      "GUIDER"
+    ],
+    [
+      18,
+      120,
+      0,
+      124,
+      0,
+      "NOISE"
+    ],
+    [
+      19,
+      122,
+      0,
+      124,
+      2,
+      "SAMPLER"
+    ],
+    [
+      20,
+      123,
+      0,
+      124,
+      3,
+      "SIGMAS"
+    ],
+    [
+      21,
+      124,
+      0,
+      130,
+      0,
+      "LATENT"
+    ],
+    [
+      22,
+      3,
+      0,
+      130,
+      1,
+      "VAE"
+    ],
+    [
+      23,
+      124,
+      0,
+      131,
+      0,
+      "LATENT"
+    ],
+    [
+      24,
+      4,
+      0,
+      131,
+      1,
+      "VAE"
+    ],
+    [
+      25,
+      131,
+      0,
+      132,
+      1,
+      "AUDIO"
+    ],
+    [
+      26,
+      130,
+      0,
+      132,
+      0,
+      "IMAGE"
+    ],
+    [
+      27,
+      1703,
+      1,
+      132,
+      2,
+      "INT"
+    ],
+    [
+      28,
+      9704,
+      1,
+      1700,
+      2,
+      "STRING"
+    ],
+    [
+      29,
+      1956,
+      1,
+      1700,
+      4,
+      "INT"
+    ],
+    [
+      30,
+      1956,
+      0,
+      1700,
+      3,
+      "INT"
+    ],
+    [
+      31,
+      1936,
+      0,
+      1701,
+      0,
+      "H3_CHAIN_PLAN"
+    ],
+    [
+      32,
+      1701,
+      1,
+      1702,
+      0,
+      "H3_CHAIN_STATE"
+    ],
+    [
+      33,
+      4,
+      0,
+      1703,
+      4,
+      "VAE"
+    ],
+    [
+      34,
+      110,
+      0,
+      1703,
+      1,
+      "CONDITIONING"
+    ],
+    [
+      35,
+      110,
+      1,
+      1703,
+      3,
+      "LATENT"
+    ],
+    [
+      36,
+      1702,
+      0,
+      1703,
+      0,
+      "H3_CHAIN_STATE"
+    ],
+    [
+      37,
+      3,
+      0,
+      1703,
+      2,
+      "VAE"
+    ],
+    [
+      38,
+      132,
+      1,
+      1704,
+      3,
+      "AUDIO"
+    ],
+    [
+      39,
+      132,
+      0,
+      1704,
+      1,
+      "IMAGE"
+    ],
+    [
+      40,
+      124,
+      0,
+      1704,
+      2,
+      "LATENT"
+    ],
+    [
+      41,
+      1702,
+      0,
+      1704,
+      0,
+      "H3_CHAIN_STATE"
+    ],
+    [
+      42,
+      1701,
+      0,
+      1705,
+      0,
+      "H3_CHAIN_FLOW"
+    ],
+    [
+      43,
+      132,
+      0,
+      1705,
+      2,
+      "IMAGE"
+    ],
+    [
+      44,
+      124,
+      0,
+      1705,
+      3,
+      "LATENT"
+    ],
+    [
+      45,
+      1937,
+      0,
+      1705,
+      4,
+      "H3_CHAIN_SEGMENT"
+    ],
+    [
+      46,
+      1702,
+      0,
+      1705,
+      1,
+      "H3_CHAIN_STATE"
+    ],
+    [
+      47,
+      1946,
+      0,
+      1706,
+      0,
+      "*"
+    ],
+    [
+      48,
+      1700,
+      0,
+      1936,
+      0,
+      "H3_CHAIN_PLAN"
+    ],
+    [
+      49,
+      132,
+      1,
+      1937,
+      2,
+      "AUDIO"
+    ],
+    [
+      50,
+      1704,
+      0,
+      1937,
+      1,
+      "H3_CHAIN_SEGMENT"
+    ],
+    [
+      51,
+      1702,
+      0,
+      1937,
+      0,
+      "H3_CHAIN_STATE"
+    ],
+    [
+      52,
+      5,
+      0,
+      1945,
+      0,
+      "MODEL"
+    ],
+    [
+      53,
+      1705,
+      0,
+      1946,
+      0,
+      "H3_CHAIN_MANIFEST"
+    ],
+    [
+      54,
+      1706,
+      0,
+      1959,
+      2,
+      "STRING"
+    ],
+    [
+      55,
+      1959,
+      2,
+      1960,
+      1,
+      "AUDIO"
+    ],
+    [
+      56,
+      1959,
+      0,
+      1960,
+      0,
+      "IMAGE"
+    ],
+    [
+      57,
+      1,
+      0,
+      5,
+      0,
+      "MODEL"
+    ],
+    [
+      58,
+      9301,
+      0,
+      9401,
+      0,
+      "IMAGE"
+    ],
+    [
+      59,
+      9302,
+      0,
+      9402,
+      0,
+      "IMAGE"
+    ],
+    [
+      60,
+      9401,
+      0,
+      9402,
+      1,
+      "H3_REFERENCE_SCHEDULE"
+    ],
+    [
+      61,
+      9303,
+      0,
+      9403,
+      0,
+      "IMAGE"
+    ],
+    [
+      62,
+      9402,
+      0,
+      9403,
+      1,
+      "H3_REFERENCE_SCHEDULE"
+    ],
+    [
+      63,
+      9304,
+      0,
+      9404,
+      0,
+      "IMAGE"
+    ],
+    [
+      64,
+      9403,
+      0,
+      9404,
+      1,
+      "H3_REFERENCE_SCHEDULE"
+    ],
+    [
+      65,
+      9305,
+      0,
+      9405,
+      0,
+      "IMAGE"
+    ],
+    [
+      66,
+      9404,
+      0,
+      9405,
+      1,
+      "H3_REFERENCE_SCHEDULE"
+    ],
+    [
+      67,
+      9306,
+      0,
+      9406,
+      0,
+      "IMAGE"
+    ],
+    [
+      68,
+      9405,
+      0,
+      9406,
+      1,
+      "H3_REFERENCE_SCHEDULE"
+    ],
+    [
+      69,
+      9307,
+      0,
+      9407,
+      0,
+      "IMAGE"
+    ],
+    [
+      70,
+      9406,
+      0,
+      9407,
+      1,
+      "H3_REFERENCE_SCHEDULE"
+    ],
+    [
+      71,
+      9308,
+      0,
+      9408,
+      0,
+      "IMAGE"
+    ],
+    [
+      72,
+      9407,
+      0,
+      9408,
+      1,
+      "H3_REFERENCE_SCHEDULE"
+    ],
+    [
+      73,
+      9309,
+      0,
+      9409,
+      0,
+      "IMAGE"
+    ],
+    [
+      74,
+      9408,
+      0,
+      9409,
+      1,
+      "H3_REFERENCE_SCHEDULE"
+    ],
+    [
+      75,
+      9310,
+      0,
+      9410,
+      0,
+      "IMAGE"
+    ],
+    [
+      76,
+      9409,
+      0,
+      9410,
+      1,
+      "H3_REFERENCE_SCHEDULE"
+    ],
+    [
+      77,
+      9501,
+      0,
+      9601,
+      0,
+      "VIDEO"
+    ],
+    [
+      78,
+      9502,
+      0,
+      9602,
+      0,
+      "VIDEO"
+    ],
+    [
+      79,
+      9503,
+      0,
+      9603,
+      0,
+      "VIDEO"
+    ],
+    [
+      80,
+      9504,
+      0,
+      9604,
+      0,
+      "VIDEO"
+    ],
+    [
+      81,
+      9410,
+      0,
+      9701,
+      2,
+      "H3_REFERENCE_SCHEDULE"
+    ],
+    [
+      82,
+      9601,
+      0,
+      9701,
+      0,
+      "IMAGE"
+    ],
+    [
+      83,
+      9701,
+      0,
+      9702,
+      2,
+      "H3_REFERENCE_SCHEDULE"
+    ],
+    [
+      84,
+      9602,
+      0,
+      9702,
+      0,
+      "IMAGE"
+    ],
+    [
+      85,
+      9702,
+      0,
+      9703,
+      2,
+      "H3_REFERENCE_SCHEDULE"
+    ],
+    [
+      86,
+      9603,
+      0,
+      9703,
+      0,
+      "IMAGE"
+    ],
+    [
+      87,
+      9703,
+      0,
+      9704,
+      2,
+      "H3_REFERENCE_SCHEDULE"
+    ],
+    [
+      88,
+      9604,
+      0,
+      9704,
+      0,
+      "IMAGE"
+    ],
+    [
+      89,
+      9705,
+      0,
+      9706,
+      0,
+      "LATENT"
+    ],
+    [
+      90,
+      9706,
+      0,
+      124,
+      4,
+      "LATENT"
+    ],
+    [
+      91,
+      124,
+      0,
+      9707,
+      0,
+      "LATENT"
+    ],
+    [
+      93,
+      9501,
+      0,
+      9717,
+      1,
+      "VIDEO"
+    ],
+    [
+      94,
+      9717,
+      0,
+      9706,
+      6,
+      "FLOAT"
+    ],
+    [
+      95,
+      9717,
+      1,
+      9706,
+      7,
+      "FLOAT"
+    ],
+    [
+      96,
+      9717,
+      2,
+      9706,
+      8,
+      "FLOAT"
+    ],
+    [
+      97,
+      9717,
+      3,
+      9706,
+      9,
+      "FLOAT"
+    ],
+    [
+      98,
+      9705,
+      0,
+      9719,
+      0,
+      "LATENT"
+    ],
+    [
+      99,
+      9719,
+      0,
+      9706,
+      3,
+      "FLOAT"
+    ],
+    [
+      100,
+      9719,
+      1,
+      9706,
+      4,
+      "FLOAT"
+    ],
+    [
+      101,
+      9501,
+      0,
+      9719,
+      1,
+      "VIDEO"
+    ]
+  ],
+  "groups": [
+    {
+      "id": 1,
+      "title": "1. モデル",
+      "bounding": [
+        -30,
+        0,
+        520,
+        1275
+      ],
+      "color": "#3f5159",
+      "flags": {}
+    },
+    {
+      "id": 2,
+      "title": "2. 解像度と尺",
+      "bounding": [
+        550,
+        0,
+        520,
+        590
+      ],
+      "color": "#4a4a63",
+      "flags": {}
+    },
+    {
+      "id": 3,
+      "title": "3. 参照素材",
+      "bounding": [
+        1130,
+        0,
+        520,
+        5898.42105263158
+      ],
+      "color": "#3f5a45",
+      "flags": {}
+    },
+    {
+      "id": 4,
+      "title": "4. 参照スケジュール",
+      "bounding": [
+        1710,
+        0,
+        520,
+        3071
+      ],
+      "color": "#4a5a3f",
+      "flags": {}
+    },
+    {
+      "id": 5,
+      "title": "5. チェーン",
+      "bounding": [
+        2290,
+        0,
+        760,
+        3314
+      ],
+      "color": "#5a4a3f",
+      "flags": {}
+    },
+    {
+      "id": 6,
+      "title": "6. 書き換え",
+      "bounding": [
+        3110,
+        0,
+        520,
+        1479
+      ],
+      "color": "#6b3f5a",
+      "flags": {}
+    },
+    {
+      "id": 7,
+      "title": "7. サンプリング",
+      "bounding": [
+        3690,
+        0,
+        520,
+        1469
+      ],
+      "color": "#3f4a6b",
+      "flags": {}
+    },
+    {
+      "id": 8,
+      "title": "8. 出力",
+      "bounding": [
+        4270,
+        0,
+        520,
+        3330
+      ],
+      "color": "#5a3f3f",
+      "flags": {}
+    }
+  ],
+  "config": {},
+  "extra": {
+    "ds": {
+      "scale": 0.682976074697661,
+      "offset": [
+        -314.0287405441977,
+        68.9024395453697
+      ]
+    }
+  },
+  "version": 0.4
+}

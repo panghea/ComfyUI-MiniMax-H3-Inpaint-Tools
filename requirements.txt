@@ -1,0 +1,3 @@
+# The core library lives in its own repository under a different licence.
+# See LICENSING.md for why, and minimax_h3_latent_core/LICENSE for the terms.
+minimax-h3-latent-core>=0.1.0
